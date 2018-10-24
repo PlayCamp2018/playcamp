@@ -3,9 +3,10 @@ package controllers;
 import org.junit.Test;
 import play.Application;
 import play.inject.guice.GuiceApplicationBuilder;
-import play.mvc.Http;
 import play.mvc.Result;
+import play.test.Helpers;
 import play.test.WithApplication;
+import play.mvc.Http.RequestBuilder;
 
 import static org.junit.Assert.assertEquals;
 import static play.mvc.Http.Status.OK;
@@ -21,7 +22,7 @@ public class HomeControllerTest extends WithApplication {
 
     @Test
     public void testIndex() {
-        Http.RequestBuilder request = new Http.RequestBuilder()
+        RequestBuilder request = Helpers.fakeRequest()
                 .method(GET)
                 .uri("/");
 
