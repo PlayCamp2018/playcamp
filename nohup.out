@@ -1,0 +1,74 @@
+[0m[[0m[0minfo[0m] [0m[0mLoading settings for project playcamptest-build from scaffold.sbt,plugins.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mLoading project definition from /home/s0549108/PlayTestProjects/playcamptest/project[0m
+[0m[[0m[0minfo[0m] [0m[0mLoading settings for project playcamptest-build from scaffold.sbt,plugins.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mLoading project definition from /home/s0549108/PlayTestProjects/playcamptest/project[0m
+[0m[[0m[0minfo[0m] [0m[0mLoading settings for project root from build.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mSet current project to playCampTest (in build file:/home/s0549108/PlayTestProjects/playcamptest/)[0m
+
+[35m--- (Running the application, auto-reloading is enabled) ---[0m
+
+[[37minfo[0m] p.c.s.AkkaHttpServer - Listening for HTTP on /0.0.0.0:9000
+
+[32m(Server started, use Enter to stop and go back to the console...)[0m
+
+[0m[[0m[31merror[0m] [0m[0mjava.io.IOException: Bad file descriptor[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.io.FileInputStream.read0(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.io.FileInputStream.read(FileInputStream.java:207)[0m
+[0m[[0m[31merror[0m] [0m[0m	at jline.internal.NonBlockingInputStream.read(NonBlockingInputStream.java:245)[0m
+[0m[[0m[31merror[0m] [0m[0m	at jline.internal.InputStreamReader.read(InputStreamReader.java:257)[0m
+[0m[[0m[31merror[0m] [0m[0m	at jline.internal.InputStreamReader.read(InputStreamReader.java:194)[0m
+[0m[[0m[31merror[0m] [0m[0m	at jline.console.ConsoleReader.readCharacter(ConsoleReader.java:2151)[0m
+[0m[[0m[31merror[0m] [0m[0m	at jline.console.ConsoleReader.readCharacter(ConsoleReader.java:2141)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.waitEOF$1(PlayInteractionMode.scala:62)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.$anonfun$waitForKey$2(PlayInteractionMode.scala:73)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.$anonfun$doWithoutEcho$1(PlayInteractionMode.scala:80)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.$anonfun$doWithoutEcho$1$adapted(PlayInteractionMode.scala:77)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.withConsoleReader(PlayInteractionMode.scala:57)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.doWithoutEcho(PlayInteractionMode.scala:77)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.$anonfun$waitForKey$1(PlayInteractionMode.scala:73)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.$anonfun$waitForKey$1$adapted(PlayInteractionMode.scala:60)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.withConsoleReader(PlayInteractionMode.scala:57)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.waitForKey(PlayInteractionMode.scala:60)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.waitForCancel(PlayInteractionMode.scala:83)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.run.PlayRun$.$anonfun$playRunTask$3(PlayRun.scala:118)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.run.PlayRun$.$anonfun$playRunTask$3$adapted(PlayRun.scala:65)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.Function1.$anonfun$compose$1(Function1.scala:44)[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) java.io.IOException: Bad file descriptor[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 4 s, completed Oct 22, 2018 9:00:42 PM[0m
+[INFO] [10/22/2018 21:00:42.507] [Thread-3] [CoordinatedShutdown(akka://sbt-web)] Starting coordinated shutdown from JVM shutdown hook
+[0m[[0m[0minfo[0m] [0m[0mLoading settings for project playcamptest-build from scaffold.sbt,plugins.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mLoading project definition from /home/s0549108/PlayTestProjects/playcamptest/project[0m
+[0m[[0m[0minfo[0m] [0m[0mLoading settings for project root from build.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mSet current project to playCampTest (in build file:/home/s0549108/PlayTestProjects/playcamptest/)[0m
+
+[35m--- (Running the application, auto-reloading is enabled) ---[0m
+
+[[37minfo[0m] p.c.s.AkkaHttpServer - Listening for HTTP on /0.0.0.0:9000
+
+[32m(Server started, use Enter to stop and go back to the console...)[0m
+
+[0m[[0m[31merror[0m] [0m[0mjava.io.IOException: Bad file descriptor[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.io.FileInputStream.read0(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.io.FileInputStream.read(FileInputStream.java:207)[0m
+[0m[[0m[31merror[0m] [0m[0m	at jline.internal.NonBlockingInputStream.read(NonBlockingInputStream.java:245)[0m
+[0m[[0m[31merror[0m] [0m[0m	at jline.internal.InputStreamReader.read(InputStreamReader.java:257)[0m
+[0m[[0m[31merror[0m] [0m[0m	at jline.internal.InputStreamReader.read(InputStreamReader.java:194)[0m
+[0m[[0m[31merror[0m] [0m[0m	at jline.console.ConsoleReader.readCharacter(ConsoleReader.java:2151)[0m
+[0m[[0m[31merror[0m] [0m[0m	at jline.console.ConsoleReader.readCharacter(ConsoleReader.java:2141)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.waitEOF$1(PlayInteractionMode.scala:62)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.$anonfun$waitForKey$2(PlayInteractionMode.scala:73)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.$anonfun$doWithoutEcho$1(PlayInteractionMode.scala:80)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.$anonfun$doWithoutEcho$1$adapted(PlayInteractionMode.scala:77)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.withConsoleReader(PlayInteractionMode.scala:57)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.doWithoutEcho(PlayInteractionMode.scala:77)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.$anonfun$waitForKey$1(PlayInteractionMode.scala:73)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.$anonfun$waitForKey$1$adapted(PlayInteractionMode.scala:60)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.withConsoleReader(PlayInteractionMode.scala:57)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.waitForKey(PlayInteractionMode.scala:60)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.PlayConsoleInteractionMode$.waitForCancel(PlayInteractionMode.scala:83)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.run.PlayRun$.$anonfun$playRunTask$3(PlayRun.scala:118)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.sbt.run.PlayRun$.$anonfun$playRunTask$3$adapted(PlayRun.scala:65)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.Function1.$anonfun$compose$1(Function1.scala:44)[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) java.io.IOException: Bad file descriptor[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 4 s, completed Oct 22, 2018 9:12:35 PM[0m
+[INFO] [10/22/2018 21:12:35.076] [Thread-3] [CoordinatedShutdown(akka://sbt-web)] Starting coordinated shutdown from JVM shutdown hook
