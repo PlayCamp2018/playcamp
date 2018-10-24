@@ -14,3 +14,10 @@ server.pid
 *.eml
 /dist/
 .cache
+/hs_err_*.log
+/.settings
+/.classpath
+/.cache-main
+/.cache-tests
+
+
