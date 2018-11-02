@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="sbt: uk.co.panaxiom:play-jongo_2.12:2.1.0-jongo1.3:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/uk.co.panaxiom/play-jongo_2.12/jars/play-jongo_2.12-2.1.0-jongo1.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/uk.co.panaxiom/play-jongo_2.12/srcs/play-jongo_2.12-2.1.0-jongo1.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

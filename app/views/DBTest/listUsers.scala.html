@@ -1,0 +1,15 @@
+@(aUsers: Array[models.DBTest.Users])
+
+@main("Welcome to Play") {
+    <h1>DB Test!</h1>
+
+    @if(aUsers == null) {
+        Keine Daten vorhanden.
+    } else {
+        <ul>
+            @aUsers.map { u =>
+                <li>@u.getFirstname() @u.getLastname() @u.getEmail()</li>
+            }
+        </ul>
+    }
+}

@@ -16,3 +16,7 @@ packageDescription := """PlayCamp 2018 a Project Communication Platform"""
 
 debianPackageDependencies := Seq("java8-runtime-headless")
 enablePlugins(DebianPlugin)
+
+libraryDependencies ++= Seq(
+  "uk.co.panaxiom" %% "play-jongo" % "2.1.0-jongo1.3"
+)
