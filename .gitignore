@@ -1,5 +1,6 @@
 # Ignore Play! working directory #
 bin/
+.idea/
 /db
 .eclipse
 /lib/
