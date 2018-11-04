@@ -3,11 +3,7 @@ package models.DBTest;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-<<<<<<< HEAD
-//import org.jongo.Jongo;
-=======
 //import org.jongo.Jongo;   
->>>>>>> 12eae228ba26f904a1a9e25277046d1ec9f0faaa
 //import org.jongo.MongoCollection;
 //import com.fasterxml.jackson.annotation.JsonCreator;
 //import com.fasterxml.jackson.annotation.JsonProperty;
