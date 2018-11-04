@@ -3,6 +3,7 @@ bin/
 .idea/
 /db
 .eclipse
+.project
 /lib/
 /logs/
 /modules
@@ -20,5 +21,6 @@ server.pid
 /.classpath
 /.cache-main
 /.cache-tests
-
-
+/.idea
+.gradle/
+.classpath
