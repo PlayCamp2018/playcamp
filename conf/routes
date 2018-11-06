@@ -12,3 +12,10 @@ GET     /listUsers                  controllers.DBTestController.listUser
 
 
 GET     /lang                       controllers.TestLangController.index
+
+GET     /TestFileUpload             controllers.TestFileUploadController.index
+
++ nocsrf
+POST    /TestFileUpload             controllers.TestFileUploadController.upload
+
+POST    /upload                     controllers.TestFileUploadController.upload
