@@ -28,7 +28,7 @@ public class UserTest {
             Users u = new Users( new org.bson.types.ObjectId() ,
                     "FirstName1 ", "LastName1", "keine.Mailadresse");
 
-            assertTrue("Das ist keine gültige mailadresse ;)",false);
+            assertFalse("Das ist keine gültige mailadresse ;)",false);
         }catch( Exception e){
             assertTrue("Wrong Mailadress", true);
         }
