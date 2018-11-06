@@ -5,9 +5,9 @@ import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
 
-import java.io.ByteArrayInputStream;
+//import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileInputStream;
+//import java.io.FileInputStream;
 import java.io.IOException;
 
 public class TestFileUploadController extends Controller {
@@ -32,7 +32,7 @@ public class TestFileUploadController extends Controller {
         System.out.println(filePart.getFilename());
 
         File file = null;
-        ByteArrayInputStream input = null;
+//        ByteArrayInputStream input = null;
 
         if (filePart != null) {
             file = filePart.getFile();
@@ -40,8 +40,8 @@ public class TestFileUploadController extends Controller {
             System.out.println(file.getPath());
             System.out.println(file.getTotalSpace());
 
-            byte[] byteArray = new FileInputStream(file).readAllBytes();
-            input = new ByteArrayInputStream(byteArray);
+//            byte[] byteArray = new FileInputStream(file).readAllBytes();
+//            input = new ByteArrayInputStream(byteArray);
         }
 
         System.out.println("-----------");
