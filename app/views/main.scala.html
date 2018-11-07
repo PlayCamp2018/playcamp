@@ -18,9 +18,12 @@
         <script type='text/javascript' src='@routes.Assets.versioned("bootstrap/js/bootstrap.js")'></script>
     </head>
     <body>
+
         @* And here's where we render the `Html` object containing
          * the page content. *@
-        @content
+        @*<section class="header">@header</section>*@
+        <section class="content">@content</section>
+        @*<section class="feed">@feed</section>*@
 
         <script src="@routes.Assets.versioned("javascripts/main.js")" type="text/javascript"></script>
     </body>
