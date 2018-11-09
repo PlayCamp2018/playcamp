@@ -20,3 +20,23 @@ enablePlugins(DebianPlugin)
 libraryDependencies ++= Seq(
   "uk.co.panaxiom" %% "play-jongo" % "2.1.0-jongo1.3"
 )
+
+jacocoExcludes in Test := Seq(
+  "controllers.Reverse*",
+  "controllers.javascript.*",
+  "jooq.*",
+  "Module",
+  "router.Routes*",
+  "*.routes*"
+)
+
+jacocoReportSettings := JacocoReportSettings()
+  .withFileEncoding("UTF-8")
+  .withFormats(
+    JacocoReportFormats.XML,
+    JacocoReportFormats.ScalaHTML
+  )
+//    .withThresholds(JacocoThresholds(
+//        method = 90.0,
+//          line = 90.0
+//     ))

@@ -1,10 +1,17 @@
 plugins {
     id 'play'
     id 'idea'
+    id 'jacoco'
 }
 
 def playVersion = '2.6.19'
 def scalaVersion = System.getProperty("scala.binary.version", /* default = */ "2.12")
+
+//jacoco"
+//jacoco {
+//    toolVersion = "0.8.1"
+//    reportsDir = file("$buildDir/customJacocoReportDir")
+//}
 
 model {
     components {
