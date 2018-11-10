@@ -19,3 +19,5 @@ GET     /TestFileUpload             controllers.TestFileUploadController.index
 POST    /TestFileUpload             controllers.TestFileUploadController.upload
 
 POST    /upload                     controllers.TestFileUploadController.upload
+
+GET     /users                      controllers.UserController.list
