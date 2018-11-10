@@ -10,7 +10,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 GET     /listUsers                  controllers.DBTestController.listUser
 
-
+GET     /login                      controllers.HomeController.login
 GET     /lang                       controllers.TestLangController.index
 
 GET     /TestFileUpload             controllers.TestFileUploadController.index
@@ -21,6 +21,7 @@ POST    /TestFileUpload             controllers.TestFileUploadController.upload
 POST    /upload                     controllers.TestFileUploadController.upload
 
 GET     /users                      controllers.UserController.index
+GET     /getUser                    controllers.UserController.getUser
 GET     /user/get/:id               controllers.UserController.get(id: Int)
 
 GET     /projects                   controllers.ProjectController.index

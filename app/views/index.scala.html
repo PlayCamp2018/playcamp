@@ -4,16 +4,46 @@
   <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/index.css")">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <div class="v-wrap">
-    <img src="@routes.Assets.versioned("images/playcamp_logo_full_500.png")" />
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+          <img src="@routes.Assets.versioned("images/playcamp_logo_full_500.png")" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 text-center">
+          <h1>Welcome to Play! NEW Test! LATEST!</h1>
+          <a href="http://www.nooooooooooooooo.com/">nooooooooooooooo</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <div>
+          <ul class="list-group">
+            <li class="list-group-item text-muted">Webseite <i class="fa fa-dashboard fa-1x"></i></li>
+            <li class="list-group-item text-left"><a href="http://bootnipets.com">bootnipets.com</a></li>
+            <li class="list-group-item text-left"><a href="http://localhost:9000">localhost</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="row">
+          <button  id="btn_login" type="button" class="btn btn-primary">Login</button>
+          <button  id="btn_lang" type="button" class="btn btn-secondary">Lang</button>
+          <button  id="btn_users" type="button" class="btn btn-secondary">Users</button>
+          <button  id="btn_get_user" type="button" class="btn btn-secondary">GetUser</button>
+        </div>
+        <div class="row" id="content">
+
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="v-wrap">
-    <h1>Welcome to Play! NEW Test! LATEST!</h1>
-    <a href="http://www.nooooooooooooooo.com/">nooooooooooooooo</a>
-  </div>
 
-  <div class="v-wrap">
-      <section class="login">@login()</section>
-  </div>
+
+
+
 }

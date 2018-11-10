@@ -12,4 +12,8 @@ public class UserController extends Controller {
     public Result get(int id) {
         return ok(Json.toJson(User._users.get(id)));
     }
+
+    public Result getUser() {
+        return ok(views.html.getUser.render());
+    }
 }
