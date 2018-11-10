@@ -20,4 +20,8 @@ POST    /TestFileUpload             controllers.TestFileUploadController.upload
 
 POST    /upload                     controllers.TestFileUploadController.upload
 
-GET     /users                      controllers.UserController.list
+GET     /users                      controllers.UserController.index
+GET     /user/get/:id               controllers.UserController.get(id: Int)
+
+GET     /projects                   controllers.ProjectController.index
+GET     /project/get/:id            controllers.ProjectController.get(id: Int)
