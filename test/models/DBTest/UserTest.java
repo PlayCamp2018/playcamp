@@ -15,10 +15,8 @@ public class UserTest {
     @Test
     public void test_user_001() {
         User u = new User( new org.bson.types.ObjectId() ,
-                "FirstName1 ", "LastName1", "Test@mail.lan");
+                "FirstName1 ", "LastName1","NoPW", "Test@mail.lan", null);
         assertEquals ( u.getFirstname(), "FirstName1 ");
-
-
     }
 
     @Test
@@ -26,7 +24,7 @@ public class UserTest {
         try{
 
             User u = new User( new org.bson.types.ObjectId() ,
-                    "FirstName1 ", "LastName1", "keine.Mailadresse");
+                    "FirstName1 ", "LastName1", "NoPW", "keine.Mailadresse", null);
 
             assertFalse("Das ist keine gültige mailadresse ;)",false);
         }catch( Exception e){
