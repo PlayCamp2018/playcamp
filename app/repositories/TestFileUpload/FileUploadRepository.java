@@ -1,7 +1,7 @@
 package repositories.TestFileUpload;
 
 import com.mongodb.WriteResult;
-import models.DBTest.Users;
+import models.DBTest.User;
 import org.jongo.MongoCollection;
 import org.jongo.MongoCursor;
 import uk.co.panaxiom.playjongo.PlayJongo;
@@ -19,10 +19,10 @@ public class FileUploadRepository {
         return jongo.getCollection("DB.users");
     }
 
-    public Users[] getAllUsers() {
-        MongoCursor<Users> lUsers = users().find().as(Users.class);
+    public User[] getAllUsers() {
+        MongoCursor<User> lUsers = users().find().as(User.class);
 
-        Users aUsers[] = new Users[lUsers.count()];
+        User aUsers[] = new User[lUsers.count()];
         int i = 0;
 
         while(lUsers.hasNext()) {
@@ -34,7 +34,7 @@ public class FileUploadRepository {
     }
 
     public boolean insertRandomUser() {
-        Users u = new Users();
+        User u = new User();
 
         byte[] array = new byte[8];
         new Random().nextBytes(array);
@@ -49,8 +49,8 @@ public class FileUploadRepository {
         return wRes.wasAcknowledged();
     }
 
-    public Users findByEmail(String email) {
-        return users().findOne("{email: #}", email).as(Users.class);
+    public User findByEmail(String email) {
+        return users().findOne("{email: #}", email).as(User.class);
     }
 
 }
