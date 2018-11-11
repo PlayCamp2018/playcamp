@@ -6,6 +6,13 @@
  *@
 @(title: String)(content: Html)
 
+@helper.javascriptRouter("jsRoutes")(
+    routes.javascript.DBTestController.listUser,
+    routes.javascript.HomeController.index,
+    routes.javascript.HomeController.login
+)
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
