@@ -25,3 +25,4 @@ server.pid
 .gradle/
 .classpath
 /conf/secret.conf
+/build
