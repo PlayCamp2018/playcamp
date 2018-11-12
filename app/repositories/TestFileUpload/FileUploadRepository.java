@@ -25,7 +25,7 @@ public class FileUploadRepository {
         User aUsers[] = new User[lUsers.count()];
         int i = 0;
 
-        while(lUsers.hasNext()) {
+        while (lUsers.hasNext()) {
             aUsers[i] = lUsers.next();
             i++;
         }
