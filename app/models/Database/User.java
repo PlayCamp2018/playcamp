@@ -7,7 +7,7 @@ import org.bson.types.ObjectId;
 
 public class User {
 
-    public User() {}
+    public User() { }
 
     @JsonCreator
     public User(@JsonProperty("id") ObjectId id,

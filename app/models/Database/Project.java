@@ -9,14 +9,14 @@ import java.util.List;
 
 public class Project {
 
-    public Project() {}
+    public Project() { }
 
     @JsonCreator
     public Project(@JsonProperty("id") ObjectId id,
                    @JsonProperty("name") String name,
                    @JsonProperty("beschreibung") String beschreibung,
                    @JsonProperty("ownerid") ObjectId ownerid,
-                   @JsonProperty("userList") List <ObjectId> userList,
+                   @JsonProperty("userList") List<ObjectId> userList,
                    @JsonProperty("messageBoardID") ObjectId messageBoardID
                    ) {
         this.id = id;

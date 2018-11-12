@@ -19,7 +19,7 @@ public class Meeting {
                    @JsonProperty("name") String name,
                    @JsonProperty("timestamp") Date timestamp,
                    @JsonProperty("authorId") ObjectId authorId,
-                   @JsonProperty("teilnahmeMeeting") Map.Entry <ObjectId,Enum> teilnahmeMeeting) {
+                   @JsonProperty("teilnahmeMeeting") Map.Entry<ObjectId, Enum> teilnahmeMeeting) {
 
         this.id = id;
         this.projectId = projectId;

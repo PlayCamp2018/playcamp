@@ -9,7 +9,7 @@ import play.i18n.Messages.*;
  * to the application's home page.
  * https://www.playframework.com/documentation/2.6.x/JavaI18N
  */
-public class TestLangController extends Controller{
+public class TestLangController extends Controller {
 
     /**
      * An action that renders an HTML page with a welcome message.

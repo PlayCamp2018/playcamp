@@ -24,7 +24,7 @@ public class ProjectRepository {
         Project aProjects[] = new Project[lProjects.count()];
         int i = 0;
 
-        while(lProjects.hasNext()) {
+        while (lProjects.hasNext()) {
             aProjects[i] = lProjects.next();
             i++;
         }
