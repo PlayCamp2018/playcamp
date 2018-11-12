@@ -40,3 +40,5 @@ jacocoReportSettings := JacocoReportSettings()
 //        method = 90.0,
 //          line = 90.0
 //     ))
+
+checkstyleConfigLocation := CheckstyleConfigLocation.File("project/checkstyle.xml")

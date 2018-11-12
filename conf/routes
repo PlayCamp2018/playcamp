@@ -24,6 +24,8 @@ GET     /listMeetings               controllers.DBTestController.listProjects
 
 GET     /listMessagePosts           controllers.DBTestController.listProjects
 
+
+# Routes for Testing ...
 GET     /lang                       controllers.TestLangController.index
 
 GET     /TestFileUpload             controllers.TestFileUploadController.index
