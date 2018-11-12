@@ -1,14 +1,12 @@
 package repositories.DBTest;
 
 import com.mongodb.WriteResult;
-import models.DBTest.Project;
-import org.bson.types.ObjectId;
+import models.Database.Project;
 import org.jongo.MongoCollection;
 import org.jongo.MongoCursor;
 import uk.co.panaxiom.playjongo.PlayJongo;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 
 
 public class ProjectRepository {

@@ -1,10 +1,9 @@
-package models.DBTest;
+package models.Database;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.bson.types.ObjectId;
 import java.util.*;
-import java.util.Arrays;
 import java.util.List;
 
 

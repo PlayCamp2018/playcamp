@@ -1,14 +1,12 @@
 package repositories.DBTest;
 
 import com.mongodb.WriteResult;
-import models.DBTest.User;
+import models.Database.User;
 import org.jongo.MongoCollection;
 import org.jongo.MongoCursor;
 import uk.co.panaxiom.playjongo.PlayJongo;
 
 import javax.inject.Inject;
-import java.nio.charset.Charset;
-import java.util.Random;
 
 
 public class UsersRepository {

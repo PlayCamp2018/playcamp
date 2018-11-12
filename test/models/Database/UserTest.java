@@ -1,4 +1,4 @@
-package models.DBTest;
+package models.Database;
 
 import static org.junit.Assert.*;
 import org.junit.Test;

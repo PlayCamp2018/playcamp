@@ -1,7 +1,7 @@
 package repositories.TestFileUpload;
 
 import com.mongodb.WriteResult;
-import models.DBTest.User;
+import models.Database.User;
 import org.jongo.MongoCollection;
 import org.jongo.MongoCursor;
 import uk.co.panaxiom.playjongo.PlayJongo;
