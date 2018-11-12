@@ -1,4 +1,4 @@
-package models;
+package models.DBTest;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
