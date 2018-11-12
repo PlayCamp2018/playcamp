@@ -1,6 +1,6 @@
 package models.DBTest;
-
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 //import org.jongo.Jongo;   
