@@ -9,7 +9,7 @@
     } else {
         <ul>
             @aUsers.map { u =>
-                <li>@u.getFirstname() @u.getLastname() @u.getEmail()</li>
+                <li>ID: @u.getId Vorname: @u.getFirstname(), Nachname: @u.getLastname(), Email: @u.getEmail(), Passwort: @u.getPassword, ProfilbildID @u.getProfilePicID</li>
             }
         </ul>
     }

@@ -10,6 +10,19 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 GET     /listUsers                  controllers.DBTestController.listUser
 
+GET     /listProjects               controllers.DBTestController.listProjects
+
+GET     /listChats                  controllers.DBTestController.listProjects
+
+GET     /listChatMessages           controllers.DBTestController.listProjects
+
+GET     /listChatMessages           controllers.DBTestController.listProjects
+
+GET     /listFiles                  controllers.DBTestController.listProjects
+
+GET     /listMeetings               controllers.DBTestController.listProjects
+
+GET     /listMessagePosts           controllers.DBTestController.listProjects
 
 GET     /lang                       controllers.TestLangController.index
 

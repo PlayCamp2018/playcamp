@@ -1,0 +1,16 @@
+@import models.DBTest.Project
+@(aProject: Array[Project])
+
+@main("Welcome to Play") {
+    <h1>DB Test!</h1>
+
+    @if(aProject == null) {
+        Keine Daten vorhanden.
+    } else {
+        <ul>
+            @aProject.map { p =>
+                <li>ID: @p.getId Name: @p.getName(), Beschreibung: @p.getBeschreibung(), Ownerid: @p.getOwnerid(), Teilnehmerliste: @p.getUserList, MessageBoardID: @p.getMessageBoardID</li>
+            }
+        </ul>
+    }
+}
