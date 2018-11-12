@@ -4,7 +4,11 @@ addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.6.19")
 // https://github.com/sbt/sbt-jacoco
 addSbtPlugin("com.github.sbt" % "sbt-jacoco" % "3.1.0")
 
-//https://github.com/sbt/sbt-testng
+// https://github.com/etsy/sbt-checkstyle-plugin
+addSbtPlugin("com.etsy" % "sbt-checkstyle-plugin" % "3.1.1")
+//dependencyOverrides += "com.puppycrawl.tools" % "checkstyle" % "6.15"
+
+// https://github.com/sbt/sbt-testng
 //addSbtPlugin("de.johoop" % "sbt-testng-plugin" % "3.1.1")
 
 // https://github.com/scoverage/sbt-scoverage
