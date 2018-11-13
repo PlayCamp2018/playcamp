@@ -35,17 +35,17 @@ public class UsersRepository {
     public boolean insertRandomUser() {
         User u = new User();
 
-        u.firstname = new String("Max");
+        u.setFirstname("Max");
 
-        u.lastname = new String("Musterman");
+        u.setLastname("Musterman");
 
-        u.email = u.firstname + "." + u.lastname + "@random.com";
+        u.setEmail( u.getFirstname() + "." + u.getLastname() + "@random.com");
 
-        u.password = "1234";
+        u.setPassword("1234");
 
-        u.id = new org.bson.types.ObjectId();
+        //u.setid = new org.bson.types.ObjectId();
 
-        u.profilePicID = new org.bson.types.ObjectId();
+        u.setProfilePicID(new org.bson.types.ObjectId());
 
         WriteResult wRes =  users().insert(u);
         return wRes.wasAcknowledged();
