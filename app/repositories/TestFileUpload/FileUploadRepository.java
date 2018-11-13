@@ -39,12 +39,12 @@ public class FileUploadRepository {
         byte[] array = new byte[8];
         new Random().nextBytes(array);
 
-        u.setFirstname( new String(array, Charset.forName("UTF-8")));
+        u.setFirstname(new String(array, Charset.forName("UTF-8")));
 
         new Random().nextBytes(array);
-        u.setLastname( new String(array, Charset.forName("UTF-8")));
+        u.setLastname(new String(array, Charset.forName("UTF-8")));
 
-        u.setEmail( u.getFirstname() + "." + u.getLastname() + "@random.com");
+        u.setEmail(u.getFirstname() + "." + u.getLastname() + "@random.com");
         WriteResult wRes =  users().insert(u);
 
         return wRes.wasAcknowledged();
