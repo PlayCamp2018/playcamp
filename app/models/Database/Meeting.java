@@ -13,6 +13,9 @@ import java.util.Map;
 
 public class Meeting {
 
+    //Teilnahme der einzelnen user als enum
+    private enum teilnahme {nein, ja, unbekannt};
+
     //Leerer Konstruktor für Tests
     public Meeting() {
     }
@@ -28,12 +31,13 @@ public class Meeting {
      */
 
     @JsonCreator
-    public Meeting(@JsonProperty("id") ObjectId id,
+    public Meeting(
+                   @JsonProperty("id") ObjectId id,
                    @JsonProperty("projectId") ObjectId projectId,
                    @JsonProperty("name") String name,
                    @JsonProperty("timestamp") Date timestamp,
                    @JsonProperty("authorId") ObjectId authorId,
-                   @JsonProperty("teilnahmeMeeting") Map.Entry<ObjectId, Enum> teilnahmeMeeting) {
+                   @JsonProperty("teilnahmeMeeting") Map.Entry<ObjectId, teilnahme> teilnahmeMeeting) {
 
         this.id = id;
         this.projectId = projectId;
