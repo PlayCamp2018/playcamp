@@ -4,10 +4,20 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.bson.types.ObjectId;
 
+/**
+ * This class describes the chat and its attributes of playcamp.
+ */
 
 public class Chat {
 
+    //Leerer Konstruktor für Tests
     public Chat() { }
+
+    /**
+     * @param id The id of the chat as org.bson.types.ObjectId.
+     * @param name The name of the chat as String
+     * @param projectID The id of the project the chat belongs to
+     */
 
     @JsonCreator
     public Chat(@JsonProperty("id") ObjectId id,
@@ -19,12 +29,16 @@ public class Chat {
         this.projectID = projectID;
     }
 
+    /** The id of the chat as org.bson.types.ObjectId. */
     @JsonProperty("id")
-    public ObjectId id;
+    private ObjectId id;
+    /** The name of the chat String */
     @JsonProperty("name")
-    public String name;
+    private String name;
+    /** The id of the project the chat belongs to */
     @JsonProperty("projectID")
-    public ObjectId projectID;
+    private ObjectId projectID;
+
 
     public ObjectId getId() {
         return id;

@@ -7,11 +7,24 @@ import org.bson.types.ObjectId;
 import java.io.File;
 import java.sql.Blob;
 
+/**
+ * This class describes the files and its attributes of playcamp.
+ */
 
 public class Files {
 
+    //Leerer Konstruktor für Tests
     public Files() {
     }
+
+    /**
+     *
+     * @param id The id of the file as org.bson.types.ObjectId.
+     * @param file The actual content of the file as java.io.File.
+     * @param blob The blob of the file as java.sql.Blob.
+     * @param authorId The id of the user who sent the file as org.bson.types.ObjectId.
+     * @param filename The name of the file as String.
+     */
 
     @JsonCreator
     public Files(@JsonProperty("id") ObjectId id,
@@ -27,16 +40,21 @@ public class Files {
         this.filename = filename;
     }
 
+    /** The id of the file as as org.bson.types.ObjectId. */
     @JsonProperty("id")
-    public ObjectId id;
+    private ObjectId id;
+    /** The actual content of the file as java.io.File. */
     @JsonProperty("file")
-    public File file;
+    private File file;
+    /** The blob of the file as java.sql.Blob. */
     @JsonProperty("blob")
-    public Blob blob;
+    private Blob blob;
+    /** The id of the user who sent the file as org.bson.types.ObjectId. */
     @JsonProperty("authorId")
-    public ObjectId authorId;
+    private ObjectId authorId;
+    /** The name of the file as String. */
     @JsonProperty("filename")
-    public String filename;
+    private String filename;
 
 
     public ObjectId getId() {

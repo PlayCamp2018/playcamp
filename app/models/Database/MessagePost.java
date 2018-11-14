@@ -6,18 +6,33 @@ import org.bson.types.ObjectId;
 import java.util.*;
 import java.util.List;
 
+/**
+ * This class describes the messagepost and its attributes of playcamp.
+ */
 
 public class MessagePost {
 
+    //Leerer Konstruktor für Tests
     public MessagePost() {
     }
+
+    /**
+     *
+     * @param id The id of the messagepost as org.bson.types.ObjectId.
+     * @param projectID The id of the project which the messagepost belongs to as org.bson.types.ObjectId.
+     * @param createDate The date when the messagepost was created as java.util.Date.
+     * @param authorID The id of the user which created the messagepost as org.bson.types.ObjectId.
+     * @param attachmentList The list of files which are attached to the messagepost as java.util.List.
+     * @param message The content of the messagepost as String.
+     * @param parentID The id of the parent messagepost (if existing) as org.bson.types.ObjectId.
+     */
 
     @JsonCreator
     public MessagePost(@JsonProperty("id") ObjectId id,
                        @JsonProperty("projectID") ObjectId projectID,
                        @JsonProperty("createDate") Date createDate,
                        @JsonProperty("authorID") ObjectId authorID,
-                       @JsonProperty("attachments") List<ObjectId> attachmentList,
+                       @JsonProperty("attachmentList") List<ObjectId> attachmentList,
                        @JsonProperty("message") String message,
                        @JsonProperty("parentID") ObjectId parentID
     ) {
@@ -25,25 +40,32 @@ public class MessagePost {
         this.projectID = projectID;
         this.createDate = createDate;
         this.authorID = authorID;
-        this.attachments = attachments;
+        this.attachmentList = attachmentList;
         this.message = message;
         this.parentID = parentID;
     }
 
+    /** The id of the messagepost as org.bson.types.ObjectId.*/
     @JsonProperty("id")
-    public ObjectId id;
+    private ObjectId id;
+    /** The id of the project which the messagepost belongs to as org.bson.types.ObjectId. */
     @JsonProperty("projectID")
-    public ObjectId projectID;
+    private ObjectId projectID;
+    /** The date when the messagepost was created as java.util.Date. */
     @JsonProperty("createDate")
-    public Date createDate;
+    private Date createDate;
+    /** The id of the user which created the messagepost as org.bson.types.ObjectId. */
     @JsonProperty("authorID")
-    public ObjectId authorID;
-    @JsonProperty("userList")
-    public List<ObjectId> attachments = new ArrayList<ObjectId>();
+    private ObjectId authorID;
+    /** The id of the user which created the messagepost as org.bson.types.ObjectId. */
+    @JsonProperty("attachmentList")
+    private List<ObjectId> attachmentList;
+    /** The content of the messagepost as String. */
     @JsonProperty("message")
-    public String message;
+    private String message;
+    /** The id of the parent messagepost (if existing) as org.bson.types.ObjectId. */
     @JsonProperty("parentID")
-    public ObjectId parentID;
+    private ObjectId parentID;
 
 
     public ObjectId getId() {
@@ -79,11 +101,11 @@ public class MessagePost {
     }
 
     public List<ObjectId> getAttachments() {
-        return attachments;
+        return attachmentList;
     }
 
     public void setAttachments(List<ObjectId> attachments) {
-        this.attachments = attachments;
+        this.attachmentList = attachments;
     }
 
     public String getMessage() {

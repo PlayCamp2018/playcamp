@@ -6,10 +6,24 @@ import org.bson.types.ObjectId;
 import java.util.*;
 import java.util.List;
 
+/**
+ * This class describes the project and its attributes of playcamp.
+ */
 
 public class Project {
 
-    public Project() { }
+    //Leerer Konstruktor für Tests
+    public Project (){}
+
+    /**
+     * The constructor as json-creator used by jongo.
+     * @param id The id of the project as org.bson.types.ObjectId.
+     * @param name The name of the project as String.
+     * @param beschreibung The description of the project as String.
+     * @param ownerid The ownerid of the project as org.bson.types.ObjectId.
+     * @param userList The list of users in the project with their ids as org.bson.types.ObjectId.
+     * @param messageBoardID The id of the messageBoard belonging to the project as org.bson.types.ObjectId.
+     */
 
     @JsonCreator
     public Project(@JsonProperty("id") ObjectId id,
@@ -27,23 +41,31 @@ public class Project {
         this.messageBoardID = messageBoardID;
     }
 
+    /** The id of the project as org.bson.types.ObjectId. */
     @JsonProperty("id")
-    public ObjectId id;
+    private ObjectId id;
+    /** The name of the project as String. */
     @JsonProperty("name")
-    public String name;
+    private String name;
+    /** The description of the project as String. */
     @JsonProperty("beschreibung")
-    public String beschreibung;
+    private String beschreibung;
+    /** The ownerid of the project as org.bson.types.ObjectId. */
     @JsonProperty("ownerid")
-    public ObjectId ownerid;
+    private ObjectId ownerid;
+    /** The list of users in the project with their ids as org.bson.types.ObjectId.*/
     @JsonProperty("userList")
-    public List<ObjectId> userList = new ArrayList<ObjectId>();
+    private List<ObjectId> userList;
+    /** The id of the messageBoard belonging to the project as org.bson.types.ObjectId.*/
     @JsonProperty("messageBoardID")
-    public ObjectId messageBoardID;
+    private ObjectId messageBoardID;
+
 
 
     public ObjectId getId() {
         return id;
     }
+
     public String getName() {
         return  name;
     }
@@ -57,6 +79,7 @@ public class Project {
     public ObjectId getMessageBoardID() {
         return messageBoardID;
     }
+
 
     public void setId(ObjectId id) {
         this.id = id;

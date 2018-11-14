@@ -5,14 +5,28 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.bson.types.ObjectId;
 import java.util.Date;
 
+/**
+ * This class describes the chatmessage and its attributes of playcamp.
+ */
+
 
 public class ChatMessage {
 
+    //Leerer Konstruktor für Tests
     public ChatMessage() {
     }
 
+    /**
+     *
+     * @param id The id of the chatmessage as org.bson.types.ObjectId.
+     * @param createDate The date when the message was created as java.util.Date.
+     * @param chatId The id of the chat to which the message belongs.
+     * @param message The content of the message as String.
+     * @param authorId The id of the author who created the message.
+     */
+
     @JsonCreator
-    public ChatMessage(@JsonProperty("id") ObjectId _id,
+    public ChatMessage(@JsonProperty("id") ObjectId id,
                        @JsonProperty("createDate") Date createDate,
                        @JsonProperty("chatId") ObjectId chatId,
                        @JsonProperty("message") String message,
@@ -25,16 +39,22 @@ public class ChatMessage {
         this.authorId = authorId;
     }
 
+    /** The id of the chatmessage as org.bson.types.ObjectId. */
     @JsonProperty("id")
-    public ObjectId id;
+    private ObjectId id;
+    /** The date when the message was created as java.util.Date. */
     @JsonProperty("createDate")
-    public Date createDate;
+    private Date createDate;
+    /** The id of the chat to which the message belongs as org.bson.types.ObjectId. */
     @JsonProperty("chatId")
-    public ObjectId chatId;
+    private ObjectId chatId;
+    /** The content of the message as String. */
     @JsonProperty("message")
-    public String message;
+    private String message;
+    /** The id of the author who created the message. */
     @JsonProperty("authorId")
-    public ObjectId authorId;
+    private ObjectId authorId;
+
 
     public ObjectId getId() {
         return id;
@@ -75,4 +95,5 @@ public class ChatMessage {
     public void setAuthorId(ObjectId authorId) {
         this.authorId = authorId;
     }
+
 }

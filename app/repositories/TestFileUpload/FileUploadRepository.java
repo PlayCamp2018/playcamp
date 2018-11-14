@@ -36,17 +36,19 @@ public class FileUploadRepository {
     public boolean insertRandomUser() {
         User u = new User();
 
-        byte[] array = new byte[8];
-        new Random().nextBytes(array);
+        u.setFirstname("Max");
 
-        u.setFirstname(new String(array, Charset.forName("UTF-8")));
+        u.setLastname("Musterman");
 
-        new Random().nextBytes(array);
-        u.setLastname(new String(array, Charset.forName("UTF-8")));
+        u.setEmail( u.getFirstname() + "." + u.getLastname() + "@random.com");
 
-        u.setEmail(u.getFirstname() + "." + u.getLastname() + "@random.com");
+        u.setPassword("1234");
+
+        //u.setid = new org.bson.types.ObjectId();
+
+        u.setProfilePicID(new org.bson.types.ObjectId());
+
         WriteResult wRes =  users().insert(u);
-
         return wRes.wasAcknowledged();
     }
 

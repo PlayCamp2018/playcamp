@@ -7,11 +7,25 @@ import org.bson.types.ObjectId;
 import java.util.Date;
 import java.util.Map;
 
+/**
+ * This class describes the meeting and its attributes of playcamp.
+ */
 
 public class Meeting {
 
+    //Leerer Konstruktor für Tests
     public Meeting() {
     }
+
+    /**
+     *
+     * @param id The id of the meeting as org.bson.types.ObjectId.
+     * @param projectId The id of the project to which the meeting belongs as org.bson.types.ObjectId.
+     * @param name The name of the meeting as String.
+     * @param timestamp The date when the meeting will take place as java.util.Date.
+     * @param authorId The id of the user who created the meeting as org.bson.types.ObjectId.
+     * @param teilnahmeMeeting The list of users and their individual answer to the invitation as java.util.Map;
+     */
 
     @JsonCreator
     public Meeting(@JsonProperty("id") ObjectId id,
@@ -28,19 +42,24 @@ public class Meeting {
         this.authorId = authorId;
         this.teilnahmeMeeting = teilnahmeMeeting;
     }
-
+    /**The id of the meeting as org.bson.types.ObjectId. */
     @JsonProperty("id")
-    public ObjectId id;
+    private ObjectId id;
+    /**The id of the project to which the meeting belongs as org.bson.types.ObjectId. */
     @JsonProperty("projectId")
-    public ObjectId projectId;
+    private ObjectId projectId;
+    /** The name of the meeting as String. */
     @JsonProperty("name")
-    public String name;
+    private String name;
+    /** The date when the meeting will take place as java.util.Date. */
     @JsonProperty("timestamp")
-    public Date timestamp;
+    private Date timestamp;
+    /** The id of the user who created the meeting as org.bson.types.ObjectId. */
     @JsonProperty("authorId")
-    public ObjectId authorId;
+    private ObjectId authorId;
+    /** The list of users and their individual answer to the invitation as java.util.Map; */
     @JsonProperty("teilnahmeMeeting")
-    public Map.Entry teilnahmeMeeting;
+    private Map.Entry teilnahmeMeeting;
 
 
     public ObjectId getId() {

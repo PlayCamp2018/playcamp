@@ -5,13 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.bson.types.ObjectId;
 
 /**
- * This Class describe the User and his attributes of playcamp.
+ * This class describes the user and his attributes of playcamp.
  */
 public class User {
-    //FixMe: lehrer Construtor?
-    // braucht das der DB-Treiber? wenn nicht würde ich das entfernen, denn einen User zieht man
-    // aus der BD oder erstellt ihn mit der Mailadresse.
-    public User() { }
+
+    //Leerer Konstruktor für Tests
+    public User (){}
 
     /**
      * The constructor as json-creator used by jongo.
@@ -32,7 +31,6 @@ public class User {
 
         //FixMe: wenn der Constructor auch im java-code genutzt wird dann würde ich diese mittels der setter setzten,
         // da diese dort auch gleich validiert werden. (ausser id, die kommt ja nur aus der DB)
-        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.password = password;
@@ -101,13 +99,6 @@ public class User {
      */
     public ObjectId getProfilePicID() {
         return profilePicID;
-    }
-
-    /**
-     * FixME: die Methode würde ich entfernen ... nur die DB setzt die ID's
-     */
-    public void setId(ObjectId _id) {
-        this.id = _id;
     }
 
     /**
