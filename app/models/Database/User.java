@@ -3,6 +3,8 @@ package models.Database;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.bson.types.ObjectId;
+import play.data.validation.Constraints;
+import java.util.List;
 
 /**
  * This class describes the user and his attributes of playcamp.
@@ -43,8 +45,10 @@ public class User {
     private ObjectId id;
     /** The first name of the user as String. */
     @JsonProperty("firstname")
+    @Constraints.Required
     private String firstname;
     /** The last name of the user as String. */
+    @Constraints.Required
     @JsonProperty("lastname")
     private String lastname;
     /** The password hash of the user as String. */
@@ -52,6 +56,8 @@ public class User {
     private String password;
     /**  The email address of the user as String. */
     @JsonProperty("email")
+    @Constraints.Email
+    @Constraints.Required
     private String email;
     /**  The id of the user profile pic as org.bson.types.ObjectId. */
     @JsonProperty("profilePicID")
@@ -140,5 +146,26 @@ public class User {
      */
     public void setProfilePicID(ObjectId profilePicID) {
         this.profilePicID = profilePicID;
+    }
+
+    public static class TestUsers {
+        public static final List<User> _testUserList = List.of(
+                new User(new ObjectId(), "Max", "Muster", "test1234!", "max.muster@email.com", new ObjectId()),
+                new User(new ObjectId(), "Anna", "Schäfer", "test1234!", "anna.schäfer@email.com", new ObjectId()),
+                new User(new ObjectId(), "otto", "Haus", "test1234!", "otto.haus@email.com", new ObjectId())
+        );
+
+
+        public static boolean validate(String email, String password) {
+            boolean bRes = false;
+
+            for (User user : _testUserList) {
+                if (user.email.equals(email) && user.password.equals(password)) {
+                    bRes = true;
+                    break;
+                }
+            }
+            return bRes;
+        }
     }
 }
