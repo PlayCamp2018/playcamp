@@ -7,6 +7,7 @@ import org.jongo.MongoCursor;
 import uk.co.panaxiom.playjongo.PlayJongo;
 
 import javax.inject.Inject;
+import java.util.List;
 
 
 public class ProjectRepository {
@@ -35,21 +36,14 @@ public class ProjectRepository {
     public boolean insertRandomProject() {
         Project p = new Project();
 
-        p.id = new org.bson.types.ObjectId();
-
-        p.name = new String ("blabla");
-
-        p.beschreibung = new String ("hallo");
-
-        p.ownerid = new org.bson.types.ObjectId();
-
-        p.userList.add(new org.bson.types.ObjectId());
-        p.userList.add(new org.bson.types.ObjectId());
-
-        p.messageBoardID = new org.bson.types.ObjectId();
+        p.setId(new org.bson.types.ObjectId());
+        p.setName("blabla");
+        p.setBeschreibung("hallo");
+        p.setOwnerid(new org.bson.types.ObjectId());
+        p.setUserList(List.of(new org.bson.types.ObjectId(), new org.bson.types.ObjectId()));
+        p.setMessageBoardID(new org.bson.types.ObjectId());
 
         WriteResult wRes =  projects().insert(p);
-
         return wRes.wasAcknowledged();
     }
 
