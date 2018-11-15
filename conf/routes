@@ -21,3 +21,6 @@ GET     /TestFileUpload             controllers.TestFileUploadController.index
 POST    /TestFileUpload             controllers.TestFileUploadController.upload
 
 POST    /upload                     controllers.TestFileUploadController.upload
+
+GET     /chat                       controllers.ChatController.index
+GET     /chat/ws                    controllers.ChatController.ws
