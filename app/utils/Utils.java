@@ -89,9 +89,8 @@ public abstract class Utils {
      *
      * @param array The array of bytes to convert.
      * @return Returns the hex value as String.
-     * @throws NoSuchAlgorithmException
      */
-    public static final String toHex(byte[] array) throws NoSuchAlgorithmException {
+    public static final String toHex(byte[] array) {
         BigInteger bi = new BigInteger(1, array);
         String hex = bi.toString(16);
         int paddingLength = (array.length * 2) - hex.length();
