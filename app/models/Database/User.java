@@ -148,7 +148,7 @@ public class User {
         this.profilePicID = profilePicID;
     }
 
-    public static class TestUsers {
+   /* public static class TestUsers {
         public static final List<User> _testUserList = List.of(
                 new User(new ObjectId(), "Max", "Muster", "test1234!", "max.muster@email.com", new ObjectId()),
                 new User(new ObjectId(), "Anna", "Schäfer", "test1234!", "anna.schäfer@email.com", new ObjectId()),
@@ -167,5 +167,5 @@ public class User {
             }
             return bRes;
         }
-    }
+    }*/
 }

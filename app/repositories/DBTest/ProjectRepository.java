@@ -2,11 +2,13 @@ package repositories.DBTest;
 
 import com.mongodb.WriteResult;
 import models.Database.Project;
+import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import org.jongo.MongoCursor;
 import uk.co.panaxiom.playjongo.PlayJongo;
-
+import java.util.List;
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -40,14 +42,13 @@ public class ProjectRepository {
         p.setName("blabla");
         p.setBeschreibung("hallo");
         p.setOwnerid(new org.bson.types.ObjectId());
-        p.setUserList(List.of(new org.bson.types.ObjectId(), new org.bson.types.ObjectId()));
+        List <ObjectId> userlist = new ArrayList();
+        userlist.add(new org.bson.types.ObjectId());
+        userlist.add(new org.bson.types.ObjectId());
+        p.setUserList(userlist);
         p.setMessageBoardID(new org.bson.types.ObjectId());
 
         WriteResult wRes =  projects().insert(p);
         return wRes.wasAcknowledged();
     }
-
-    //public Project findByEmail(String email) {
-       // return users().findOne("{email: #}", email).as(User.class);
-    //}
 }
