@@ -3,39 +3,95 @@ package utils;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 
-abstract class Utils {
+/**
+ * Helper Class for hashing the password PBKDF2WithHmacSHA1.
+ */
+public abstract class Utils {
 
-    public static String sha256(String source) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] salt = getSalt();
-            byte[] hash = digest.digest(source.getBytes("UTF-8"));
-            return toHex(hash);
-        } catch (Exception ex) {
-            throw new RuntimeException(ex);
-        }
-    }
+    /**
+     * Default hash integration of passworrd string
+     */
+    public static final int DEFAULT_IT = 1000;
 
-    public static String hashPBKDF2WithHmacSHA1(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        byte[] salt = getSalt();
-        return Utils.hashPBKDF2WithHmacSHA1(password, salt);
-    }
 
-    public static String hashPBKDF2WithHmacSHA1(String password, byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        int iterations = 1000;
+    /**
+     * This funktion hash a given String by the
+     * given parameter values. the String
+     * Hash by PBKDF2WithHmacSHA1.
+     * https://de.wikipedia.org/wiki/PBKDF2
+     *
+     * @param password   The input password string for hashing
+     * @param iterations The hash iteration for the password string.
+     * @param salt       The salt to hash the password string.
+     * @return Return the full password hash entry with iterations,
+     * Salt and the hash result. pattern: "iteration, salt, result-hash"
+     * @throws NoSuchAlgorithmException If the PBKDF2WithHmacSHA1 notsupported.
+     * @throws InvalidKeySpecException
+     * @Pattern: "iteration, salt, result-hash"
+     * Easy use: <pre>String h = Utils.hash(String ( "PlainPwd" </pre>
+     * Return the full password hash entry with iterations,
+     * Salt and the hash result.
+     * pattern: "iteration, salt, result-hash"
+     * see also {@link UtilsTest int, byte[]) Tests }.
+     */
+    public static String hash(String password, int iterations, byte[] salt)
+            throws NoSuchAlgorithmException, InvalidKeySpecException {
+
         char[] chars = password.toCharArray();
         PBEKeySpec spec = new PBEKeySpec(chars, salt, iterations, 64 * 8);
+        //PBKDF2WithHmacSHA1,
         SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         byte[] hash = skf.generateSecret(spec).getEncoded();
         return iterations + ":" + toHex(salt) + ":" + toHex(hash);
     }
-    // ByteArray To Hex
-    public static String toHex(byte[] array) throws NoSuchAlgorithmException {
+
+    /**
+     * Use the {@link #hash(String, int, byte[]) main doc. }.
+     */
+    public static String hash(String password)
+            throws NoSuchAlgorithmException, InvalidKeySpecException {
+        byte[] salt = getSalt();
+        return Utils.hash(password, salt);
+    }
+
+    /**
+     * Use the {@link #hash(String, int, byte[]) main doc. }.
+     */
+    public static String hash(String password, int iterations)
+            throws NoSuchAlgorithmException, InvalidKeySpecException {
+        byte[] salt = getSalt();
+        return Utils.hash(password, iterations, salt);
+    }
+
+    /**
+     * Use the {@link #hash(String, int, byte[]) main doc. }.
+     */
+    public static String hash(String password, byte[] salt)
+            throws NoSuchAlgorithmException, InvalidKeySpecException {
+        return Utils.hash(password, DEFAULT_IT, salt);
+    }
+
+    /**
+     * Use the {@link #hash(String, int, byte[]) main doc. }.
+     */
+    public static String hash(String password, byte[] salt, int iterations)
+            throws NoSuchAlgorithmException, InvalidKeySpecException {
+        return Utils.hash(password, iterations, salt);
+    }
+
+
+    /**
+     * This function convert an byte array int hex String.
+     *
+     * @param array The array of bytes to convert.
+     * @return Returns the hex value as String.
+     * @throws NoSuchAlgorithmException
+     */
+    public static final String toHex(byte[] array) throws NoSuchAlgorithmException {
         BigInteger bi = new BigInteger(1, array);
         String hex = bi.toString(16);
         int paddingLength = (array.length * 2) - hex.length();
@@ -45,12 +101,34 @@ abstract class Utils {
             return hex;
         }
     }
-    //Add salt
-    public static byte[] getSalt() throws NoSuchAlgorithmException {
+
+    /**
+     * This function generate the salt string for the new password.
+     *
+     * @return Returns the the generated random 16 byte array
+     * @throws NoSuchAlgorithmException Throws if the java eviremant
+     *                                  suport not"SHA1PRNG"
+     */
+    public static final byte[] getSalt() throws NoSuchAlgorithmException {
         SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
         byte[] salt = new byte[16];
         sr.nextBytes(salt);
         return salt;
+    }
+
+    /**
+     * This methode get the String hexsalt to calculate th byte array.
+     *
+     * @param hexsalt The string of hex values to generate the byte array
+     * @return Returnt a array of bytes.
+     */
+    public static final byte[] toByte(final String hexsalt) {
+        byte[] arr = new byte[hexsalt.length() / 2];
+        for (int start = 0; start < hexsalt.length(); start += 2) {
+            String thisByte = hexsalt.substring(start, start + 2);
+            arr[start / 2] = Byte.parseByte(thisByte, 16);
+        }
+        return arr;
     }
 }
 
