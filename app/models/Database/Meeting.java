@@ -13,8 +13,8 @@ import java.util.Map;
 
 public class Meeting {
 
-    //Teilnahme der einzelnen user als enum
-    private enum teilnahme {nein, ja, unbekannt};
+    // Member eilnahme der einzelnen user als enum
+    public enum Member {NO, YES, UNKNOWN};
 
     //Leerer Konstruktor für Tests
     public Meeting() {
@@ -27,7 +27,7 @@ public class Meeting {
      * @param name The name of the meeting as String.
      * @param timestamp The date when the meeting will take place as java.util.Date.
      * @param authorId The id of the user who created the meeting as org.bson.types.ObjectId.
-     * @param teilnahmeMeeting The list of users and their individual answer to the invitation as java.util.Map;
+     * @param meetingMember The list of users and their individual answer to the invitation as java.util.Map;
      */
 
     @JsonCreator
@@ -37,14 +37,14 @@ public class Meeting {
                    @JsonProperty("name") String name,
                    @JsonProperty("timestamp") Date timestamp,
                    @JsonProperty("authorId") ObjectId authorId,
-                   @JsonProperty("teilnahmeMeeting") Map.Entry<ObjectId, teilnahme> teilnahmeMeeting) {
+                   @JsonProperty("teilnahmeMeeting") Map.Entry<ObjectId, Meeting.Member> meetingMember) {
 
         this.id = id;
         this.projectId = projectId;
         this.name = name;
         this.timestamp = timestamp;
         this.authorId = authorId;
-        this.teilnahmeMeeting = teilnahmeMeeting;
+        this.teilnahmeMeeting = meetingMember;
     }
     /**The id of the meeting as org.bson.types.ObjectId. */
     @JsonProperty("id")
