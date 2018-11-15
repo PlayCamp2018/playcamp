@@ -33,6 +33,8 @@ public class User {
 
         //FixMe: wenn der Constructor auch im java-code genutzt wird dann würde ich diese mittels der setter setzten,
         // da diese dort auch gleich validiert werden. (ausser id, die kommt ja nur aus der DB)
+
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.password = password;
