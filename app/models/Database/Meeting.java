@@ -37,14 +37,14 @@ public class Meeting {
                    @JsonProperty("name") String name,
                    @JsonProperty("timestamp") Date timestamp,
                    @JsonProperty("authorId") ObjectId authorId,
-                   @JsonProperty("teilnahmeMeeting") Map.Entry<ObjectId, Meeting.Member> meetingMember) {
+                   @JsonProperty("meetingMember") Map.Entry<ObjectId, Meeting.Member> meetingMember) {
 
         this.id = id;
         this.projectId = projectId;
         this.name = name;
         this.timestamp = timestamp;
         this.authorId = authorId;
-        this.teilnahmeMeeting = meetingMember;
+        this.meetingMember = meetingMember;
     }
     /**The id of the meeting as org.bson.types.ObjectId. */
     @JsonProperty("id")
@@ -62,8 +62,8 @@ public class Meeting {
     @JsonProperty("authorId")
     private ObjectId authorId;
     /** The list of users and their individual answer to the invitation as java.util.Map; */
-    @JsonProperty("teilnahmeMeeting")
-    private Map.Entry teilnahmeMeeting;
+    @JsonProperty("meetingMember")
+    private Map.Entry meetingMember;
 
 
     public ObjectId getId() {
@@ -106,11 +106,11 @@ public class Meeting {
         this.authorId = authorId;
     }
 
-    public Map.Entry getTeilnahmeMeeting() {
-        return teilnahmeMeeting;
+    public Map.Entry getGetMeetingMember() {
+        return meetingMember;
     }
 
-    public void setTeilnahmeMeeting(Map.Entry teilnahmeMeeting) {
-        this.teilnahmeMeeting = teilnahmeMeeting;
+    public void setMeetingMember(Map.Entry teilnahmeMeeting) {
+        this.meetingMember = meetingMember;
     }
 }
