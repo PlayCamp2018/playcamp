@@ -24,7 +24,7 @@ public class User {
      * @param profilePicID The id of the user profile pic as org.bson.types.ObjectId.
      */
     @JsonCreator
-    public User(@JsonProperty("id") ObjectId id,
+    public User(@JsonProperty("_id") ObjectId id,
                 @JsonProperty("firstname") String firstname,
                 @JsonProperty("lastname")String lastname,
                 @JsonProperty("password")String password,
@@ -43,7 +43,7 @@ public class User {
     }
 
     /** The id of the user as org.bson.types.ObjectId. */
-    @JsonProperty("id")
+    @JsonProperty("_id")
     private ObjectId id;
     /** The first name of the user as String. */
     @JsonProperty("firstname")
@@ -148,6 +148,10 @@ public class User {
      */
     public void setProfilePicID(ObjectId profilePicID) {
         this.profilePicID = profilePicID;
+    }
+
+    public String toString() {
+        return firstname + ", " + lastname + ": " + email;
     }
 
    /* public static class TestUsers {

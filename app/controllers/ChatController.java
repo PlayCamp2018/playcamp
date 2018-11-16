@@ -15,7 +15,7 @@ import akka.stream.javadsl.*;
 import play.libs.F;
 import play.mvc.*;
 import akka.event.Logging;
-import java.net.URI;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -30,6 +30,7 @@ public class ChatController extends Controller {
     private final Flow<String, String, NotUsed> userFlow;
     private final ActorSystem actorSystem;
     private final Materializer materializer;
+    private final org.slf4j.Logger logger;
 
     // static List<WebSocket> chatSockets = new ArrayList<>();
 
@@ -38,7 +39,7 @@ public class ChatController extends Controller {
         this.actorSystem = actorSystem;
         this.materializer = materializer;
 
-        org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(this.getClass());
+        logger = org.slf4j.LoggerFactory.getLogger(this.getClass());
         LoggingAdapter logging = Logging.getLogger(actorSystem.eventStream(), logger.getName());
 
         //noinspection unchecked
@@ -80,24 +81,29 @@ public class ChatController extends Controller {
         });
     }
 
-    private boolean sameOriginCheck(Http.RequestHeader request) {
-        String[] origins = request.headers().get("Origin");
-        if (origins.length > 1) {
-            // more than one origin found
+    /**
+     * Checks that the WebSocket comes from the same origin.  This is necessary to protect
+     * against Cross-Site WebSocket Hijacking as WebSocket does not implement Same Origin Policy.
+     * <p>
+     * See https://tools.ietf.org/html/rfc6455#section-1.3 and
+     * http://blog.dewhurstsecurity.com/2013/08/30/security-testing-html5-websockets.html
+     */
+    private boolean sameOriginCheck(Http.RequestHeader rh) {
+        final Optional<String> origin = rh.header("Origin");
+
+        if (! origin.isPresent()) {
+            logger.error("originCheck: rejecting request because no Origin header found");
+            return false;
+        } else if (originMatches(origin.get())) {
+            logger.debug("originCheck: originValue = " + origin);
+            return true;
+        } else {
+            logger.error("originCheck: rejecting request because Origin header value " + origin + " is not in the same origin");
             return false;
         }
-        String origin = origins[0];
-        return originMatches(origin);
     }
 
     private boolean originMatches(String origin) {
-        if (origin == null) return false;
-        try {
-            URI url = new URI(origin);
-            return url.getHost().equals("localhost")
-                    && (url.getPort() == 9000 || url.getPort() == 19001);
-        } catch (Exception e ) {
-            return false;
-        }
+        return origin.contains("localhost:9000") || origin.contains("localhost:19001");
     }
 }
