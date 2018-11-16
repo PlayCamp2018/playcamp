@@ -21,6 +21,11 @@ libraryDependencies ++= Seq(
   "uk.co.panaxiom" %% "play-jongo" % "2.1.0-jongo1.3"
 )
 
+// Play Mailer Support
+libraryDependencies += "com.typesafe.play" %% "play-mailer" % "6.0.1"
+libraryDependencies += "com.typesafe.play" %% "play-mailer-guice" % "6.0.1"
+
+
 jacocoExcludes in Test := Seq(
   "controllers.Reverse*",
   "controllers.javascript.*",

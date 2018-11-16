@@ -1,0 +1,35 @@
+@()
+@main("Welcome to Play") {
+    @helper.form(action = routes.TestMailController.submit(), 'enctype -> "multipart/form-data") {
+        <div class="container">
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        Sie wollen eine Mail verschicken?
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="you.at.mail.com" title="E-Mail eingeben">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i>
+                            Senden</button>
+                        <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i>
+                            Abrechen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
