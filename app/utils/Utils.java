@@ -7,6 +7,17 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 
+import models.Database.Meeting;
+import models.Database.MessagePost;
+import models.Database.Project;
+import models.Database.User;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
+import org.bson.types.ObjectId;
+
 /**
  * Helper Class for hashing the password PBKDF2WithHmacSHA1.
  */
@@ -128,6 +139,68 @@ public abstract class Utils {
             arr[start / 2] = Byte.parseByte(thisByte, 16);
         }
         return arr;
+    }
+
+    /**
+     * Returns a random User, first and last name are numbers
+     * @return random User
+     */
+    public static User getRandomUser() {
+        int randomNum = ThreadLocalRandom.current().nextInt(1000000, 2000000 + 1);
+        User u = new User();
+        u.setFirstname("" + randomNum);
+        u.setLastname("" + (randomNum + 1));
+        u.setEmail(randomNum + "." + (randomNum + 1) + "@test.test");
+        u.setPassword("test1234");
+        u.setProfilePicID(new ObjectId());
+
+        return u;
+    }
+    /**
+     * Returns a random Project, name and beschreibung are numbers
+     * @return random Project
+     */
+    public static Project getRandomProject() {
+        int randomNum = ThreadLocalRandom.current().nextInt(1000000, 2000000 + 1);
+        Project p = new Project();
+        p.setName("" + randomNum);
+        p.setBeschreibung("" + (randomNum + 1));
+        p.setOwnerid(new ObjectId());
+        p.setUserList(List.of(new ObjectId(), new ObjectId()));
+
+        return p;
+    }
+    /**
+     * Returns a random MessagePost, message is a number
+     * @return random MessagePost
+     */
+    public static MessagePost getRandomMessagePost() {
+        int randomNum = ThreadLocalRandom.current().nextInt(10000000, 20000000 + 1);
+        MessagePost mp = new MessagePost();
+        mp.setMessage("" + randomNum);
+        mp.setAttachments(List.of(new ObjectId(), new ObjectId()));
+        mp.setAuthorID(new ObjectId());
+        mp.setCreateDate(new Date());
+        mp.setParentID(new ObjectId());
+        mp.setProjectID(new ObjectId());
+
+        return mp;
+    }
+
+    public static Meeting getRandomMeeting() {
+        int randomNum = ThreadLocalRandom.current().nextInt(10000000, 20000000 + 1);
+        Meeting m = new Meeting();
+        m.setAuthorId(new ObjectId());
+        m.setMeetingMember(Map.of(
+                new ObjectId(), Meeting.Member.YES,
+                new ObjectId(), Meeting.Member.NO,
+                new ObjectId(), Meeting.Member.UNKNOWN
+        ));
+        m.setName("TEST_" + randomNum);
+        m.setProjectId(new ObjectId());
+        m.setTimestamp(new Date());
+
+        return m;
     }
 }
 

@@ -104,4 +104,7 @@ public class Project {
     public void setMessageBoardID(ObjectId messageBoardID) {
         this.messageBoardID = messageBoardID;
     }
+
+    @Override
+    public String toString() { return getName() +": "+ getBeschreibung(); }
 }

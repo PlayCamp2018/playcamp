@@ -17,8 +17,7 @@ public class Meeting {
     public enum Member {NO, YES, UNKNOWN};
 
     //Leerer Konstruktor für Tests
-    public Meeting() {
-    }
+    public Meeting() {}
 
     /**
      *
@@ -37,7 +36,7 @@ public class Meeting {
                    @JsonProperty("name") String name,
                    @JsonProperty("timestamp") Date timestamp,
                    @JsonProperty("authorId") ObjectId authorId,
-                   @JsonProperty("meetingMember") Map.Entry<ObjectId, Meeting.Member> meetingMember) {
+                   @JsonProperty("meetingMember") Map<ObjectId, Meeting.Member> meetingMember) {
 
         this.id = id;
         this.projectId = projectId;
@@ -63,7 +62,7 @@ public class Meeting {
     private ObjectId authorId;
     /** The list of users and their individual answer to the invitation as java.util.Map; */
     @JsonProperty("meetingMember")
-    private Map.Entry meetingMember;
+    private Map meetingMember;
 
 
     public ObjectId getId() {
@@ -106,11 +105,11 @@ public class Meeting {
         this.authorId = authorId;
     }
 
-    public Map.Entry getGetMeetingMember() {
+    public Map getGetMeetingMember() {
         return meetingMember;
     }
 
-    public void setMeetingMember(Map.Entry teilnahmeMeeting) {
+    public void setMeetingMember(Map teilnahmeMeeting) {
         this.meetingMember = meetingMember;
     }
 }

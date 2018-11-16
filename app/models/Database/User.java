@@ -3,6 +3,7 @@ package models.Database;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.bson.types.ObjectId;
+import org.jongo.marshall.jackson.oid.MongoObjectId;
 import play.data.validation.Constraints;
 import java.util.List;
 
