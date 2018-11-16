@@ -27,7 +27,7 @@ public class Files {
      */
 
     @JsonCreator
-    public Files(@JsonProperty("id") ObjectId id,
+    public Files(@JsonProperty("_id") ObjectId id,
                  @JsonProperty("file") File file,
                  @JsonProperty("blob") Blob blob,
                  @JsonProperty("authorId") ObjectId authorId,
@@ -41,7 +41,7 @@ public class Files {
     }
 
     /** The id of the file as as org.bson.types.ObjectId. */
-    @JsonProperty("id")
+    @JsonProperty("_id")
     private ObjectId id;
     /** The actual content of the file as java.io.File. */
     @JsonProperty("file")

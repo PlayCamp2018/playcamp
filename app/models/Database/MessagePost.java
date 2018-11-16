@@ -28,7 +28,7 @@ public class MessagePost {
      */
 
     @JsonCreator
-    public MessagePost(@JsonProperty("id") ObjectId id,
+    public MessagePost(@JsonProperty("_id") ObjectId id,
                        @JsonProperty("projectID") ObjectId projectID,
                        @JsonProperty("createDate") Date createDate,
                        @JsonProperty("authorID") ObjectId authorID,
@@ -46,7 +46,7 @@ public class MessagePost {
     }
 
     /** The id of the messagepost as org.bson.types.ObjectId.*/
-    @JsonProperty("id")
+    @JsonProperty("_id")
     private ObjectId id;
     /** The id of the project which the messagepost belongs to as org.bson.types.ObjectId. */
     @JsonProperty("projectID")

@@ -26,7 +26,7 @@ public class Project {
      */
 
     @JsonCreator
-    public Project(@JsonProperty("id") ObjectId id,
+    public Project(@JsonProperty("_id") ObjectId id,
                    @JsonProperty("name") String name,
                    @JsonProperty("beschreibung") String beschreibung,
                    @JsonProperty("ownerid") ObjectId ownerid,
@@ -42,7 +42,7 @@ public class Project {
     }
 
     /** The id of the project as org.bson.types.ObjectId. */
-    @JsonProperty("id")
+    @JsonProperty("_id")
     private ObjectId id;
     /** The name of the project as String. */
     @JsonProperty("name")

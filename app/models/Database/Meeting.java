@@ -32,7 +32,7 @@ public class Meeting {
 
     @JsonCreator
     public Meeting(
-                   @JsonProperty("id") ObjectId id,
+                   @JsonProperty("_id") ObjectId id,
                    @JsonProperty("projectId") ObjectId projectId,
                    @JsonProperty("name") String name,
                    @JsonProperty("timestamp") Date timestamp,
@@ -47,7 +47,7 @@ public class Meeting {
         this.meetingMember = meetingMember;
     }
     /**The id of the meeting as org.bson.types.ObjectId. */
-    @JsonProperty("id")
+    @JsonProperty("_id")
     private ObjectId id;
     /**The id of the project to which the meeting belongs as org.bson.types.ObjectId. */
     @JsonProperty("projectId")

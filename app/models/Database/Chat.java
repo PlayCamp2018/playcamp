@@ -20,7 +20,7 @@ public class Chat {
      */
 
     @JsonCreator
-    public Chat(@JsonProperty("id") ObjectId id,
+    public Chat(@JsonProperty("_id") ObjectId id,
                 @JsonProperty("name") String name,
                 @JsonProperty("projectID") ObjectId projectID) {
 
@@ -30,7 +30,7 @@ public class Chat {
     }
 
     /** The id of the chat as org.bson.types.ObjectId. */
-    @JsonProperty("id")
+    @JsonProperty("_id")
     private ObjectId id;
     /** The name of the chat String */
     @JsonProperty("name")

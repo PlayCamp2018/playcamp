@@ -26,7 +26,7 @@ public class ChatMessage {
      */
 
     @JsonCreator
-    public ChatMessage(@JsonProperty("id") ObjectId id,
+    public ChatMessage(@JsonProperty("_id") ObjectId id,
                        @JsonProperty("createDate") Date createDate,
                        @JsonProperty("chatId") ObjectId chatId,
                        @JsonProperty("message") String message,
@@ -40,7 +40,7 @@ public class ChatMessage {
     }
 
     /** The id of the chatmessage as org.bson.types.ObjectId. */
-    @JsonProperty("id")
+    @JsonProperty("_id")
     private ObjectId id;
     /** The date when the message was created as java.util.Date. */
     @JsonProperty("createDate")

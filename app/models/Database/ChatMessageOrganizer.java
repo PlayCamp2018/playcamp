@@ -21,7 +21,7 @@ public class ChatMessageOrganizer {
      * @param userID The id of the user who the chatmessageorganizer belongs to.
      */
     @JsonCreator
-    public ChatMessageOrganizer(@JsonProperty("id") ObjectId id,
+    public ChatMessageOrganizer(@JsonProperty("_id") ObjectId id,
                                 @JsonProperty("chatMessageID") ObjectId chatMessageID,
                                 @JsonProperty("userID") ObjectId userID) {
 
@@ -31,7 +31,7 @@ public class ChatMessageOrganizer {
     }
 
     /** The id of the chatmessageorganizer as org.bson.types.ObjectId. */
-    @JsonProperty("id")
+    @JsonProperty("_id")
     public ObjectId id;
     /** The id of the chatmessage which has to be organized. */
     @JsonProperty("chatMessageID")
