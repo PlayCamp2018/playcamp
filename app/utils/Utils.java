@@ -12,9 +12,7 @@ import models.Database.MessagePost;
 import models.Database.Project;
 import models.Database.User;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import org.bson.types.ObjectId;
 
@@ -166,7 +164,11 @@ public abstract class Utils {
         p.setName("" + randomNum);
         p.setBeschreibung("" + (randomNum + 1));
         p.setOwnerid(new ObjectId());
-        p.setUserList(List.of(new ObjectId(), new ObjectId()));
+
+        List<ObjectId> list = new ArrayList<>();
+        list.add(new ObjectId());
+        list.add(new ObjectId());
+        p.setUserList(list);
 
         return p;
     }
@@ -178,7 +180,12 @@ public abstract class Utils {
         int randomNum = ThreadLocalRandom.current().nextInt(10000000, 20000000 + 1);
         MessagePost mp = new MessagePost();
         mp.setMessage("" + randomNum);
-        mp.setAttachments(List.of(new ObjectId(), new ObjectId()));
+
+        List<ObjectId> list = new ArrayList<>();
+        list.add(new ObjectId());
+        list.add(new ObjectId());
+        mp.setAttachments(list);
+        
         mp.setAuthorID(new ObjectId());
         mp.setCreateDate(new Date());
         mp.setParentID(new ObjectId());
@@ -191,11 +198,12 @@ public abstract class Utils {
         int randomNum = ThreadLocalRandom.current().nextInt(10000000, 20000000 + 1);
         Meeting m = new Meeting();
         m.setAuthorId(new ObjectId());
-        m.setMeetingMember(Map.of(
-                new ObjectId(), Meeting.Member.YES,
-                new ObjectId(), Meeting.Member.NO,
-                new ObjectId(), Meeting.Member.UNKNOWN
-        ));
+
+        Map map = new HashMap<ObjectId, Meeting.Member>();
+        map.put(new ObjectId(), Meeting.Member.YES);
+        map.put(new ObjectId(), Meeting.Member.NO);
+        map.put(new ObjectId(), Meeting.Member.UNKNOWN);
+
         m.setName("TEST_" + randomNum);
         m.setProjectId(new ObjectId());
         m.setTimestamp(new Date());

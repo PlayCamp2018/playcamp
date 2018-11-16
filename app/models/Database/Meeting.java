@@ -105,7 +105,7 @@ public class Meeting {
         this.authorId = authorId;
     }
 
-    public Map getGetMeetingMember() {
+    public Map getMeetingMember() {
         return meetingMember;
     }
 
