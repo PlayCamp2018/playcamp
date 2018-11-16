@@ -101,8 +101,8 @@ public class MeetingRepository {
      * Inserts a random Meeting
      * @return true if success else false
      */
-    public boolean insertRandomMeeting() {
-        Meeting m = Utils.getRandomMeeting();
+    public boolean insertRandomMeeting(ObjectId id) {
+        Meeting m = Utils.getRandomMeeting(id);
         return insert(m);
     }
 }

@@ -95,8 +95,8 @@ public class UserRepository {
      * Inserts a random user
      * @return true if success else false
      */
-    public boolean insertRandomUser() {
-        User u = Utils.getRandomUser();
+    public boolean insertRandomUser(ObjectId id) {
+        User u = Utils.getRandomUser(id);
         return insert(u);
     }
 }
