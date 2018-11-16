@@ -7,10 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 
-import models.Database.Meeting;
-import models.Database.MessagePost;
-import models.Database.Project;
-import models.Database.User;
+import models.Database.*;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -45,7 +42,7 @@ public abstract class Utils {
      * Return the full password hash entry with iterations,
      * Salt and the hash result.
      * pattern: "iteration, salt, result-hash"
-     * see also {@link UtilsTest int, byte[]) Tests }.
+     * see also {@link "UtilsTest" int, byte[]) Tests }.
      */
     public static String hash(String password, int iterations, byte[] salt)
             throws NoSuchAlgorithmException, InvalidKeySpecException {
@@ -139,76 +136,155 @@ public abstract class Utils {
         return arr;
     }
 
+
     /**
      * Returns a random User, first and last name are numbers
+     * @param id of the new User
      * @return random User
      */
-    public static User getRandomUser() {
+    public static User getRandomUser(ObjectId id) {
         int randomNum = ThreadLocalRandom.current().nextInt(1000000, 2000000 + 1);
-        User u = new User();
-        u.setFirstname("" + randomNum);
-        u.setLastname("" + (randomNum + 1));
-        u.setEmail(randomNum + "." + (randomNum + 1) + "@test.test");
-        u.setPassword("test1234");
-        u.setProfilePicID(new ObjectId());
-
+        User u = new User(
+                id,
+                "" + randomNum,
+                "" + (randomNum + 1),
+                "test1234",
+                randomNum + "." + (randomNum + 1) + "@test.test",
+                new ObjectId()
+        );
         return u;
     }
     /**
      * Returns a random Project, name and beschreibung are numbers
+     * @param id of the new Project
      * @return random Project
      */
-    public static Project getRandomProject() {
+    public static Project getRandomProject(ObjectId id) {
         int randomNum = ThreadLocalRandom.current().nextInt(1000000, 2000000 + 1);
-        Project p = new Project();
-        p.setName("" + randomNum);
-        p.setBeschreibung("" + (randomNum + 1));
-        p.setOwnerid(new ObjectId());
 
         List<ObjectId> list = new ArrayList<>();
         list.add(new ObjectId());
         list.add(new ObjectId());
-        p.setUserList(list);
+
+        Project p = new Project(
+                id,
+                "" + randomNum,
+                "" + (randomNum + 1),
+                new ObjectId(),
+                list,
+                new ObjectId()
+        );
 
         return p;
     }
     /**
      * Returns a random MessagePost, message is a number
+     * @param id of the new MessagePost
      * @return random MessagePost
      */
-    public static MessagePost getRandomMessagePost() {
+    public static MessagePost getRandomMessagePost(ObjectId id) {
         int randomNum = ThreadLocalRandom.current().nextInt(10000000, 20000000 + 1);
-        MessagePost mp = new MessagePost();
-        mp.setMessage("" + randomNum);
-
         List<ObjectId> list = new ArrayList<>();
         list.add(new ObjectId());
         list.add(new ObjectId());
-        mp.setAttachments(list);
-        
-        mp.setAuthorID(new ObjectId());
-        mp.setCreateDate(new Date());
-        mp.setParentID(new ObjectId());
-        mp.setProjectID(new ObjectId());
+
+        MessagePost mp = new MessagePost(
+                id,
+                new ObjectId(),
+                new Date(),
+                new ObjectId(),
+                list,
+                "" + randomNum,
+                new ObjectId()
+        );
 
         return mp;
     }
-
-    public static Meeting getRandomMeeting() {
+    /**
+     * Returns a random Meeting, name is a random number
+     * @param id of the new Meeting
+     * @return random MessagePost
+     */
+    public static Meeting getRandomMeeting(ObjectId id) {
         int randomNum = ThreadLocalRandom.current().nextInt(10000000, 20000000 + 1);
-        Meeting m = new Meeting();
-        m.setAuthorId(new ObjectId());
-
         Map map = new HashMap<ObjectId, Meeting.Member>();
         map.put(new ObjectId(), Meeting.Member.YES);
         map.put(new ObjectId(), Meeting.Member.NO);
         map.put(new ObjectId(), Meeting.Member.UNKNOWN);
 
-        m.setName("TEST_" + randomNum);
-        m.setProjectId(new ObjectId());
-        m.setTimestamp(new Date());
+        Meeting m = new Meeting(
+                id,
+                new ObjectId(),
+                "TEST_" + randomNum,
+                new Date(),
+                new ObjectId(),
+                map
+        );
 
         return m;
+    }
+    /**
+     * Returns a random Files, name is a random number
+     * @param id of the new Files
+     * @return random Files
+     */
+    public static Files getRandomFiles(ObjectId id) {
+        int randomNum = ThreadLocalRandom.current().nextInt(10000000, 20000000 + 1);
+        Files f = new Files(
+                id,
+                null,
+                null,
+                new ObjectId(),
+                "TEST_" + randomNum
+        );
+
+        return f;
+    }
+    /**
+     * Returns a random ChatMessageOrganizer
+     * @param id of the new ChatMessageOrganizer
+     * @return random ChatMessageOrganizer
+     */
+    public static ChatMessageOrganizer getRandomChatMessageOrganizer(ObjectId id) {
+        ChatMessageOrganizer cmo = new ChatMessageOrganizer(
+                id,
+                new ObjectId(),
+                new ObjectId()
+        );
+
+        return cmo;
+    }
+    /**
+     * Returns a random ChatMessage
+     * @param id of the new ChatMessage
+     * @return random ChatMessage
+     */
+    public static ChatMessage getRandomChatMessage(ObjectId id) {
+        int randomNum = ThreadLocalRandom.current().nextInt(10000000, 20000000 + 1);
+        ChatMessage cm = new ChatMessage(
+                id,
+                new Date(),
+                new ObjectId(),
+                "MSG_" + randomNum,
+                new ObjectId()
+        );
+
+        return cm;
+    }
+    /**
+     * Returns a random Chat
+     * @param id of the new Chat
+     * @return random Chat
+     */
+    public static Chat getRandomChat(ObjectId id) {
+        int randomNum = ThreadLocalRandom.current().nextInt(10000000, 20000000 + 1);
+        Chat c = new Chat(
+                id,
+                "NAME_" + randomNum,
+                new ObjectId()
+        );
+
+        return c;
     }
 }
 

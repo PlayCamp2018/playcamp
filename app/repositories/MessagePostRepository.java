@@ -117,8 +117,8 @@ public class MessagePostRepository {
      * Inserts a random user
      * @return true if success else false
      */
-    public boolean insertRandomProject() {
-        MessagePost mp = Utils.getRandomMessagePost();
+    public boolean insertRandomProject(ObjectId id) {
+        MessagePost mp = Utils.getRandomMessagePost(id);
         return insert(mp);
     }
 }

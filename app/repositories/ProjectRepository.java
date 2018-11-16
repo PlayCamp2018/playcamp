@@ -91,8 +91,8 @@ public class ProjectRepository {
      * Inserts a random user
      * @return true if success else false
      */
-    public boolean insertRandomProject() {
-        Project p = Utils.getRandomProject();
+    public boolean insertRandomProject(ObjectId id) {
+        Project p = Utils.getRandomProject(id);
         return insert(p);
     }
 }
