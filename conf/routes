@@ -29,5 +29,6 @@ GET     /test                       controllers.TestController.index
 
 GET     /testmail                   controllers.TestMailController.index
 GET     /testmail/submit            controllers.TestMailController.submit
+GET     /testmail/dialog            controllers.TestMailController.dialog
 
 

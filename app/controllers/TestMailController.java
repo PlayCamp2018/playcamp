@@ -44,4 +44,8 @@ public class TestMailController extends Controller {
         return ok(views.html.Test.mailtest.render());
     }
 
+    public Result dialog() {
+        return ok(views.html.Test.dialog.render());
+    }
+
 }
