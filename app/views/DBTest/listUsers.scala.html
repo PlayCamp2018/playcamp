@@ -1,0 +1,16 @@
+@import models.Database.User
+@(aUsers: Array[User])
+
+@main("Welcome to Play") {
+    <h1>DB Test!</h1>
+
+    @if(aUsers == null) {
+        Keine Daten vorhanden.
+    } else {
+        <ul>
+            @aUsers.map { u =>
+                <li>ID: @u.getId Vorname: @u.getFirstname(), Nachname: @u.getLastname(), Email: @u.getEmail(), Passwort: @u.getPassword, ProfilbildID @u.getProfilePicID</li>
+            }
+        </ul>
+    }
+}

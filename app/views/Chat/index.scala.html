@@ -1,0 +1,12 @@
+@()
+
+@main("Welcome to Play") {
+    <script type="text/javascript" src='@routes.Assets.versioned("javascripts/chat.js")'></script>
+    <h1>Chat</h1>
+
+    <div class="container">
+        <input id="chatText" name="chatText" type="text" placeholder="some text" class="search" />
+        <ul id="chatList" class="list-group">
+        </ul>
+    </div>
+}

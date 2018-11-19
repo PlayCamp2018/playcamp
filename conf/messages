@@ -1,0 +1,14 @@
+lang.title = LangTest
+files.summary=You have been invited to the {0} project by {1}.
+password=Password
+password.input=Input Password
+email.sample=name@playcamp.net
+login.email=Input Mailaddress
+login.title=Login
+login.message=Welcome back
+login.register=Register
+login.register.description=Register your playCamp accout now!
+login.email.description=Input your mailadrees, to log in and start.
+login.password=Password request 
+login.password.description=Input your password, to log in and start.
+login.password.reqest=Forked your password?
