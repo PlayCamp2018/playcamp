@@ -39,8 +39,8 @@ public class ProjectRepository {
         Project p = new Project();
 
         p.setId(new org.bson.types.ObjectId());
-        p.setName("blabla");
-        p.setBeschreibung("hallo");
+        p.setName("Test");
+        p.setBeschreibung("test");
         p.setOwnerid(new org.bson.types.ObjectId());
         List <ObjectId> userlist = new ArrayList();
         userlist.add(new org.bson.types.ObjectId());
@@ -51,4 +51,5 @@ public class ProjectRepository {
         WriteResult wRes =  projects().insert(p);
         return wRes.wasAcknowledged();
     }
+
 }

@@ -4,7 +4,6 @@ import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
-
 //import java.io.ByteArrayInputStream;
 import java.io.File;
 //import java.io.FileInputStream;
@@ -29,12 +28,13 @@ public class TestFileUploadController extends Controller {
         final Http.MultipartFormData<File> formData = request().body().asMultipartFormData();
         final Http.MultipartFormData.FilePart<File> filePart = formData.getFile("profile_picture");
 
+        System.out.println(filePart.getContentType());
         System.out.println(filePart.getFilename());
 
         File file = null;
-//        ByteArrayInputStream input = null;
+//      ByteArrayInputStream input = null;
 
-        if (filePart != null) {
+        if (filePart != null && filePart.getContentType().equals("image/jpeg")) {
             file = filePart.getFile();
             System.out.println(file.getName());
             System.out.println(file.getPath());
@@ -42,12 +42,14 @@ public class TestFileUploadController extends Controller {
 
 //            byte[] byteArray = new FileInputStream(file).readAllBytes();
 //            input = new ByteArrayInputStream(byteArray);
+            return ok(file).as(filePart.getContentType());
         }
 
-        System.out.println("-----------");
+            System.out.println("-----------");
 
-        // return ok(views.html.TestFileUpload.uploadFile.render());
-        // return ok(file).as("image/svg");
-        return ok(file).as("image/svg");
+           // return ok(views.html.TestFileUpload.uploadFile.render());
+            //return ok(file).as("image/svg");
+
+          return null;
+        }
     }
-}

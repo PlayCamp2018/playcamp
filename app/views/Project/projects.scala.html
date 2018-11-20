@@ -1,0 +1,65 @@
+@import models.Database.Project
+@(aProject: Array[Project])
+@main("Projekte"){
+
+<link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/projects.css")' />
+
+  <div class>
+
+    <center><h1 style="color:blue;">Projekt Hinzufügen</h1> </center>
+    <br>
+    <center><input name="Neu Projekt" type="text" placeholder="New Projekt" ></center>
+    <br>
+    <center> <textarea name="message" rows="6" cols="30"></textarea></center>
+    <br>
+    <center> <table style="width:30%">
+      <tr></tr>
+      <td align="right">
+        <div style="text-align:center">
+          <span class="dot">1</span>
+          <span class="dot">2</span>
+          <span class="dot">3</span>
+          <span class="dot">4</span>
+        </div>
+        <br>
+        <div class="btn-group dropright">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            +</button>
+
+          <div class="dropdown-menu">
+            <select multiple class="form-control" id="sel2">
+
+              <option> <span class="dot"><center>5</center></span> Fabian </option>
+              <br><br>
+              <option> <span class="dot"><center>6</center></span> Micha </option>
+              <br><br>
+              <option> <span class="dot"><center>7</center></span> Audrain </option>
+              <br><br>
+              <option> <span class="dot"><center>8</center></span> Marwen </option>
+              <br><br>
+              <option> <span class="dot"><center>9</center></span> Peter </option>
+
+            </select>
+          </div>
+        </div>
+
+      </td>
+    </center>
+    </tr>
+
+    </table>
+
+    <br>
+    <button type="button" onclick="alert">Cancel</button>
+    <button type="button" onclick="alert">Save</button>
+    <div class="container">
+
+      <br>
+      <button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-search"></span> Search User
+      </button>
+    </div>
+
+  </div>
+
+}

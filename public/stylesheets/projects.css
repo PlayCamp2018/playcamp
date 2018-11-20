@@ -1,0 +1,18 @@
+body {background-color: #F5FFFA;}
+h1   {color:black;}
+
+  table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+  }
+th, td {
+    padding: 70px;
+}
+
+.dot {
+    height: 50px;
+    width: 50px;
+    background-color: #00FA9A;
+    border-radius: 50%;
+    display: inline-block;
+}

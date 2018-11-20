@@ -44,8 +44,6 @@ public class FileUploadRepository {
 
         u.setPassword("1234");
 
-        //u.setid = new org.bson.types.ObjectId();
-
         u.setProfilePicID(new org.bson.types.ObjectId());
 
         WriteResult wRes =  users().insert(u);
