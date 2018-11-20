@@ -27,8 +27,9 @@ GET     /chat/ws                    controllers.ChatController.ws
 
 GET     /test                       controllers.TestController.index
 
-GET     /testmail                   controllers.TestMailController.index
+GET     /testmail                   controllers.TestMailController.mailtest
 GET     /testmail/submit            controllers.TestMailController.submit
-GET     /testmail/dialog            controllers.TestMailController.dialog
-
+GET     /testmail/dialog            controllers.TestMailController.dialogtest
+GET     /testmail/mail              controllers.TestMailController.mail
+GET     /testdialog                 controllers.TestMailController.dialog
 

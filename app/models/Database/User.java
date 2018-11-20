@@ -43,6 +43,14 @@ public class User {
         this.profilePicID = profilePicID;
     }
 
+    /**
+     * The constructor to register new User.
+     * @param email Emailaddress to register by user.
+     */
+    public User (String email){
+        this.setEmail(email);
+    }
+
     /** The id of the user as org.bson.types.ObjectId. */
     @JsonProperty("_id")
     private ObjectId id;

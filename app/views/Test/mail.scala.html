@@ -1,8 +1,8 @@
-@()
+@(title: String)(content: String)(reqestTitle: String)(reqestUrl: String)
 
 @main("Play Camp Mail") {
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
     <html>
         <head>
             <title>A Responsive Email Template</title>
@@ -11,14 +11,43 @@
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <style type="text/css">
                     /* CLIENT-SPECIFIC STYLES */
-                    body, table, td, a{-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;} /* Prevent WebKit and Windows mobile changing default text sizes */
-                    table, td{mso-table-lspace: 0pt; mso-table-rspace: 0pt;} /* Remove spacing between tables in Outlook 2007 and up */
-                    img{-ms-interpolation-mode: bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */
+                    body, table, td, a {
+                        -webkit-text-size-adjust: 100%;
+                        -ms-text-size-adjust: 100%;
+                    }
+
+                    /* Prevent WebKit and Windows mobile changing default text sizes */
+                    table, td {
+                        mso-table-lspace: 0pt;
+                        mso-table-rspace: 0pt;
+                    }
+
+                    /* Remove spacing between tables in Outlook 2007 and up */
+                    img {
+                        -ms-interpolation-mode: bicubic;
+                    }
+
+                    /* Allow smoother rendering of resized image in Internet Explorer */
 
                     /* RESET STYLES */
-                    img{border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none;}
-                    table{border-collapse: collapse !important;}
-                    body{height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important;}
+                    img {
+                        border: 0;
+                        height: auto;
+                        line-height: 100%;
+                        outline: none;
+                        text-decoration: none;
+                    }
+
+                    table {
+                        border-collapse: collapse !important;
+                    }
+
+                    body {
+                        height: 100% !important;
+                        margin: 0 !important;
+                        padding: 0 !important;
+                        width: 100% !important;
+                    }
 
                     /* iOS BLUE LINKS */
                     a[x-apple-data-detectors] {
@@ -31,7 +60,16 @@
                     }
 
                     /* MOBILE STYLES */
-                    @media screen and (max-width: 525px) {
+                    @@media screen and
+
+                    (
+                    max-width:
+
+                    525
+                    px
+
+                    )
+                    {
 
                     /* ALLOWS FOR FLUID TABLES */
                     .wrapper {
@@ -99,13 +137,24 @@
                     }
 
                     /* ANDROID CENTER FIX */
-                    div[style*="margin: 16px 0;"] { margin: 0 !important; }
+                    div[style*="margin: 16px 0;"] {
+                        margin: 0 !important;
+                    }
             </style>
         </head>
-        <body style="margin: 0 !important; padding: 0 !important;">
+        <body style="margin: 0 !important;
+            padding: 0 !important;">
 
                 <!-- HIDDEN PREHEADER TEXT -->
-            <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+            <div style="display: none;
+                font-size: 1px;
+                color: #fefefe;
+                line-height: 1px;
+                font-family: Helvetica, Arial, sans-serif;
+                max-height: 0px;
+                max-width: 0px;
+                opacity: 0;
+                overflow: hidden;">
                 Entice the open with some amazing preheader text. Use a little mystery and get those subscribers to read through...
             </div>
 
@@ -121,13 +170,74 @@
                         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
                             <tr>
                                 <td align="center" valign="top" style="padding: 15px 0;" class="logo">
-                                    <a href="http://litmus.com" target="_blank">
-                                        <img alt="Logo" src="logo-2.jpg" width="60" height="60" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
-                                    </a>
+                                    <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAGQAAAAqCAYAAABFsP5IAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+                                    AAACigAAAooBADmUnAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAzoSURB
+                                    VHic7Zp5fFTVFce/980kQxZCCCYQI6CioiAkCEgsmxRxrVVpC1bbWhUXVBJa8QMiJS/YIvVTQQJo
+                                    U0Xr+tFoy6fW2qpUUxJCwp6wKKSaVsxKHLJN1nnv9o83TOZlthfST6TF3z8z795z7jn3nfvOPefc
+                                    K/BgXdm0821S/BrB1UhswN+FsC1dND7/U75Bv0EA5BycloomtgJn9eg/gU3Oyri0sLT/VTszIdbt
+                                    np5si6AUSAxCc0xoevqiy7ZX9adipzOKq3YuA5kJDAPaEeKN5tbGxXNGzWns69hifdn0V4TkR2Ho
+                                    9nQQNfOR1A9cfRVoCSrxwHhAJ4Z9PEL/yA2DnVU7b9eRrwbrF7BlytlT5vZFhiIkV1ugm+iQba+q
+                                    EqUvwnqBx4F/AAW0srifZIZEcVXJS6GMASDhlh1VJXV9kWP9BQtuTiib9mRfhPUCdu8/SUQ/yQyK
+                                    4sriJ4CfWKEVkFhcVfLlqcpSEDLfOrl4OGf/jPtOVdj/IoqOFY1DiGWhaI67jrO59Pe0ax0nm1KK
+                                    q0s2n4o8u9SUFUKRNwAxljiE3Jizf0ZFRtq2D8LSrmIcOiuAgQi2IKkEfghcgBHR1QAfAzmo1FuS
+                                    r3I98B1gMkYgEge0A/XAHuA1VLZ6aJ8FzgMOksBjZNBhGiubBzFcdgMqPwVkT3GKzbYvlDod7g42
+                                    7HiGc5PP5fVP3+D7F95CXGQcSO4qri1enj40vdbSvE7Ky5ywrRwpfhJImSCwI+TbTx+YPj4spWQS
+                                    MA+4Dsk6YCaCtxGsBgqBacAvgL2onGNR/u1AJLAUSGcMiUQwAXABPwU+ROUBD+1nwDXAwzhZbRpF
+                                    ZQySHOC7gJsA8y+uKl4M2ADqWutobG/yU+aJ/CdJSUzxPr9dvoUuvcuYviZ2WpyTFwpARtq2Pwp4
+                                    qhd8AxWdd54+MGVoL3g+QWUpWfyJLP6Myp3AG56+4UCWpVFUbkdlASofoVLDPDQeoxbhHQvgVs/v
+                                    WgzDA2SyismmkYz5t2NHDSxMrAPYXbuXdyv+yvP7X6C0uszbu3HHMyg2hQi7eZt7/dM3DW4YUdZQ
+                                    NtjSvDzwbp5DjwxbVjO65lLgWou8IxXd8W7u7okz75u0p7U3Qn2whe6XN8USh4qCwhR0rgBGAWcD
+                                    XyEZ7UMV4aHVUbkDKAVi0XmOPCZymAuB73loN7GCYz3F7KrbNUFz67S72ymrPwBA/MB48g68zRcN
+                                    X/C5s4I613FGpYzyU1GTGgWV25meMhWXq+23wHxLc8Mnypo37y3NbXffLuBzq8wgJ7VHRL/ch3DY
+                                    7fPfFpZaZRJwGJ0i4C7gfWA+KguAV4LwfA484nlK5RN+BDyMMfdGInkiEJvu1lcD/LniPW+bQBAX
+                                    E0fxsZ3UuY6TclZKIFYAyhv+iSY1hGBe2Hn5wPQifz52h1Pa5FzA8ooX8L0hZdN/2RuhPrjO578V
+                                    f7sevF/CXai8g0qn5zk6KJdKLobxQLKQ7hX7G5bzVSAWCdd26V00dzab2mM74klJTGHE0BEMcAzw
+                                    tnc1a0jNvA19dCzfGEvK8IvNA7+VnXFpYakQ4h6rA3iUf9RCODyCbGazlih+SQoqyzFWOcC/sLPC
+                                    gihfo92LyjBU4sjmFvBu5IFVtHM3cALDNQ4EaolhXShhO6qLTc9VHzdy9JU6Ov4t/faNw7k1HFhv
+                                    ri4dazbSkeLqvReFnJUPArqaReO3vS6R660OAoCQG3LKpl0VgqIFyVya+Aw3XwKPArsQLAdSWUGl
+                                    D+0u4CCG79/vbR3DEgRLgAMY0dZnQD4wBiPC2gkc8bSZYYy/pFtfHg9WksnLy7MBNPX4OhInxxJz
+                                    diQDzx1gane7NOIvjuKcOf77d5fehbDpViNIo9obCOrHV9oThmgfIrnS6mAImqS0Tc1MzT8IQDZ3
+                                    InnB07sb1RTl9D9U1mCEy0eBcT7uzg+ebDvljSN5tLrbTH1ah87Rl+pInjmI5op2Yoc7GDzW32N+
+                                    KzmdixNG05bcGjFLzHL7EQRAUIMAbPxk9hC9s3MXRnJlFRURaOkLU4vqPMnWi572/jdINr9AEgM0
+                                    YRQrfwBUoHATKzkUjr24quRfwMjPGysorCrCrZvfqdamY4vydzJJ0YnMGTEbh80h9UjH8G+dlVbp
+                                    RxQEIQ0CkLN/xgSE3A5EWR0U2D4wznbVna/lD8HNHRhVgO2ovBeO8b8K1ZOUGvLrgELi+BM/py00
+                                    YzdKakpuk7p8GYQNwNl+gvq2elq6Wgx3hILD7iA+chDDYobisDkAEJA75ewp9/dW5bAGAdhQOuNu
+                                    iXy+NwNLwauZ4wt+3FuFTlcUNR5KUFzN9yHFjRIuEwKHT7cO4qgU8kObTbxwedLl+4MOFAaWDALw
+                                    9J7pRYqdK3o1uOTaRWkF7/derTMXlhO6yvKW3ZarXR5IRfQqKfoGvucOYdBY1xGp2AUpF1orCgMg
+                                    Zc8z+kAQqJwHJACxgBM7J7iIKuahheT8FUPRSUASD4BOLVCHSktQHpUBOIgihla/6q9KLJCEnY4e
+                                    YbgvTTSQRCQulnPcwvzMyMNGOUnoDCCSepZiiq0tu6w7fn3Jvq52LS39Zuv1RIFUF6UWZgfsXMVU
+                                    dBZj1M5iA1CcALaisImV/MPbms1sJPcDVwDBaheHgOeBjag+5ZlVTEanEKNa7EZwPZJPMELhWzFf
+                                    8nBilGNWkkwb1SzCSGTH+tB0YRQvl6Cy16SBSh5wFUYV+QNgM7AImIWRmJ7EEQQvIlmPSrsll/Vg
+                                    7vgpzi/b007UdOBqsBROA9R32bUNAXtUVqNTAHwfo+SxGbgRmIrguwjuB7YDt6BziYlXch1GSf0t
+                                    BN/GzjkkE0kCAzx8EuOlrQNeNvHqDMcwBoAdyVyMo+IGBLehMA3DkGB8sZnAC1SzFSPDX4FCOoJ7
+                                    gU6MIuYs4G/kmDZ5gBnAYM8484FNwB4EC4GFdCevo5GsAd4jl4iwX8jiF9Piq/7ZcqzZ2RULcPEV
+                                    8ZyXGheOrQshr88YX7jVr8cIRd/0PgtUsgj8FakkkUCjybWsZggKbpYR+IaHyj4gzaclBZUqT99c
+                                    4A8+fa0ozGAle3z4Y8HsRoDHUP3OUz4A5nifFdJYSalPfw3g604iTF+rMfOXwXTB5OGQe4iqopRX
+                                    te07aQyAhppOSA3FhZRS3p2ZGsAYBh4yPdn5XXAF8L8wEKgYmEsEXxGPRhwauqlPIREIdoXpbyZj
+                                    GDJbepyOdAC/CcDb02jhVqne41misAbdZJBbQxrki7gx7zvLXef6tjXUdwShNiCkWJ6RVhC4FG5g
+                                    nM//Vh6jOuSAgaAyDbgBmABcQDWDMepelZhXZThYOTZuClVi6RNWcsgTgJxc8BcGNcg9OWPXfPlp
+                                    i1+xsKM1ZODz3KK0bWvCqGE5svODccybB958qBDjNkgxqmcFGufpwQ8qTj/4bhuOgJv6wtxxP6gu
+                                    dy0NlHdIDTR3z68PBLzndNpClcBPwvfSQDSP43/kFhxv0W2MWuAaVIq8xjDQX3fH+o5VpGK+XHLQ
+                                    T/kHNl12SXW563XNHTwL1P0/kj2K3TZfnZVvJQR7Et8LBVqQi3B52FC5DdW05/iufBdjeuQRTzAY
+                                    s0s8nSHQWdajZYPJfTywaWzsV7VNRR0uLahbEQIiIk12rNCVzhsyxpYET8Z8ofIu2WQiWYvhvh5C
+                                    5SIEfwScSBKB0RzmO8D5wEfARo/CWUg2Y3zm53OYP5DNswia0JlIBxkYm62VhLS/sYVsfo+kEsFI
+                                    JPfQHaVJ4CmyeMX04ptOaHubjnfFhxo1Ikrx9XpOHf26xeNKenX3iCw2oPIh8CBGYngV5iutDcB+
+                                    BDlIb/kesniRbGqQPAqkAzchuQmJE3gXuBnBbCQrMc7o69B9Mm6FI+h8gZGYaRgHYYGQT3csWRCQ
+                                    QlCMZCaGizyBTkXIOQt2IlkPDPfxD3UYC24TqnE7xvtqF6y95C+V5a3XhxwUOGt4FJNvSARol1LO
+                                    yUwrLAzHExYqA7AzFDc2oNUTw4fjsWMnGYXWYOfiXyv88xCb5xZMPJBAJI2B9LYD3Lt+TNaxI66w
+                                    xgAYlBgBIBFiQWZqQd+NAaDSDvy7lzxu8L++c9pDpQHDAwSE8tCzY6dWfdaaZbWSmzQyGinlkozx
+                                    2177L6n4/4oun/9uVGtv2N7odL+kdUlLRcboQXYGJUVuyEwrWHtKKp5ZmA9cDigIDmDxqq69pcE9
+                                    0qqEYefHHEo+Ouxnp6jgmQWVIqCot2yKsGi5gUMimyMVbca8eW+FPqP4Bn2CEpMQUR6OKDrO3jlo
+                                    RPSkdQsOOftDqTMZSvSwATc7om1BV70jStGTL4i65rl7S4/2p2JnKpTcO/eXJ4+KudERpfgZxR4h
+                                    5NALYhdsvOdg/teg2xmJ7sTwmXET252dbzbVd56na4iBQyJr45Ps9z37wKF3vk4FzzT8B0MtRnEx
+                                    Pv/RAAAAAElFTkSuQmCC" alt="PlayCamp the repsonsiv projectmanagement." />
+                                    @*
+                                    <img alt="Logo" src="logo-2.jpg" width="60" height="60" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
+                                    *@
                                 </td>
                             </tr>
                         </table>
-             <!--[if (gte mso 9)|(IE)]>
+                            <!--[if (gte mso 9)|(IE)]>
             </td>
             </tr>
             </table>
@@ -147,10 +257,18 @@
                                         <!-- COPY -->
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Your order is on its way!</td>
+                                            <td align="center" style="font-size: 32px;
+                                                font-family: Helvetica, Arial, sans-serif;
+                                                color: #333333;
+                                                padding-top: 30px;" class="padding-copy">@title</td>
                                         </tr>
                                         <tr>
-                                            <td align="left" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, leo a ullamcorper feugiat, ante purus sodales justo, a faucibus libero lacus a est. Aenean at mollis ipsum.</td>
+                                            <td align="left" style="padding: 20px 0 0 0;
+                                                font-size: 16px;
+                                                line-height: 25px;
+                                                font-family: Helvetica, Arial, sans-serif;
+                                                color: #666666;" class="padding-copy">
+                                                @content</td>
                                         </tr>
                                     </table>
                                 </td>
@@ -160,194 +278,10 @@
             </td>
             </tr>
             </table>
-            <![endif]-->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#ffffff" align="center" style="padding: 15px;" class="padding">
-                            <!--[if (gte mso 9)|(IE)]>
+
             <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
             <tr>
             <td align="center" valign="top" width="500">
-            <![endif]-->
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
-                            <tr>
-                                <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
-                                        <!-- TWO COLUMNS -->
-                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                                        <tr>
-                                            <td valign="top" class="mobile-wrapper">
-                                                    <!-- LEFT COLUMN -->
-                                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
-                                                    <tr>
-                                                        <td style="padding: 0 0 10px 0;">
-                                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                                <tr>
-                                                                    <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Purchased Item (1)</td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                    <!-- RIGHT COLUMN -->
-                                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
-                                                    <tr>
-                                                        <td style="padding: 0 0 10px 0;">
-                                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                                <tr>
-                                                                    <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">$XX.XX</td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                        <!-- TWO COLUMNS -->
-                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                                        <tr>
-                                            <td valign="top" style="padding: 0;" class="mobile-wrapper">
-                                                    <!-- LEFT COLUMN -->
-                                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
-                                                    <tr>
-                                                        <td style="padding: 0 0 10px 0;">
-                                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                                <tr>
-                                                                    <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Shipping + Handling</td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                    <!-- RIGHT COLUMN -->
-                                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
-                                                    <tr>
-                                                        <td style="padding: 0 0 10px 0;">
-                                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                                <tr>
-                                                                    <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">$X.XX</td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                        <!-- TWO COLUMNS -->
-                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                                        <tr>
-                                            <td valign="top" style="padding: 0;" class="mobile-wrapper">
-                                                    <!-- LEFT COLUMN -->
-                                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
-                                                    <tr>
-                                                        <td style="padding: 0 0 10px 0;">
-                                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                                <tr>
-                                                                    <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Sales Tax</td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                    <!-- RIGHT COLUMN -->
-                                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
-                                                    <tr>
-                                                        <td style="padding: 0 0 10px 0;">
-                                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                                <tr>
-                                                                    <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">$X.XX</td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px 0 0px 0; border-top: 1px solid #eaeaea; border-bottom: 1px dashed #aaaaaa;">
-                                        <!-- TWO COLUMNS -->
-                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                                        <tr>
-                                            <td valign="top" class="mobile-wrapper">
-                                                    <!-- LEFT COLUMN -->
-                                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
-                                                    <tr>
-                                                        <td style="padding: 0 0 10px 0;">
-                                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                                <tr>
-                                                                    <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px; font-weight: bold;">Total</td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                    <!-- RIGHT COLUMN -->
-                                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
-                                                    <tr>
-                                                        <td>
-                                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                                <tr>
-                                                                    <td align="right" style="font-family: Arial, sans-serif; color: #7ca230; font-size: 16px; font-weight: bold;">$XX.XX</td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                            <!--[if (gte mso 9)|(IE)]>
-            </td>
-            </tr>
-            </table>
-            <![endif]-->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#ffffff" align="center" style="padding: 15px;">
-                            <!--[if (gte mso 9)|(IE)]>
-            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-            <tr>
-            <td align="center" valign="top" width="500">
-            <![endif]-->
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
-                            <tr>
-                                <td>
-                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td>
-                                                    <!-- COPY -->
-                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                    <tr>
-                                                        <td align="left" style="padding: 0 0 0 0; font-size: 14px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color: #aaaaaa; font-style: italic;" class="padding-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, leo a ullamcorper feugiat, ante purus sodales justo, a faucibus libero lacus a est. Aenean at mollis ipsum.</td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                            <!--[if (gte mso 9)|(IE)]>
-            </td>
-            </tr>
-            </table>
             <![endif]-->
                     </td>
                 </tr>
@@ -358,13 +292,6 @@
                                 <td>
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                                <!-- COPY -->
-                                            <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">How did we do?</td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, leo a ullamcorper feugiat, ante purus sodales justo, a faucibus libero lacus a est. Aenean at mollis ipsum.</td>
-                                        </tr>
-                                        <tr>
                                             <td align="center">
                                                     <!-- BULLETPROOF BUTTON -->
                                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -372,7 +299,18 @@
                                                         <td align="center" style="padding-top: 25px;" class="padding">
                                                             <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
                                                                 <tr>
-                                                                    <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="https://litmus.com" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Let Us Know</a></td>
+                                                                    <td align="center" style="border-radius: 3px;" bgcolor="#256F9C">
+                                                                        <a href="@reqestUrl" target="_blank" style="font-size: 16px;
+                                                                        font-family: Helvetica, Arial, sans-serif;
+                                                                        color: #ffffff;
+                                                                        text-decoration: none;
+                                                                        color: #ffffff;
+                                                                        text-decoration: none;
+                                                                        border-radius: 3px;
+                                                                        padding: 15px 25px;
+                                                                        border: 1px solid #256F9C;
+                                                                        display: inline-block;" class="mobile-button">
+                                                                        @reqestTitle</a></td>
                                                                 </tr>
                                                             </table>
                                                         </td>
@@ -384,33 +322,7 @@
                                 </td>
                             </tr>
                         </table>
-                            <!--[if (gte mso 9)|(IE)]>
-            </td>
-            </tr>
-            </table>
-            <![endif]-->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#ffffff" align="center" style="padding: 20px 0px;">
-                            <!--[if (gte mso 9)|(IE)]>
-            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-            <tr>
-            <td align="center" valign="top" width="500">
-            <![endif]-->
-                            <!-- UNSUBSCRIBE COPY -->
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 500px;" class="responsive-table">
-                            <tr>
-                                <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
-                                    1234 Main Street, Anywhere, MA 01234, USA
-                                    <br>
-                                    <a href="http://litmus.com" target="_blank" style="color: #666666; text-decoration: none;">Unsubscribe</a>
-                                    <span style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                                    <a href="http://litmus.com" target="_blank" style="color: #666666; text-decoration: none;">View this email in your browser</a>
-                                </td>
-                            </tr>
-                        </table>
-                            <!--[if (gte mso 9)|(IE)]>
+            <!--[if (gte mso 9)|(IE)]>
             </td>
             </tr>
             </table>
