@@ -31,3 +31,4 @@ GET     /testmail                   controllers.TestMailController.index
 GET     /testmail/submit            controllers.TestMailController.submit
 
 
+GET     /editProject                controllers.ProjectController.edit

@@ -6,6 +6,8 @@ import org.bson.types.ObjectId;
 import java.util.*;
 import java.util.List;
 
+import static java.util.Arrays.asList;
+
 /**
  * This class describes the project and its attributes of playcamp.
  */
@@ -107,4 +109,43 @@ public class Project {
 
     @Override
     public String toString() { return getName() +": "+ getBeschreibung(); }
+
+    public static class TestProjects {
+        public static List<User> pro01DBUsers = new ArrayList<>(asList(
+                new User(new ObjectId(), "Max", "Mustermann", "test1234", "max.mustermann@email.com", new ObjectId()),
+                new User(new ObjectId(), "Peter", "Flusel", "test1234", "peter.flusel@email.com", new ObjectId()),
+                new User(new ObjectId(), "Martina", "Musterfrau", "test1234", "martina.musterfrau@email.com", new ObjectId()),
+                new User(new ObjectId(), "Anna", "Bauer", "test1234", "anna.bauer@email.com", new ObjectId()),
+                new User(new ObjectId(), "Zeus", "Olympia", "test1234", "zeus.olympia@email.com", new ObjectId()),
+                new User(new ObjectId(), "Alexandra", "Da", "test1234", "alexandra.da@email.com", new ObjectId())
+        ));
+
+        public static ObjectId proId01 = new ObjectId();
+
+        public static List<ObjectId> pro01Users = new ArrayList<>(asList(
+                pro01DBUsers.get(1).getId(),
+                pro01DBUsers.get(2).getId(),
+                pro01DBUsers.get(3).getId(),
+                pro01DBUsers.get(4).getId()
+        ));
+
+        public static ObjectId messageBoardId01 = new ObjectId();
+
+        public static List<Project> projects = new ArrayList<>(asList(
+                new Project(proId01, "Project01", "Auf der Registerkarte 'Einfügen' enthalten die Kataloge Elemente, die mit dem generellen Layout des Dokuments koordiniert werden sollten. Mithilfe dieser Kataloge können Sie Tabellen, Kopfzeilen, Fußzeilen, Listen, Deckblätter und sonstige Dokumentbausteine einfügen. Wenn Sie Bilder, Tabellen oder Diagramme erstellen, werden diese auch mit dem aktuellen Dokumentlayout koordiniert.\n" +
+                        "Die Formatierung von markiertem Text im Dokumenttext kann auf einfache Weise geändert werden, indem Sie im Schnellformatvorlagen-Katalog auf der Registerkarte 'Start' ein Layout für den markierten Text auswählen. Text können Sie auch direkt mithilfe der anderen Steuerelemente auf der Registerkarte 'Start' formatieren. Die meisten Steuerelemente ermöglichen die Auswahl zwischen dem Layout des aktuellen Designs oder der direkten Angabe eines Formats.\n" +
+                        "Wählen Sie neue Designelemente auf der Registerkarte 'Seitenlayout' aus, um das generelle Layout des Dokument s zu ändern. Verwenden Sie den Befehl zum Ändern des aktuellen Schnellformatvorlagen-Satzes, um die im Schnellformatvorlagen-Katalog verfügbaren Formatvorlagen zu ändern. Die Design- und die Schnellformatvorlagen-Kataloge stellen beide Befehle zum Zurücksetzen bereit, damit Sie immer die Möglichkeit haben, das ursprüngliche Layout des Dokument s in der aktuellen Vorlage wiederherzustellen.\n",
+                        pro01DBUsers.get(0).getId(),
+                        pro01Users,
+                        messageBoardId01)
+        ));
+
+        public static User findUserById(ObjectId id) {
+            User user = null;
+            for (User u : pro01DBUsers) {
+                if(u.getId().equals(id)) { user = u; break; }
+            }
+            return user;
+        }
+    }
 }
