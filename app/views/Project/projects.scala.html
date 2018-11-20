@@ -1,5 +1,6 @@
 @import models.Database.Project
 @(aProject: Array[Project])
+
 @main("Projekte"){
 
 <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/projects.css")' />
@@ -10,7 +11,7 @@
     <br>
     <center><input name="Neu Projekt" type="text" placeholder="New Projekt" ></center>
     <br>
-    <center> <textarea name="message" rows="6" cols="30"></textarea></center>
+    <center> <textarea name="message" rows="6" cols="30">Beschreibung</textarea></center>
     <br>
     <center> <table style="width:30%">
       <tr></tr>
@@ -29,15 +30,15 @@
           <div class="dropdown-menu">
             <select multiple class="form-control" id="sel2">
 
-              <option> <span class="dot"><center>5</center></span> Fabian </option>
+              <option> <span class="dot"><center>5</center></span>@aProject(0).getBeschreibung</option>
               <br><br>
-              <option> <span class="dot"><center>6</center></span> Micha </option>
+              <option> <span class="dot"><center>6</center></span>@aProject(0).getBeschreibung</option>
               <br><br>
-              <option> <span class="dot"><center>7</center></span> Audrain </option>
+              <option> <span class="dot"><center>7</center></span>@aProject(0).getBeschreibung</option>
               <br><br>
-              <option> <span class="dot"><center>8</center></span> Marwen </option>
+              <option> <span class="dot"><center>8</center></span>@aProject(0).getBeschreibung</option>
               <br><br>
-              <option> <span class="dot"><center>9</center></span> Peter </option>
+              <option> <span class="dot"><center>9</center></span>@aProject(0).getBeschreibung</option>
 
             </select>
           </div>

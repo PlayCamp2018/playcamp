@@ -11,7 +11,7 @@ public class ProjectController extends Controller {
     @Inject
     private ProjectRepository projects;
 
-    public Result showProjects() {
+     public Result showProjects() {
         projects.insertRandomProject();
         return ok(views.html.Project.projects.render(projects.getAllProjects()));
     }
