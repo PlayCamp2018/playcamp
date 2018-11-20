@@ -7,13 +7,20 @@ import javax.inject.Inject;
 import play.api.libs.mailer.MailerClient;
 import play.libs.mailer.Email;
 import play.mvc.Result;
+import play.Configuration;
+import javax.inject.Inject;
 import repositories.*;
+import models.Database.User;
+import org.bson.types.ObjectId;
 
 
 public class TestMailController extends Controller {
 
+
     private enum DialogType {SUCCESS, INFO, ERROR, WARN};
 
+    @Inject
+    private Configuration configuration;
 
     @Inject
     private UserRepository users;
@@ -56,15 +63,21 @@ public class TestMailController extends Controller {
         }
     }
 
+    private String getFromMailaddress(){
+        String value = configuration.getString("play.mailer.user");
+        return value;
+    }
+
 //    public Result register(String mailadd){
+//        ObjectId id = ObjectId.get();
 //        //TODO:
 //        // * User
 //        // * reqestURL?
 //        // * mailFrom
 //
-//        String mailFrom = "mailFrom";
-//        User u = User(mailadd);
-//        users.save(u);
+//       // String mailFrom = "mailFrom";
+//       // User u = User(mailadd);
+//       // users.save(u);
 //
 //        String t = "Neuen Account anlegen";
 //        String rT = t;
@@ -144,7 +157,8 @@ public class TestMailController extends Controller {
         DialogType dtype =  DialogType.valueOf(type);
         String title = "Mein Title!";
         String mess = "Meine Message ....";
-
+        String s = getFromMailaddress();
+        ObjectId id = ObjectId.get();
         return ok(getDialog(dtype, title, mess));
     }
 

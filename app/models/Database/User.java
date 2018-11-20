@@ -30,7 +30,8 @@ public class User {
                 @JsonProperty("lastname")String lastname,
                 @JsonProperty("password")String password,
                 @JsonProperty("email") String email,
-                @JsonProperty("profilepicID") ObjectId profilePicID) {
+                @JsonProperty("profilepicID") ObjectId profilePicID,
+                @JsonProperty("rquestID") ObjectId requestID) {
 
         //FixMe: wenn der Constructor auch im java-code genutzt wird dann würde ich diese mittels der setter setzten,
         // da diese dort auch gleich validiert werden. (ausser id, die kommt ja nur aus der DB)
@@ -41,13 +42,14 @@ public class User {
         this.password = password;
         this.email = email;
         this.profilePicID = profilePicID;
+        this.requestID = requestID;
     }
 
     /**
      * The constructor to register new User.
      * @param email Emailaddress to register by user.
      */
-    public User (String email){
+    public User(String email){
         this.setEmail(email);
     }
 
@@ -73,6 +75,10 @@ public class User {
     /**  The id of the user profile pic as org.bson.types.ObjectId. */
     @JsonProperty("profilePicID")
     private ObjectId profilePicID;
+    /**  The id of a mail reqest on new user or passwortreset.  */
+    @JsonProperty("requestID")
+    private ObjectId requestID;
+
 
     /**
      * Get the id of the user.
@@ -119,6 +125,12 @@ public class User {
     }
 
     /**
+     * Get the reqest id of this user on new user and passwordreset.
+     * @return Returns the reqest id of this user as ObjectId.
+     */
+    public ObjectId getRequestID() { return requestID; }
+
+    /**
      * Set the first name of the user.
      * @param firstname The first name as String.
      */
@@ -158,6 +170,13 @@ public class User {
     public void setProfilePicID(ObjectId profilePicID) {
         this.profilePicID = profilePicID;
     }
+
+    /**
+     * Set the reqest id of this user on new user and passwordreset.
+     * @param requestID The reqest id of this user as ObjectId.
+     */
+    public void setRequestID(ObjectId requestID) { this.requestID = requestID; }
+
 
     public String toString() {
         return firstname + ", " + lastname + ": " + email;
