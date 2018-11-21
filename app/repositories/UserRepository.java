@@ -3,6 +3,7 @@ package repositories;
 import com.mongodb.WriteResult;
 import models.Database.User;
 import org.bson.types.ObjectId;
+import org.jongo.Find;
 import org.jongo.MongoCollection;
 import org.jongo.MongoCursor;
 import uk.co.panaxiom.playjongo.PlayJongo;
@@ -34,6 +35,7 @@ public class UserRepository {
 
         return users;
     }
+
 
     /**
      * Finds user with given id
@@ -98,5 +100,19 @@ public class UserRepository {
     public boolean insertRandomUser(ObjectId id) {
         User u = Utils.getRandomUser(id);
         return insert(u);
+    }
+
+    public static boolean isValid(String email, String password) {
+        return ((email != null)
+                &&
+                (password != null)
+                &&
+                isUser(email)
+                &&
+                findByEmail(email).getPassword().equals(password));
+    }
+
+    public Find isUser(String email){
+        return users().find(email);
     }
 }

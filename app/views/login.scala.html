@@ -1,48 +1,13 @@
-@()
+@import models.Database.User
+@(page: String, isLoggedIn: Boolean, user: User, loginForm: Form[views.formdata.LoginFormData])
 
-@main("login") {
+    @import bootstrap3._
 
-    <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/login.css")' />
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-5 col-md-3">
-                <div class="form-login">
-                    <h4>Welcome back.</h4>
-                    <div class="row">
-                        <input type="text" id="user-name" class="form-control input-sm chat-input"
-                        data-toggle="tooltip" data-placement="top"
-                        placeholder=@Messages("email.sample") title='@Messages("login.email.description")' />
-                    </div>
-                    <div class="row">
-                        <input type="text" id="user-password" class="form-control input-sm chat-input"
-                        placeholder="password"
-                        title='@Messages("login.password.description")'/>
-                    </div>
-                    <div class="row align-self-center">
-                        <button class="btn btn-lg  btn-primary" type="submit">
-                            <i class="glyphicon glyphicon-ok-sign"></i> @Messages("login.title")
-                        </button>
-                    </div>
-                    <hr class="my-4">
-                    <div class="row">
-                        <div class="col">
-                            <a href="register.scala.html"
-                            title='@Messages("login.register.description")'
-                            >@Messages("login.register")</a>
-                        </div>
-                        <div class="col">
-                            <a href="password-reqest.scala.html"
-                            title='@Messages("login.password.reqest")'
-                            >@Messages("login.password")</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    @main(page, isLoggedIn, user) {
+        <div class="container">
+        @loginform(routes.LoginController.postLogin(), loginForm("email"), loginForm("password"))
         </div>
-    </div>
-}
-
+    }
 
 
 

@@ -30,4 +30,9 @@ GET     /test                       controllers.TestController.index
 GET     /testmail                   controllers.TestMailController.index
 GET     /testmail/submit            controllers.TestMailController.submit
 
+GET     /                           controllers.LoginController.index
+GET     /login                      controllers.LoginController.login
+POST    /login                      controllers.LoginController.postLogin
+GET     /logout                      controllers.LoginController.logout
+
 

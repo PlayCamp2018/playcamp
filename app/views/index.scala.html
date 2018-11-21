@@ -1,19 +1,27 @@
-@()
+@import models.Database.User
+@(page: String, isLoggedIn: Boolean, user: User)
 
-@main("Welcome to Play") {
+@main(page, isLoggedIn, user) {
   <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/index.css")">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <div class="v-wrap">
-    <img src="@routes.Assets.versioned("images/playcamp_logo_full_500.png")" />
-  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
 
-  <div class="v-wrap">
-    <h1>Welcome to Play! NEW Test! LATEST!</h1>
-    <a href="http://www.nooooooooooooooo.com/">nooooooooooooooo</a>
-  </div>
+        <div class="v-wrap">
+          <img src="@routes.Assets.versioned("images/playcamp_logo_full_500.png")" />
+        </div>
 
-  <div class="v-wrap">
-      <section class="login">@login()</section>
+        <div class="v-wrap">
+          <h1>Welcome to Play! NEW Test! LATEST!</h1>
+          <a href="http://www.nooooooooooooooo.com/">nooooooooooooooo</a>
+        </div>
+
+        <div class="v-wrap">
+          <section class="login">@login()</section>
+        </div>
+      </div>
+    </div>
   </div>
 }
