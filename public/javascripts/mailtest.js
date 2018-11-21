@@ -34,10 +34,17 @@ $( window ).on( "load", function() {
     });
 
     $( "#btn-register" ).click(function() {
-        var bla = $('#txt-register').val();
+        var bla = $('#txt-mailaddress').val();
         var req = '/testmail/register?mail=' + bla;
         $.get(req, function(response) {
-            //console.log(response);
+            document.getElementById("modalDialogContent").innerHTML = response;
+            $('#dialogModal').modal('show')
+        });
+    });
+    $( "#btn-passwortreset" ).click(function() {
+        var bla = $('#txt-mailaddress').val();
+        var req = '/testmail/passwortreset?mail=' + bla;
+        $.get(req, function(response) {
             document.getElementById("modalDialogContent").innerHTML = response;
             $('#dialogModal').modal('show')
         });

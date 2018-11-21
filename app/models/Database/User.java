@@ -50,6 +50,7 @@ public class User {
      * @param email Emailaddress to register by user.
      */
     public User(String email){
+        this.setRequestID(ObjectId.get());
         this.setEmail(email);
     }
 

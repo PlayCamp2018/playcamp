@@ -30,7 +30,10 @@ GET     /test                       controllers.TestController.index
 GET     /testmail                   controllers.TestMailController.mailtest
 GET     /testmail/submit            controllers.TestMailController.submit
 GET     /testmail/register          controllers.TestMailController.register
+    GET     /testmail/passwortreset     controllers.TestMailController.passwordReset
 GET     /testmail/dialog            controllers.TestMailController.dialogtest
 GET     /testmail/mail              controllers.TestMailController.mail
 GET     /testdialog                 controllers.TestMailController.dialog
+
+
 

@@ -19,8 +19,6 @@ import utils.Dialog;
 public class TestMailController extends Controller {
 
 
-    private enum DialogType {SUCCESS, INFO, ERROR, WARN};
-
     @Inject
     private Configuration configuration;
 
@@ -32,7 +30,6 @@ public class TestMailController extends Controller {
 
 
     // Ticket https://studi.f4.htw-berlin.de/redmine/issues/13075
-    // Mailer plugin
 
     @Inject
     private MailerClient mailer;
@@ -70,23 +67,35 @@ public class TestMailController extends Controller {
         return value;
     }
 
-    public Result register(){
+    public Result register() {
         String mail = request().getQueryString("mail");
-
         //Todo:
+        // * evt. diese func in den AppControler
         // * ist Acc schon vorhanden
         // ** im Reg_status oder nicht
         // * neuen Schatten-Acc anlegen
 
-
-        String t = "Neuen Account registrieren";
-        String rT = "Registrierung abschließen";
         String rU = "http://localhost:9000";
+
+        return registerMail(mail, rU);
+    }
+
+    /**
+     * This function generate and send the Mail to open the user-registration.
+     * @param mail The Mailaddress of new user.
+     * @param requestUrl The request url in the email.
+     * @return Returns the HTML-Code vor the modal-bootstrap-dialog.
+     * @see utils.Dialog#getDialog(Dialog.Type, String, String)
+     */
+    private Result registerMail(String mail, String requestUrl){
+
+        String t = "Account registrieren";
+        String rT = "Registrierung abschließen";
 
         String m = "Sie wollen sich mit der Mailadresse " + mail + " bei PlayCamp registrieren.\n" +
                 "Schließen Sie jetzt ihre Registrierung ab.\n";
-        String text = m + "\nRegistrierung abschliessen mit folgender Url: " + rU;
-        play.twirl.api.Html html = views.html.Test.mail.render(t,m,rT,rU);
+        String text = m + "\nRegistrierung abschliessen mit folgender Url: " + requestUrl;
+        play.twirl.api.Html html = views.html.Test.mail.render(t,m,rT,requestUrl);
 
         Dialog.Type dtype;
         String title = "";
@@ -103,42 +112,20 @@ public class TestMailController extends Controller {
             title = "Fehler beim Mailversand";
             mess = "Beim verschicken der Mail ist ein Fehler aufgetreten.\n" +
             "Fehler: " + e;
-            //System.out.println("No Mail send! " + e.toString());
-            //throw e;
         }
-
         return ok(Dialog.getDialog(dtype, title, mess));
     }
 
-//    public Result register(String mailadd){
-//        ObjectId id = ObjectId.get();
-//        //TODO:
-//        // * User
-//        // * reqestURL?
-//        // * mailFrom
-//
-//       // String mailFrom = "mailFrom";
-//       // User u = User(mailadd);
-//       // users.save(u);
-//
-//        String t = "Neuen Account anlegen";
-//        String rT = t;
-//        String rU = "http://localhost:9000";
-//
-//        String m = "Sie wollen sich mit der Mailadresse " + u.getEmail() + " bei PlayCamp registrieren.\n" +
-//                "Schließen Sie jetzt ihre Registrierung ab.\n";
-//        String text = m + "\nRegistrierung abschliessen mit folgender Url: " + rU;
-//        String html= views.html.Test.mail.render(t,m,rT,rU);
-//        thise.sendMail( mailFrom, u.getEmail(), t, html, text);
-//    }
-//
-//
-//    public Result passwordReset(String mailadd){
-//        //TODO:
-//        // * User
-//        // * reqestURL?
-//        // * mailFrom
-//
+
+    public Result passwordReset() {
+        String mail = request().getQueryString("mail");
+        //Todo:
+        // * evt. diese func in den AppControler
+        // * ist Acc vorhanden ?
+        // ** im Reg_status oder nicht
+        // * setzen reqest id
+        // * reqestURL?
+
 //        String mailFrom = "mailFrom";
 //        User u = User.findByEmail (mailadd);
 //
@@ -146,20 +133,41 @@ public class TestMailController extends Controller {
 //            Exception e = new Exception("Mailaddresse ist nicht registriert." );
 //            throw e;
 //        }
-//
-//
-//
-//        String t = "Passwort zurücksetzen";
-//        String rT = "Neues Passwort vergeben";
-//        String rU = "http://localhost:9000";
-//
-//        String m = "Sie haben ihr Password vergessen und wollen diese mit der Mailaddresse" +
-//                u.getEmail() + " zurücksetzten.\n" +
-//                "Vergeben Sie ein neues Passswort.\n";
-//        String text = m + "\nZum Passwort zurücksetzen die folgende Url aufrufen: " + rU;
-//        String html= views.html.Test.mail.render(t,m,rT,rU);
-//        thise.sendMail(mailFrom, u.getEmail(), t, html, text);
-//    }
+
+        String rU = "http://localhost:9000";
+
+        return passwordResetMail(mail, rU);
+    }
+
+    public Result passwordResetMail(String mail, String requestUrl){
+
+        String t = "Passwort zurücksetzen";
+        String rT = "Neues Passwort vergeben";
+
+        String m = "Sie haben ihr Password vergessen und wollen diese mit der Mailaddresse '" +
+                mail + "' zurücksetzten.\n" +
+                "Vergeben Sie ein neues Passswort.\n";
+        String text = m + "\nZum Passwort zurücksetzen die folgende Url aufrufen: " + requestUrl;
+        play.twirl.api.Html html = views.html.Test.mail.render(t,m,rT,requestUrl);
+
+        Dialog.Type dtype;
+        String title = "";
+        String mess = "";
+
+        try{
+            this.sendMail( this.getFromMailaddress(), mail, t, html.toString(), text);
+            dtype =  Dialog.Type.SUCCESS;
+            title = "Passwortreset";
+            mess = "Sie haben einen Passwortreset mit der Mailadresse '" + mail + "' angefordet.\n" +
+                    "Bitte prüfen Sie ihr Postfach, um die Passwortänderung durchzuführen.";
+        } catch (Exception e) {
+            dtype =  Dialog.Type.ERROR;
+            title = "Fehler beim Mailversand";
+            mess = "Beim verschicken der Mail ist ein Fehler aufgetreten.\n" +
+                    "Fehler: " + e;
+        }
+        return ok(Dialog.getDialog(dtype, title, mess));
+    }
 //
 //
 //
