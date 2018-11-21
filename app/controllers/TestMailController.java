@@ -7,11 +7,13 @@ import javax.inject.Inject;
 import play.api.libs.mailer.MailerClient;
 import play.libs.mailer.Email;
 import play.mvc.Result;
+import play.twirl.api.Html;
 import play.Configuration;
 import javax.inject.Inject;
 import repositories.*;
 import models.Database.User;
 import org.bson.types.ObjectId;
+import utils.Dialog;
 
 
 public class TestMailController extends Controller {
@@ -66,6 +68,46 @@ public class TestMailController extends Controller {
     private String getFromMailaddress(){
         String value = configuration.getString("play.mailer.user");
         return value;
+    }
+
+    public Result register(){
+        String mail = request().getQueryString("mail");
+
+        //Todo:
+        // * ist Acc schon vorhanden
+        // ** im Reg_status oder nicht
+        // * neuen Schatten-Acc anlegen
+
+
+        String t = "Neuen Account registrieren";
+        String rT = "Registrierung abschließen";
+        String rU = "http://localhost:9000";
+
+        String m = "Sie wollen sich mit der Mailadresse " + mail + " bei PlayCamp registrieren.\n" +
+                "Schließen Sie jetzt ihre Registrierung ab.\n";
+        String text = m + "\nRegistrierung abschliessen mit folgender Url: " + rU;
+        play.twirl.api.Html html = views.html.Test.mail.render(t,m,rT,rU);
+
+        Dialog.Type dtype;
+        String title = "";
+        String mess = "";
+
+        try{
+            this.sendMail( this.getFromMailaddress(), mail, t, html.toString(), text);
+            dtype =  Dialog.Type.SUCCESS;
+            title = "Registrierung verschickt";
+            mess = "Sie haben eine Registrierung mit der Mailadresse '" + mail + "' angefordet.\n" +
+                    "Bitte prüfen Sie ihr Postfach, um die Registrierung abzuschliessen.";
+        } catch (Exception e) {
+            dtype =  Dialog.Type.ERROR;
+            title = "Fehler beim Mailversand";
+            mess = "Beim verschicken der Mail ist ein Fehler aufgetreten.\n" +
+            "Fehler: " + e;
+            //System.out.println("No Mail send! " + e.toString());
+            //throw e;
+        }
+
+        return ok(Dialog.getDialog(dtype, title, mess));
     }
 
 //    public Result register(String mailadd){
@@ -154,49 +196,13 @@ public class TestMailController extends Controller {
 
     public Result dialog() {
         String type = request().getQueryString("dialog");
-        DialogType dtype =  DialogType.valueOf(type);
+        Dialog.Type dtype =  Dialog.Type.valueOf(type);
         String title = "Mein Title!";
         String mess = "Meine Message ....";
         String s = getFromMailaddress();
         ObjectId id = ObjectId.get();
-        return ok(getDialog(dtype, title, mess));
+        return ok(Dialog.getDialog(dtype, title, mess));
     }
-
-    private String getDialog(DialogType type, String title, String message) {
-        String ret = "";
-
-        switch (type) {
-            case SUCCESS:
-                ret = "<div class='modal-header alert alert-success' role='alert'>";
-                break;
-            case WARN:
-                ret = "<div class='modal-header alert alert-warning' role='alert'>";
-                break;
-            case INFO:
-                ret = "<div class='modal-header alert alert-info' role='alert'>";
-                break;
-            case ERROR:
-                ret = "<div class='modal-header alert alert-danger' role='alert'>";
-                break;
-        }
-
-        // FixMe: Path by assets.versioned ...
-        ret += "<img src='/assets/images/playcamp_logo_full_50.png' />";
-
-        ret += "<h5 class='pl-sm-3 modal-title' id='exampleModalLongTitle'>" + title + "</h5>";
-
-        ret += "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
-        ret += "<span aria-hidden='true'>&times;</span></button>";
-
-        ret += "</div><div class='modal-body'>";
-        ret += message;
-
-        ret += "</div><div class='modal-footer'>";
-        ret += "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Schließen</button></div>";
-
-        return ret;
-    }
-
 
     // Test Funktionienen
 

@@ -1,4 +1,6 @@
 @()
+@import utils.Dialog
+
 @main("Welcome to Play") {
     @helper.form(action = routes.TestMailController.submit(), 'enctype -> "multipart/form-data") {
         <div class="container">
@@ -45,12 +47,25 @@
 
 
         <!-- Modal -->
-    <div class="modal fade" id="dialogModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content" id="modalDialogContent"></div>
-        </div>
-    </div>
+    @*<div class="modal fade" id="dialogModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">*@
+        @*<div class="modal-dialog modal-dialog-centered" role="document">*@
+            @*<div class="modal-content" id="modalDialogContent"></div>*@
+        @*</div>*@
+    @*</div>*@
+
+    @Html(Dialog.getDialogSkel());
+
+
+    <hr>
+
+    <h3>Register</h3>
+
+    <input type="email" class="form-control" name="email" id="txt-register" placeholder="you.at.mail.com" title="E-Mail eingeben">
+
+    <button class="btn btn-lg btn-success" type="submit" id="btn-register"><i class="glyphicon glyphicon-ok-sign"></i>Senden</button>
+
 
 
     <script type="text/javascript" src='@routes.Assets.versioned("javascripts/mailtest.js")'></script>
+
 }

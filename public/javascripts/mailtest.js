@@ -32,4 +32,15 @@ $( window ).on( "load", function() {
             $('#dialogModal').modal('show')
         });
     });
+
+    $( "#btn-register" ).click(function() {
+        var bla = $('#txt-register').val();
+        var req = '/testmail/register?mail=' + bla;
+        $.get(req, function(response) {
+            //console.log(response);
+            document.getElementById("modalDialogContent").innerHTML = response;
+            $('#dialogModal').modal('show')
+        });
+    });
+
 });
