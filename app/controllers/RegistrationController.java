@@ -33,8 +33,8 @@ public class RegistrationController extends Controller {
         String userFirstname = json.get("user_firstname").textValue();
         String userLastname = json.get("user_lastname").textValue();
         String email = json.get("user_email").textValue();
-        String password = json.get("user_passwort").textValue();
-        String password2 = json.get("user_passwort2").textValue();
+        String password = "123";//json.get("user_passwort").textValue();
+        String password2 = "123";//json.get("user_passwort2").textValue();
 
         if(password.equals(password2)) {
             String passwordHash = Utils.hash(password);
@@ -54,7 +54,7 @@ public class RegistrationController extends Controller {
             //user.setEmail(email);
             user.setPassword(passwordHash);
             user.setProfilePicID(null);
-            user.save(user);
+            userRepo.save(user);
 
      //       }
 
