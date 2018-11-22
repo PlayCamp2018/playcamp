@@ -1,6 +1,7 @@
-@()
+@import models.Database.User
+@(page: String, isLoggedIn: Boolean, user: User)
 
-@main("Welcome to Play") {
+@main(page, isLoggedIn, user) {
     <script type="text/javascript" src='@routes.Assets.versioned("javascripts/chat.js")'></script>
     <h1>Chat</h1>
 

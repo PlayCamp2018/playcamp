@@ -1,5 +1,7 @@
-@()
-@main("Welcome to Play") {
+@import models.Database.User
+@(page: String, isLoggedIn: Boolean, user: User)
+
+@main(page, isLoggedIn, user) {
     @helper.form(action = routes.TestMailController.submit(), 'enctype -> "multipart/form-data") {
         <div class="container">
 

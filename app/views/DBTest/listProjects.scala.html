@@ -1,7 +1,8 @@
 @import models.Database.Project
-@(aProject: Array[Project])
+@import models.Database.User
+@(aProject: Array[Project], page: String, isLoggedIn: Boolean, user: User)
 
-@main("Welcome to Play") {
+@main(page, isLoggedIn, user) {
     <h1>DB Test!</h1>
 
     @if(aProject == null) {

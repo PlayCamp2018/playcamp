@@ -8,6 +8,9 @@ addSbtPlugin("com.github.sbt" % "sbt-jacoco" % "3.1.0")
 addSbtPlugin("com.etsy" % "sbt-checkstyle-plugin" % "3.1.1")
 //dependencyOverrides += "com.puppycrawl.tools" % "checkstyle" % "6.15"
 
+// The Typesafe repository
+resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+
 // https://github.com/sbt/sbt-testng
 //addSbtPlugin("de.johoop" % "sbt-testng-plugin" % "3.1.1")
 

@@ -1,6 +1,7 @@
-@()
+@import models.Database.User
+@(page: String, isLoggedIn: Boolean, user: User)
 
-@main("Max Mustermann") {
+@main(page, isLoggedIn, user) {
 
     <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/profile-page.css")' />
 

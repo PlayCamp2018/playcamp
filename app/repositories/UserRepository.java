@@ -102,17 +102,12 @@ public class UserRepository {
         return insert(u);
     }
 
-    public static boolean isValid(String email, String password) {
-        return ((email != null)
-                &&
-                (password != null)
-                &&
-                isUser(email)
-                &&
-                findByEmail(email).getPassword().equals(password));
+    public Boolean isValid(String email, String password) {
+        return findByEmail(email).getPassword().equals(password);
     }
 
     public Find isUser(String email){
         return users().find(email);
     }
+
 }

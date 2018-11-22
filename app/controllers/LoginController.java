@@ -7,23 +7,28 @@ import views.html.login;
 import views.formdata.LoginFormData;
 import play.mvc.Security;
 
+import javax.inject.Inject;
+
 
 public class LoginController extends Controller{
+
+    @Inject
+    Secured sec;
     /**
      * Provides the Index page.
      * @return The Index page.
      */
-    public static Result index() {
-        return ok(index.render("Home", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx())));
+    public Result index() {
+        return ok(index.render("Home", sec.isLoggedIn(ctx()), sec.getUserInfo(ctx())));
     }
 
     /**
      * Provides the Login page (only to unauthenticated users).
      * @return The Login page.
      */
-    public static Result login() {
+    public Result login() {
         Form<LoginFormData> formData = Form.form(LoginFormData.class);
-        return ok(login.render("Login", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), formData));
+        return ok(login.render("Login", sec.isLoggedIn(ctx()), sec.getUserInfo(ctx()), formData));
     }
 
     /**
@@ -34,14 +39,14 @@ public class LoginController extends Controller{
      * If errors not found, render the page with the good data.
      * @return The index page with the results of validation.
      */
-    public static Result postLogin() {
+    public Result postLogin() {
 
         // Get the submitted form data from the request object, and run validation.
         Form<LoginFormData> formData = Form.form(LoginFormData.class).bindFromRequest();
 
         if (formData.hasErrors()) {
             flash("error", "Login credentials not valid.");
-            return badRequest(login.render("Login", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), formData));
+            return badRequest(login.render("Login", sec.isLoggedIn(ctx()), sec.getUserInfo(ctx()), formData));
         }
         else {
             // email/password OK, so now we set the session variable and only go to authenticated pages.
@@ -56,7 +61,7 @@ public class LoginController extends Controller{
      * @return A redirect to the Index page.
      */
     @Security.Authenticated(Secured.class)
-    public static Result logout() {
+    public Result logout() {
         session().clear();
         return redirect(routes.LoginController.index());
     }

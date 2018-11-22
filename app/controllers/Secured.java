@@ -4,9 +4,12 @@ import play.mvc.Result;
 import play.mvc.Http.Context;
 
 import models.Database.User;
+import play.mvc.Security;
 import repositories.UserRepository;
 
-import static play.mvc.Results.redirect;
+import javax.inject.Inject;
+
+
 
 /**
         * Implement authorization for this system.
@@ -17,13 +20,16 @@ import static play.mvc.Results.redirect;
         * can know if there is a logged in user.
         */
 
-public class Secured {
+public class Secured extends Security.Authenticator{
+
+    @Inject
+    UserRepository users;
     /**
      * Used by authentication annotation to determine if user is logged in.
      * @param ctx The context.
      * @return The email address of the logged in user, or null if not logged in.
      */
-    @Override
+
     public String getEmail(Context ctx) {
         return ctx.session().get("email");
     }
@@ -44,7 +50,7 @@ public class Secured {
      * @param ctx the context containing the session
      * @return The email of the logged in user, or null if user is not logged in.
      */
-    public static String getUser(Context ctx) {
+    public  String getUser(Context ctx) {
         return ctx.session().get("email");
     }
 
@@ -53,7 +59,7 @@ public class Secured {
      * @param ctx The context.
      * @return True if user is logged in.
      */
-    public static boolean isLoggedIn(Context ctx) {
+    public boolean isLoggedIn(Context ctx) {
         return (getUser(ctx) != null);
     }
 
@@ -62,8 +68,8 @@ public class Secured {
      * @param ctx The context.
      * @return The UserInfo, or null.
      */
-    public static User getUserInfo(Context ctx) {
-        return (isLoggedIn(ctx) ? UserRepository.findByEmail(getUser(ctx)) : null);
+    public  User getUserInfo(Context ctx) {
+        return (isLoggedIn(ctx) ? users.findByEmail(getUser(ctx)) : null);
     }
 
 

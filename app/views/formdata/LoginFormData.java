@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 import repositories.UserRepository;
 
+import javax.inject.Inject;
+
 /**
  * Backing class for the login form.
  */
 public class LoginFormData {
-
+  @Inject
+  UserRepository users;
   /** The submitted email. */
   public String email = "";
   /** The submitted password. */
@@ -29,7 +32,7 @@ public class LoginFormData {
 
     List<ValidationError> errors = new ArrayList<>();
     
-    if (!UserRepository.isValid(email, password)) {
+    if (!users.isValid(email, password)) {
       errors.add(new ValidationError("email", ""));
       errors.add(new ValidationError("password", ""));      
     }
