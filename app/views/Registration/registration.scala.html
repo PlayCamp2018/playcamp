@@ -1,49 +1,21 @@
-@()
+@import models.Database.User
 
 
-@main("Max Mustermann") {
+@main("Registrierung") {
+
+    <div id="registration_content">
 
     <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/profile-page.css")' />
 
-    @helper.form(action = routes.TestFileUploadController.upload, 'enctype -> "multipart/form-data") {
+
         <div class="container">
 
             <div class="row">
-                <div class="col-md-4 text-center"><h1>Max Mustermann</h1></div>
+                <div class="col-md-4 text-center"><h1>Registrierung</h1></div>
             </div>
 
             <div class="row">
                 <div class="col-md-4"><!--left col-->
-
-                    <div class="row">
-                        <div class="col text-center">
-                            <img src='@routes.Assets.versioned("images/avatar_2x.png")' class="avatar img-circle img-thumbnail" alt="avatar">
-                            <h6>Neues Bild hochladen</h6>
-                            <input type="file" name="profile_picture" id="profile_picture">
-                        </div>
-                    </div>
-
-                    <br />
-
-                    <div class="row">
-                        <div class="col">
-                            <ul class="list-group">
-                                <li class="list-group-item text-muted">Webseite <i class="fa fa-dashboard fa-1x"></i></li>
-                                <li class="list-group-item text-left"><a href="http://bootnipets.com">bootnipets.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <br />
-
-                    <div class="row">
-                        <div class="col">
-                            <ul class="list-group">
-                                <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-                                <li class="list-group-item text-left"><strong>Posts</strong><span class="pull-right"> XXX</span></li>
-                            </ul>
-                        </div>
-                    </div>
 
                 </div><!--/left col-->
 
@@ -98,7 +70,7 @@
 
                             <div class="col">
                                 <div class="form-group">
-                                    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Speichern</button>
+                                    <button id="registration_btn_save" class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Speichern</button>
                                     <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Zurücksetzen</button>
                                 </div>
                             </div>
@@ -110,5 +82,7 @@
 
             </div><!--/row-->
         </div><!--/container-->
-    }
+
+        <script type='text/javascript' src='@routes.Assets.versioned("javascripts/registration.js")'></script>
+
 }
