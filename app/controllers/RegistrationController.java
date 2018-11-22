@@ -37,24 +37,30 @@ public class RegistrationController extends Controller {
         String password2 = "123";//json.get("user_passwort2").textValue();
 
         if(password.equals(password2)) {
+            try{
+                //TODO
             String passwordHash = Utils.hash(password);
+            }catch (Exception exception){
+
+            };
             User user = userRepo.findByEmail(email);
-        }else {
-
-            //ToDo
-        }
-
-       // (if 1==2){
-
-            //ToDo
-       // }else{
 
             user.setFirstname(userFirstname);
             user.setLastname(userLastname);
             //user.setEmail(email);
-            user.setPassword(passwordHash);
+           // user.setPassword(passwordHash);
             user.setProfilePicID(null);
             userRepo.save(user);
+
+        }else {
+
+            //TODO
+        }
+
+       // (if 1==2){
+
+            //TODO
+       // }else{
 
      //       }
 
