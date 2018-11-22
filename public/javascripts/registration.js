@@ -7,7 +7,7 @@ $('body').on('click', '#registration_btn_save', function() {
 
     // set ajax data
     var data = {
-        'user_firstname' : $('#first_name').val(),
+        'user_firstname' : $('#firstname').val(),
         'user_lastname' : $('#lastname').val(),
         'user_email' : $('#email').val(),
         'user_password' : $('#password').val(),
