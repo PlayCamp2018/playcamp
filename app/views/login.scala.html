@@ -1,46 +1,45 @@
 @()
 
 @main("login") {
+    <div id="login_content">
+        <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/login.css")' />
 
-    <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/login.css")' />
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-5 col-md-3">
-                <div class="form-login">
-                    <h4>Welcome back.</h4>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4>Login du ...</h4>
                     <div class="row">
                         <input type="text" id="user-name" class="form-control input-sm chat-input"
-                        data-toggle="tooltip" data-placement="top"
-                        placeholder=@Messages("email.sample") title='@Messages("login.email.description")' />
+                               data-toggle="tooltip" data-placement="top"
+                               placeholder=@Messages("email.sample") title='@Messages("login.email.description")' />
                     </div>
                     <div class="row">
                         <input type="text" id="user-password" class="form-control input-sm chat-input"
-                        placeholder="password"
-                        title='@Messages("login.password.description")'/>
+                               placeholder="password"
+                               title='@Messages("login.password.description")'/>
                     </div>
-                    <div class="row align-self-center">
-                        <button class="btn btn-lg  btn-primary" type="submit">
+                    <div class="row">
+                        <button class="btn btn-lg  btn-primary" type="button">
                             <i class="glyphicon glyphicon-ok-sign"></i> @Messages("login.title")
                         </button>
                     </div>
                     <hr class="my-4">
                     <div class="row">
                         <div class="col">
-                            <a href="register.scala.html"
-                            title='@Messages("login.register.description")'
-                            >@Messages("login.register")</a>
+                            <button id="login_btn_register" type="button" class="btn btn-link">@Messages("login.register")</button>
                         </div>
                         <div class="col">
-                            <a href="password-reqest.scala.html"
-                            title='@Messages("login.password.reqest")'
-                            >@Messages("login.password")</a>
+                            <button id="login_btn_password_request" type="button" class="btn btn-link">@Messages("login.password")</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <script type='text/javascript' src='@routes.Assets.versioned("javascripts/login.js")'></script>
     </div>
+
+
 }
 
 

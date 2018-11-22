@@ -1,19 +1,52 @@
 @()
 
 @main("Welcome to Play") {
-  <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/index.css")">
+  <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/index.css")'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <div class="v-wrap">
-    <img src="@routes.Assets.versioned("images/playcamp_logo_full_500.png")" />
+    <img src='@routes.Assets.versioned("images/playcamp_logo_full_500.png")' />
   </div>
 
-  <div class="v-wrap">
-    <h1>Welcome to Play! NEW Test! LATEST!</h1>
-    <a href="http://www.nooooooooooooooo.com/">nooooooooooooooo</a>
-  </div>
+  <!--<div class="v-wrap">-->
+    <!--<h1>Welcome to Play! NEW Test! LATEST!</h1>-->
+    <!--<a href="http://www.nooooooooooooooo.com/">nooooooooooooooo</a>-->
+  <!--</div>-->
 
-  <div class="v-wrap">
-      <section class="login">@login()</section>
-  </div>
+  <!--<div class="v-wrap">-->
+      <!--<section class="login">@login()</section>-->
+  <!--</div>-->
+
+
+      <div class="container">
+
+          <div class="row">
+              <div class="col text-center">
+                  <button id="index_login" class="btn btn-lg" type="button"><i class="fa fa-sign-in-alt"></i>Login</button>
+                  <button id="index_registration" class="btn btn-lg" type="button"><i class="fa fa-registered"></i>Registrieren</button>
+                  <button id="index_lang" class="btn btn-lg" type="button"><i class="fa fa-language"></i>Lang</button>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col text-center">
+                  <button id="index_home" class="btn btn-lg" type="button"><i class="fa fa-home"></i>Home</button>
+                  <button id="index_chat" class="btn btn-lg" type="button"><i class="fa fa-comment"></i>Chat</button>
+                  <button id="index_forum" class="btn btn-lg" type="button"><i class="fa fa-toilet-paper"></i>Forum</button>
+                  <button id="index_find" class="btn btn-lg" type="button"><i class="fa fa-search"></i>Find</button>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+
+                  <div id="index_content" class="text-center">
+                      @login()
+                  </div>
+
+              </div>
+          </div>
+
+          <script type='text/javascript' src='@routes.Assets.versioned("javascripts/index.js")'></script>
+      </div>
 }

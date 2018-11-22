@@ -22,6 +22,9 @@ POST    /TestFileUpload             controllers.TestFileUploadController.upload
 
 POST    /upload                     controllers.TestFileUploadController.upload
 
+
+GET     /login                      controllers.LoginController.index
+
 GET     /chat                       controllers.ChatController.index
 GET     /chat/ws                    controllers.ChatController.ws
 
