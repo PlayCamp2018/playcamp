@@ -18,4 +18,11 @@ public class HomeController extends Controller {
         return ok(views.html.index.render());
     }
 
+
+    /**
+     * Main page after login
+     * @return
+     */
+    public Result homepage() { return ok(views.html.Homepage.homepage.render()); }
+
 }
