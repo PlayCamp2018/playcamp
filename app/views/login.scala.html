@@ -1,46 +1,74 @@
 @()
 
-@main("login") {
-    <div id="login_content">
-        <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/login.css")' />
+<div id="login_content">
+    <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/login.css")' />
 
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h4>Login du ...</h4>
-                    <div class="row">
-                        <input type="text" id="user-name" class="form-control input-sm chat-input"
-                               data-toggle="tooltip" data-placement="top"
-                               placeholder=@Messages("email.sample") title='@Messages("login.email.description")' />
-                    </div>
-                    <div class="row">
-                        <input type="text" id="user-password" class="form-control input-sm chat-input"
-                               placeholder="password"
-                               title='@Messages("login.password.description")'/>
-                    </div>
-                    <div class="row">
-                        <button id="login_btn_login" class="btn btn-lg  btn-primary" type="button">
-                            <i class="fa fa-sign-in-alt"></i> @Messages("login.title")
-                        </button>
-                    </div>
-                    <hr class="my-4">
-                    <div class="row">
-                        <div class="col">
-                            <button id="login_btn_register" type="button" class="btn btn-link">@Messages("login.register")</button>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h4>Login du ...</h4>
+
+                <div class="row">
+
+                    <div class="col-2"></div>
+
+
+                    <div class="col">
+
+                        <div class="row">
+                            <div class="col text-left">
+                                <label for="login_in_email">E-Mail:</label>
+                                <input type="text" id="login_in_email" class="form-control input-sm chat-input"
+                                       data-toggle="tooltip" data-placement="top"
+                                       placeholder=@Messages("email.sample") title='@Messages("login.email.description")' />
+                            </div>
+
                         </div>
-                        <div class="col">
-                            <button id="login_btn_password_request" type="button" class="btn btn-link">@Messages("login.password")</button>
+                        <div class="row">
+                            <div class="col text-left">
+                                <label for="login_in_password">Passwort:</label>
+                                <input type="text" id="login_in_password" class="form-control input-sm chat-input"
+                                       placeholder="password"
+                                       title='@Messages("login.password.description")'/>
+                            </div>
+
                         </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col text-left">
+                                <button id="login_btn_login" class="btn btn-lg btn-primary btn-block" type="button">
+                                    <i class="fa fa-sign-in"></i> @Messages("login.title")
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-2"></div>
+
+
+                </div>
+
+                <hr class="my-4" />
+
+                <div class="row">
+                    <div class="col">
+                        <button id="login_btn_register" type="button" class="btn btn-link"><i class="fa fa-registered"></i> @Messages("login.register")</button>
+                    </div>
+                    <div class="col">
+                        <button id="login_btn_password_request" type="button" class="btn btn-link"><i class="fa fa-key"></i> @Messages("login.password")</button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <script type='text/javascript' src='@routes.Assets.versioned("javascripts/login.js")'></script>
     </div>
 
+    <script type='text/javascript' src='@routes.Assets.versioned("javascripts/login.js")'></script>
+</div>
 
-}
 
 
 

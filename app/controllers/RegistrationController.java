@@ -27,6 +27,10 @@ public class RegistrationController extends Controller {
         return ok(views.html.Registration.registration.render());
     }
 
+    public Result registrationIndex() { return ok(views.html.Registration.registrationIndex.render()); }
+
+    public Result passwordRequest() { return ok(views.html.Registration.passwordRequest.render()); }
+
     public Result save() {
 
         JsonNode json = request().body().asJson();
