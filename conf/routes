@@ -39,5 +39,9 @@ GET     /registrationIndex          controllers.RegistrationController.registrat
 GET     /passwordRequest            controllers.RegistrationController.passwordRequest
 GET     /registration               controllers.RegistrationController.index
 
+GET     /project                    controllers.ProjectController.get
+GET     /newProject                 controllers.ProjectController.create
+GET     /editProject                controllers.ProjectController.edit
+
 + noscrf
-POST    /registration                controllers.RegistrationController.save
+POST    /registration               controllers.RegistrationController.save
