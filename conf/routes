@@ -43,5 +43,7 @@ GET     /project                    controllers.ProjectController.get
 GET     /newProject                 controllers.ProjectController.create
 GET     /editProject                controllers.ProjectController.edit
 
+GET     /profilePage                controllers.UserController.get
+
 + noscrf
 POST    /registration               controllers.RegistrationController.save

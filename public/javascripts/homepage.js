@@ -26,8 +26,15 @@ $('body').on('click','#homepage_btn_newProject',function(){
     });
 });
 
-$('body').on('click','#homepage_div_project',function(){
+$('body').on('click','#homepage_btn_project',function(){
     $.get('/project', function(response) {
+        console.log("homepage_project");
+        document.getElementById("index_content").innerHTML = response;
+    });
+});
+
+$('body').on('click','#homepage_btn_user',function(){
+    $.get('/profilePage', function(response) {
         console.log("homepage_editProject");
         document.getElementById("index_content").innerHTML = response;
     });
