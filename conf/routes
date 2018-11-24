@@ -17,7 +17,7 @@ GET     /mail/passwortreset         controllers.MailController.passwordReset(mai
 
 
 # Routes for Testing ...
-GET     /lang                       controllers.TestLangController.index
+GET     /test/lang                       controllers.TestLangController.index
 
 GET     /TestFileUpload             controllers.TestFileUploadController.index
 
@@ -40,7 +40,6 @@ GET     /test                       controllers.TestController.index
 GET     /mail/test                  controllers.MailController.mailtest
 GET     /mail/dialog                controllers.MailController.dialog
 GET     /mail/dialogtest                controllers.MailController.dialogtest
-
 
 
 GET     /registrationIndex          controllers.RegistrationController.registrationIndex

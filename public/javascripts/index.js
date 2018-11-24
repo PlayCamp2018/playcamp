@@ -13,7 +13,7 @@ $('body').on('click','#index_registration',function(){
 });
 
 $('body').on('click','#index_lang',function(){
-    $.get('/lang', function(response) {
+    $.get('/test/lang', function(response) {
         console.log("lang");
         document.getElementById("index_content").innerHTML = response;
     });

@@ -21,7 +21,7 @@ public class TestLangController extends Controller {
         //Messages messages = Http.Context.current().messages();
         //String langTitle = messages.at("lang.title");
         //ctx().changeLang("de");
-        return ok(views.html.lang.render());
+        return ok(views.html.Test.lang.render());
     }
 
 }
