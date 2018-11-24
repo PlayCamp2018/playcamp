@@ -21,7 +21,7 @@ GET     /test/lang                       controllers.TestLangController.index
 
 GET     /TestFileUpload             controllers.TestFileUploadController.index
 
-+ nocsrf
++nocsrf
 POST    /TestFileUpload             controllers.TestFileUploadController.upload
 
 POST    /upload                     controllers.TestFileUploadController.upload
@@ -52,5 +52,5 @@ GET     /editProject                controllers.ProjectController.edit
 
 GET     /profilePage                controllers.UserController.get
 
-+ noscrf
++noscrf
 POST    /registration               controllers.RegistrationController.save
