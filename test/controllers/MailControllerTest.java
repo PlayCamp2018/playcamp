@@ -35,13 +35,13 @@ public class MailControllerTest extends WithApplication {
 
     @Test
     public void testRegister() {
-        Result result = mailer.register( "test@testdomain.xyz", "http://localhost:9090");
+        Result result = mailer.register( "test@testdomain.xyz");
         assertEquals(OK, result.status());
     }
 
     @Test
     public void testPasswortRest() {
-        Result result = mailer.passwordReset( "test@testdomain.xyz", "http://localhost:9090");
+        Result result = mailer.passwordReset( "test@testdomain.xyz");
         assertEquals(OK, result.status());
 
     }

@@ -13,10 +13,14 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import org.bson.types.ObjectId;
 
+
+
 /**
  * Helper Class for hashing the password PBKDF2WithHmacSHA1.
  */
 public abstract class Utils {
+
+    public static enum DialogType {SUCCESS, INFO, ERROR, WARN}
 
     /**
      * Default hash integration of passworrd string

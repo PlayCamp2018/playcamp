@@ -1,14 +1,14 @@
-@import utils.Dialog
-@(Type: utils.Dialog.Type, Title: String, Message: String)
+@import utils.Utils.DialogType
+@(Type: utils.Utils.DialogType, Title: String, Message: String)
 
 @Type match {
-    case utils.Dialog.Type.SUCCESS => {
+    case utils.Utils.DialogType.SUCCESS => {
         <div class='modal-header alert alert-success' role='alert'> }
-    case utils.Dialog.Type.WARN =>    {
+    case utils.Utils.DialogType.WARN =>    {
         <div class='modal-header alert alert-warning' role='alert'> }
-    case utils.Dialog.Type.INFO =>    {
+    case utils.Utils.DialogType.INFO =>    {
         <div class='modal-header alert alert-info' role='alert'> }
-    case utils.Dialog.Type.ERROR =>   {
+    case utils.Utils.DialogType.ERROR =>   {
         <div class='modal-header alert alert-danger' role='alert'> }
 }
 

@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import repositories.*;
 import models.Database.User;
 import org.bson.types.ObjectId;
-import utils.Dialog;
+import utils.Utils;
 
 
 public class MailController extends Controller {
@@ -59,12 +59,12 @@ public class MailController extends Controller {
      * Helper funktion to generate the Error message from
      * mail errror.
      *
-     * @param e Exception to generate the Error message
+     * @param err Exception to generate the Error message
      * @return Retruns the mail-err-description as play.mvc.Result ok
      */
     private Result getMailErrorMesssage(Exception err){
         return ok(views.html.Dialog.simple.render(
-                Dialog.Type.ERROR,
+                utils.Utils.DialogType.ERROR,
                 "Fehler beim Mailversand",
                 "Beim verschicken der Mail ist ein Fehler aufgetreten.\n" +
                         "Fehler: " + err
@@ -80,7 +80,6 @@ public class MailController extends Controller {
      * @param mail The Mailaddress of new user.
      * @param requestUrl The request url in the email.
      * @return Returns the HTML-Code vor the modal-bootstrap-dialog.
-     * @see utils.Dialog#getDialog(Dialog.Type, String, String)
      */
     private Result registerMail(String mail, String requestUrl){
 
@@ -95,7 +94,7 @@ public class MailController extends Controller {
         try{
             this.sendMail(mail, t, html.toString(), text);
             return ok(views.html.Dialog.simple.render(
-                    Dialog.Type.SUCCESS,
+                    utils.Utils.DialogType.SUCCESS,
                     "Registrierung verschickt",
                     "Sie haben eine Registrierung mit der Mailadresse '" + mail + "' angefordet.\n" +
                             "Bitte prüfen Sie ihr Postfach, um die Registrierung abzuschliessen."
@@ -110,6 +109,13 @@ public class MailController extends Controller {
         return this.passwordResetMail(mail, "http://localhost/asdfasd");
     }
 
+    /**
+     * This function generate and send the mail to initate the
+     * passwort restet.
+     * @param mail The Mailaddress of user.
+     * @param requestUrl The request url in the email.
+     * @return Returns the HTML-Code vor the modal-bootstrap-dialog.
+     */
     public Result passwordResetMail(String mail, String requestUrl){
 
         String t = "Passwort zurücksetzen";
@@ -125,7 +131,7 @@ public class MailController extends Controller {
         try{
             this.sendMail(mail, t, html.toString(), text);
             return ok(views.html.Dialog.simple.render(
-                    Dialog.Type.SUCCESS,
+                    utils.Utils.DialogType.SUCCESS,
                     "Passwortreset",
                     "Sie haben einen Passwortreset mit der Mailadresse '" + mail + "' angefordet.\n" +
                             "Bitte prüfen Sie ihr Postfach, um die Passwortänderung durchzuführen."
@@ -144,7 +150,7 @@ public class MailController extends Controller {
 
     public Result dialog() {
         String type = request().getQueryString("dialog");
-        Dialog.Type dtype =  Dialog.Type.valueOf(type);
+        utils.Utils.DialogType dtype =  utils.Utils.DialogType.valueOf(type);
         String title = "Mein Title!";
         String mess = "Meine Message ....";
         String s = getFromMailaddress();
