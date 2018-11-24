@@ -12,6 +12,10 @@ GET     /listUsers                  controllers.DBTestController.listUser
 
 GET     /listProjects               controllers.DBTestController.listProjects
 
+GET     /mail/register              controllers.MailController.register(mail)
+GET     /mail/passwortreset         controllers.MailController.passwordReset(mail)
+
+
 # Routes for Testing ...
 GET     /lang                       controllers.TestLangController.index
 
@@ -27,13 +31,11 @@ GET     /chat/ws                    controllers.ChatController.ws
 
 GET     /test                       controllers.TestController.index
 
-GET     /testmail                   controllers.TestMailController.mailtest
-GET     /testmail/submit            controllers.TestMailController.submit
-GET     /testmail/register          controllers.TestMailController.register
-    GET     /testmail/passwortreset     controllers.TestMailController.passwordReset
-GET     /testmail/dialog            controllers.TestMailController.dialogtest
-GET     /testmail/mail              controllers.TestMailController.mail
-GET     /testdialog                 controllers.TestMailController.dialog
+
+GET     /mail/test                  controllers.MailController.mailtest
+GET     /mail/dialog                controllers.MailController.dialog
+GET     /mail/dialogtest                controllers.MailController.dialogtest
+
 
 
 

@@ -12,26 +12,26 @@ import org.junit.Test;
 
 public class UserTest {
 
-    @Test
-    public void test_user_001() {
-        User u = new User( new org.bson.types.ObjectId() ,
-                "FirstName1 ", "LastName1","NoPW", "Test@mail.lan", null);
-        assertEquals ( u.getFirstname(), "FirstName1 ");
-    }
-
-    @Test
-    public void test_user_mail_001() {
-        try{
-
-            User u = new User( new org.bson.types.ObjectId() ,
-                    "FirstName1 ", "LastName1", "NoPW", "keine.Mailadresse", null);
-
-            assertFalse("Das ist keine gültige mailadresse ;)",false);
-        }catch( Exception e){
-            assertTrue("Wrong Mailadress", true);
-        }
-
-    }
+//    @Test
+//    public void test_user_001() {
+//        User u = new User( new org.bson.types.ObjectId() ,
+//                "FirstName1 ", "LastName1","NoPW", "Test@mail.lan", null);
+//        assertEquals ( u.getFirstname(), "FirstName1 ");
+//    }
+//
+//    @Test
+//    public void test_user_mail_001() {
+//        try{
+//
+//            User u = new User( new org.bson.types.ObjectId() ,
+//                    "FirstName1 ", "LastName1", "NoPW", "keine.Mailadresse", null);
+//
+//            assertFalse("Das ist keine gültige mailadresse ;)",false);
+//        }catch( Exception e){
+//            assertTrue("Wrong Mailadress", true);
+//        }
+//
+//    }
 
 
 }

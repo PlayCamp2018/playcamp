@@ -1,0 +1,26 @@
+@import utils.Dialog
+@(Type: utils.Dialog.Type, Title: String, Message: String)
+
+@Type match {
+    case utils.Dialog.Type.SUCCESS => {
+        <div class='modal-header alert alert-success' role='alert'> }
+    case utils.Dialog.Type.WARN =>    {
+        <div class='modal-header alert alert-warning' role='alert'> }
+    case utils.Dialog.Type.INFO =>    {
+        <div class='modal-header alert alert-info' role='alert'> }
+    case utils.Dialog.Type.ERROR =>   {
+        <div class='modal-header alert alert-danger' role='alert'> }
+}
+
+    <img src="@routes.Assets.versioned("images/playcamp_logo_full_50.png")"/>
+    <h5 class='pl-sm-3 modal-title' id='exampleModalLongTitle'>@Title</h5>
+    <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+        <span aria-hidden='true'>&times;</span></button>
+</div>
+<div class='modal-body'>
+    @Message
+</div>
+<div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' data-dismiss='modal'>Schließen</button>
+</div>
+

@@ -3,14 +3,14 @@ $( window ).on( "load", function() {
     console.log( "window loaded" );
 
     $( "#btn-error" ).click(function() {
-        $.get('/testdialog?dialog=ERROR', function(response) {
+        $.get('/mail/dialog?dialog=ERROR', function(response) {
             //console.log(response);
             document.getElementById("modalDialogContent").innerHTML = response;
             $('#dialogModal').modal('show')
         });
     });
     $( "#btn-info" ).click(function() {
-        $.get('/testdialog?dialog=INFO', function(response) {
+        $.get('/mail/dialog?dialog=INFO', function(response) {
             //console.log(response);
             document.getElementById("modalDialogContent").innerHTML = response;
             $('#dialogModal').modal('show')
@@ -18,7 +18,7 @@ $( window ).on( "load", function() {
     });
 
     $( "#btn-success" ).click(function() {
-        $.get('/testdialog?dialog=SUCCESS', function(response) {
+        $.get('/mail/dialog?dialog=SUCCESS', function(response) {
             //console.log(response);
             document.getElementById("modalDialogContent").innerHTML = response;
             $('#dialogModal').modal('show')
@@ -26,7 +26,7 @@ $( window ).on( "load", function() {
     });
 
     $( "#btn-warn" ).click(function() {
-        $.get('/testdialog?dialog=WARN', function(response) {
+        $.get('/mail/dialog?dialog=WARN', function(response) {
             //console.log(response);
             document.getElementById("modalDialogContent").innerHTML = response;
             $('#dialogModal').modal('show')
@@ -35,7 +35,7 @@ $( window ).on( "load", function() {
 
     $( "#btn-register" ).click(function() {
         var bla = $('#txt-mailaddress').val();
-        var req = '/testmail/register?mail=' + bla;
+        var req = '/mail/register?mail=' + bla;
         $.get(req, function(response) {
             document.getElementById("modalDialogContent").innerHTML = response;
             $('#dialogModal').modal('show')
@@ -43,7 +43,7 @@ $( window ).on( "load", function() {
     });
     $( "#btn-passwortreset" ).click(function() {
         var bla = $('#txt-mailaddress').val();
-        var req = '/testmail/passwortreset?mail=' + bla;
+        var req = '/mail/passwortreset?mail=' + bla;
         $.get(req, function(response) {
             document.getElementById("modalDialogContent").innerHTML = response;
             $('#dialogModal').modal('show')
