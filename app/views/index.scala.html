@@ -1,19 +1,69 @@
 @()
 
-@main("Welcome to Play") {
-  <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/index.css")">
+@main("playcamp") {
+  <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/index.css")'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <div class="v-wrap">
-    <img src="@routes.Assets.versioned("images/playcamp_logo_full_500.png")" />
+    <img src='@routes.Assets.versioned("images/playcamp_logo_full_500.png")' />
   </div>
 
-  <div class="v-wrap">
-    <h1>Welcome to Play! NEW Test! LATEST!</h1>
-    <a href="http://www.nooooooooooooooo.com/">nooooooooooooooo</a>
-  </div>
+  <!--<div class="v-wrap">-->
+    <!--<h1>Welcome to Play! NEW Test! LATEST!</h1>-->
+    <!--<a href="http://www.nooooooooooooooo.com/">nooooooooooooooo</a>-->
+  <!--</div>-->
 
-  <div class="v-wrap">
-      <section class="login">@login()</section>
-  </div>
+  <!--<div class="v-wrap">-->
+      <!--<section class="login">@login()</section>-->
+  <!--</div>-->
+
+
+      <div class="container">
+
+          <div class="row">
+
+              <div class="col-2">
+
+              </div>
+
+              <div class="col-8">
+
+                  <div class="row">
+                      <div class="col text-center">
+                          <h4>Nur zum Test, kommen weg (die Buttons)</h4>
+                          ===><button id="index_login" class="btn btn-lg btn-link" type="button"><i class="fa fa-sign-in"></i> Login</button>
+                          <button id="index_registration" class="btn btn-lg btn-link" type="button"><i class="fa fa-registered"></i>egistrieren</button>
+                          <button id="index_lang" class="btn btn-lg btn-link" type="button"><i class="fa fa-language"></i> Lang</button><===
+                      </div>
+                  </div>
+
+                  <hr class="my-4">
+
+                  <div class="row">
+                      <div class="col">
+
+                          <div id="index_content" class="text-center">
+                              @login()
+                          </div>
+
+                      </div>
+                  </div>
+
+                  <script type='text/javascript' src='@routes.Assets.versioned("javascripts/index.js")'></script>
+
+              </div>
+
+              <div class="col-2">
+
+              </div>
+
+          </div>
+
+          <script type='text/javascript' src='@routes.Assets.versioned("javascripts/login.js")'></script>
+          <script type='text/javascript' src='@routes.Assets.versioned("javascripts/registrationIndex.js")'></script>
+          <script type='text/javascript' src='@routes.Assets.versioned("javascripts/passwordRequest.js")'></script>
+
+          <script type='text/javascript' src='@routes.Assets.versioned("javascripts/homepage.js")'></script>
+
+      </div>
 }

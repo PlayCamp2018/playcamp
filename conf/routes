@@ -26,6 +26,11 @@ POST    /TestFileUpload             controllers.TestFileUploadController.upload
 
 POST    /upload                     controllers.TestFileUploadController.upload
 
+
+GET     /login                      controllers.LoginController.index
+
+GET     /homepage                   controllers.HomeController.homepage
+
 GET     /chat                       controllers.ChatController.index
 GET     /chat/ws                    controllers.ChatController.ws
 
@@ -38,4 +43,15 @@ GET     /mail/dialogtest                controllers.MailController.dialogtest
 
 
 
+GET     /registrationIndex          controllers.RegistrationController.registrationIndex
+GET     /passwordRequest            controllers.RegistrationController.passwordRequest
+GET     /registration               controllers.RegistrationController.index
 
+GET     /project                    controllers.ProjectController.get
+GET     /newProject                 controllers.ProjectController.create
+GET     /editProject                controllers.ProjectController.edit
+
+GET     /profilePage                controllers.UserController.get
+
++ noscrf
+POST    /registration               controllers.RegistrationController.save

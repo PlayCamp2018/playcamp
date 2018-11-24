@@ -3,17 +3,17 @@ package controllers;
 import play.mvc.Controller;
 import play.mvc.Result;
 import repositories.DBTest.ProjectRepository;
-import repositories.DBTest.UsersRepository;
+import repositories.UserRepository;
 
 import javax.inject.Inject;
 
 public class DBTestController extends Controller {
 
     @Inject
-    private UsersRepository users;
+    private UserRepository users;
 
     public Result listUser() {
-        users.insertRandomUser();
+        users.insertRandomUser(new org.bson.types.ObjectId());
         return ok(views.html.DBTest.listUsers.render(users.getAllUsers()));
     }
     @Inject
