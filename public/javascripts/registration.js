@@ -7,8 +7,8 @@ $('body').on('click', '#registration_btn_save', function() {
 
     // set ajax data
     var data = {
-        'user_firstname' : $('#firstname').val(),
-        'user_lastname' : $('#lastname').val(),
+        'user_firstname' : $('#first_name').val(),
+        'user_lastname' : $('#last_name').val(),
         'user_email' : $('#email').val(),
         'user_password' : $('#password').val(),
         'user_password2' : $('#password2').val()
@@ -16,8 +16,8 @@ $('body').on('click', '#registration_btn_save', function() {
     };
 
     $.ajax ({
-        url: '/registration', // url
-        type: "POST", // send method
+        url: '/registration_save', // url
+        type: "GET", // send method
         data: JSON.stringify(data), // json send data
         dataType: "html", // return type
         contentType: "application/json; charset=utf-8", // send type

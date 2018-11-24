@@ -53,4 +53,4 @@ GET     /editProject                controllers.ProjectController.edit
 GET     /profilePage                controllers.UserController.get
 
 +noscrf
-POST    /registration               controllers.RegistrationController.save
+GET    /registration_save               controllers.RegistrationController.save
