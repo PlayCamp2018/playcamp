@@ -29,8 +29,8 @@ public class Secured extends Security.Authenticator{
      * @param ctx The context.
      * @return The email address of the logged in user, or null if not logged in.
      */
-
-    public String getEmail(Context ctx) {
+    @Override
+    public String getUsername(Context ctx) {
         return ctx.session().get("email");
     }
 

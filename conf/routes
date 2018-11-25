@@ -3,32 +3,32 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
+#GET     /                           controllers.HomeController.index
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
-GET     /listUsers                  controllers.DBTestController.listUser
+#GET     /listUsers                  controllers.DBTestController.listUser
 
-GET     /listProjects               controllers.DBTestController.listProjects
+#GET     /listProjects               controllers.DBTestController.listProjects
 
 # Routes for Testing ...
-GET     /lang                       controllers.TestLangController.index
+#GET     /lang                       controllers.TestLangController.index
 
-GET     /TestFileUpload             controllers.TestFileUploadController.index
+#GET     /TestFileUpload             controllers.TestFileUploadController.index
 
-+ nocsrf
-POST    /TestFileUpload             controllers.TestFileUploadController.upload
+#+ nocsrf
+#POST    /TestFileUpload             controllers.TestFileUploadController.upload
 
-POST    /upload                     controllers.TestFileUploadController.upload
+#POST    /upload                     controllers.TestFileUploadController.upload
 
-GET     /chat                       controllers.ChatController.index
-GET     /chat/ws                    controllers.ChatController.ws
+#GET     /chat                       controllers.ChatController.index
+#GET     /chat/ws                    controllers.ChatController.ws
 
-GET     /test                       controllers.TestController.index
+#GET     /test                       controllers.TestController.index
 
-GET     /testmail                   controllers.TestMailController.index
-GET     /testmail/submit            controllers.TestMailController.submit
+#GET     /testmail                   controllers.TestMailController.index
+#GET     /testmail/submit            controllers.TestMailController.submit
 
 GET     /                           controllers.LoginController.index
 GET     /login                      controllers.LoginController.login

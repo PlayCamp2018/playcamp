@@ -4,6 +4,7 @@ import play.data.validation.ValidationError;
 import java.util.ArrayList;
 import java.util.List;
 import repositories.UserRepository;
+import play.data.Form;
 
 import javax.inject.Inject;
 

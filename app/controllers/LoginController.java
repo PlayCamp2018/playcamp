@@ -1,5 +1,6 @@
 package controllers;
 import play.data.Form;
+import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.index;
@@ -14,6 +15,14 @@ public class LoginController extends Controller{
 
     @Inject
     Secured sec;
+
+    private final Form<LoginFormData> formData;
+
+    @Inject
+    public LoginController(FormFactory formFactory) {
+        this.formData = formFactory.form(LoginFormData.class);
+    }
+
     /**
      * Provides the Index page.
      * @return The Index page.
@@ -27,9 +36,11 @@ public class LoginController extends Controller{
      * @return The Login page.
      */
     public Result login() {
-        Form<LoginFormData> formData = Form.form(LoginFormData.class);
+        /**final Form<LoginFormData> formD = formData;*/
         return ok(login.render("Login", sec.isLoggedIn(ctx()), sec.getUserInfo(ctx()), formData));
     }
+
+
 
     /**
      * Processes a login form submission from an unauthenticated user.
@@ -42,16 +53,16 @@ public class LoginController extends Controller{
     public Result postLogin() {
 
         // Get the submitted form data from the request object, and run validation.
-        Form<LoginFormData> formData = Form.form(LoginFormData.class).bindFromRequest();
+        Form<LoginFormData> boundForm = formData.bindFromRequest();
 
-        if (formData.hasErrors()) {
+        if (boundForm.hasErrors()) {
             flash("error", "Login credentials not valid.");
-            return badRequest(login.render("Login", sec.isLoggedIn(ctx()), sec.getUserInfo(ctx()), formData));
+            return badRequest(login.render("Login", sec.isLoggedIn(ctx()), sec.getUserInfo(ctx()), boundForm));
         }
         else {
             // email/password OK, so now we set the session variable and only go to authenticated pages.
             session().clear();
-            session("email", formData.get().email);
+            session("email", boundForm.get().email);
             return redirect(routes.LoginController.index());
         }
     }

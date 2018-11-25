@@ -106,8 +106,5 @@ public class UserRepository {
         return findByEmail(email).getPassword().equals(password);
     }
 
-    public Find isUser(String email){
-        return users().find(email);
-    }
 
 }
