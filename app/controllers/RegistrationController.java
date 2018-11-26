@@ -36,56 +36,55 @@ public class RegistrationController extends Controller {
     }
 
     public Result save() {
+        if (request() == null) {
+            return badRequest("Request is null");
+        }
+        if (request().body() == null) {
+            return badRequest("Request body is null");
+        }
 
         JsonNode json = request().body().asJson();
+
+        if (json == null) {
+            return badRequest("JSON is null");
+        }
+
         String userFirstname = json.get("user_firstname").textValue();
         String userLastname = json.get("user_lastname").textValue();
         String email = json.get("user_email").textValue();
         String password = json.get("user_password").textValue();
         String password2 = json.get("user_password2").textValue();
 
+        // TODO: sout
         System.out.println("==================================");
         System.out.println(json);
 
-        //if(password.equals(password2)) {
-        try {
-            //TODO
-            String passwordHash = Utils.hash(password);
-        } catch (Exception exception) {
+        String passwordHash = "";
 
-        };
+        if(password.equals(password2)) {
+            try {
+                //TODO hash exception handling
+                passwordHash = Utils.hash(password);
+            } catch (Exception exception) {
+                return internalServerError("Password hash error");
+            }
+        }
+
         User user = userRepo.findByEmail(email);
 
-        if(user==null) {
-
+        // TODO: user should be already in DB
+        if(user == null) {
             user = new User();
         }
 
         user.setFirstname(userFirstname);
         user.setLastname(userLastname);
         user.setEmail(email);
+        // TODO: use passwordHash here, but currently hash is broken
         user.setPassword(password);
         user.setProfilePicID(null);
         userRepo.save(user);
 
-        //else {
-
-
-        //TODO
-        //  }
-        // (if 1==2){
-
-        //TODO
-        // }else{
-
-        //       }
-
-
         return index();
-
     }
-
 }
-
-
-

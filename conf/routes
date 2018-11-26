@@ -28,6 +28,8 @@ POST    /upload                     controllers.TestFileUploadController.upload
 
 
 GET     /login                      controllers.LoginController.index
++nocsrf
+POST    /login                      controllers.LoginController.login
 
 GET     /homepage                   controllers.HomeController.homepage
 
