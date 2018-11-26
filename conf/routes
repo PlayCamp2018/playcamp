@@ -45,11 +45,11 @@ GET     /mail/dialogtest            controllers.MailController.dialogtest
 GET     /registrationIndex          controllers.RegistrationController.registrationIndex
 GET     /passwordRequest            controllers.RegistrationController.passwordRequest
 GET     /registration               controllers.RegistrationController.index
++nocsrf
+POST    /registration               controllers.RegistrationController.save
 
 GET     /project                    controllers.ProjectController.get
 GET     /newProject                 controllers.ProjectController.create
 GET     /editProject                controllers.ProjectController.edit
 
 GET     /profilePage                controllers.UserController.get
-
-GET    /registration_save            controllers.RegistrationController.save

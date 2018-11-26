@@ -40,35 +40,37 @@ public class RegistrationController extends Controller {
         String password = json.get("user_password").textValue();
         String password2 = json.get("user_password2").textValue();
 
+        System.out.println("==================================");
+        System.out.println(json);
 
-        if(password.equals(password2)) {
-            try{
-                //TODO
-            String passwordHash = Utils.hash(password);
-            }catch (Exception exception){
-
-            };
-            User user = userRepo.findByEmail(email);
-
-            user.setFirstname(userFirstname);
-            user.setLastname(userLastname);
-            user.setEmail(email);
-           // user.setPassword(null);
-          //  user.setProfilePicID(null);
-            userRepo.save(user);
-
-        }else {
-
-            //TODO
-        }
-
-       // (if 1==2){
-
-            //TODO
-       // }else{
-
-     //       }
-
+//        if(password.equals(password2)) {
+//            try{
+//                //TODO
+//            String passwordHash = Utils.hash(password);
+//            }catch (Exception exception){
+//
+//            };
+//            User user = userRepo.findByEmail(email);
+//
+//            user.setFirstname(userFirstname);
+//            user.setLastname(userLastname);
+//            user.setEmail(email);
+//           // user.setPassword(null);
+//          //  user.setProfilePicID(null);
+//            userRepo.save(user);
+//
+//        }else {
+//
+//            //TODO
+//        }
+//
+//       // (if 1==2){
+//
+//            //TODO
+//       // }else{
+//
+//     //       }
+//
 
         return index();
 

@@ -12,12 +12,11 @@ $('body').on('click', '#registration_btn_save', function() {
         'user_email' : $('#email').val(),
         'user_password' : $('#password').val(),
         'user_password2' : $('#password2').val()
-
     };
 
     $.ajax ({
-        url: '/registration_save', // url
-        type: "GET", // send method
+        url: '/registration', // url
+        type: "POST", // send method
         data: JSON.stringify(data), // json send data
         dataType: "html", // return type
         contentType: "application/json; charset=utf-8", // send type
