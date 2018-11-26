@@ -21,9 +21,7 @@ public class LoginController extends Controller {
     }
 
     public Result login() {
-
-        System.out.println("========== LOGIN POST ==========");
-
+        //TODO: returned Results
         if (request() == null) {
             return ok("Request is null");
         }
@@ -37,8 +35,6 @@ public class LoginController extends Controller {
         if (json == null) {
             return ok("JSON is null");
         }
-
-        System.out.println(json.asText());
 
         String email = json.get("login_email").asText();
 
@@ -56,7 +52,9 @@ public class LoginController extends Controller {
 
         User user = users.findByEmail(email);
 
-        System.out.println("Password: " + passwordHash);
+        if (user == null) {
+            return ok("No such E-mail");
+        }
 
         if (user.getPassword().equals(password)) {
             return ok("LOGGED IN");

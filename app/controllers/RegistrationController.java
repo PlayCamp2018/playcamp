@@ -36,17 +36,18 @@ public class RegistrationController extends Controller {
     }
 
     public Result save() {
+        //TODO: returned Results
         if (request() == null) {
-            return badRequest("Request is null");
+            return ok("Request is null");
         }
         if (request().body() == null) {
-            return badRequest("Request body is null");
+            return ok("Request body is null");
         }
 
         JsonNode json = request().body().asJson();
 
         if (json == null) {
-            return badRequest("JSON is null");
+            return ok("JSON is null");
         }
 
         String userFirstname = json.get("user_firstname").textValue();
@@ -66,7 +67,7 @@ public class RegistrationController extends Controller {
                 //TODO hash exception handling
                 passwordHash = Utils.hash(password);
             } catch (Exception exception) {
-                return internalServerError("Password hash error");
+                return ok("Password hash error");
             }
         }
 
