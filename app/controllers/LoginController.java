@@ -5,6 +5,7 @@ import models.Database.User;
 import play.mvc.Controller;
 import play.mvc.Result;
 import repositories.UserRepository;
+import scala.App;
 import utils.Utils;
 
 import javax.inject.Inject;
@@ -56,10 +57,20 @@ public class LoginController extends Controller {
             return ok("No such E-mail");
         }
 
-        if (user.getPassword().equals(password)) {
-            return ok("LOGGED IN");
+        if (!user.getPassword().equals(password)) {
+            return ok("Wrong password");
         }
 
-        return ok("Wrong password");
+        //TODO: first session test
+        session(Application.SESSION_KEY, user.getEmail());
+        return ok("LOGGED IN");
+    }
+
+    public Result logout() {
+        String sessEmail = session(Application.SESSION_KEY);
+
+        if (sessEmail != null) { session().clear(); }
+
+        return ok("Logged out");
     }
 }

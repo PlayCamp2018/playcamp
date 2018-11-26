@@ -1,3 +1,88 @@
+@import models.Database.User
+
+@(user: User)
+
 <div id="profilePage_content">
-    <h1>Selected User</h1>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4 text-center"><h1>@user.getFirstname() @user.getLastname()</h1></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><!--left col-->
+
+                <div class="row">
+                    <div class="col text-center">
+                        <img src='@routes.Assets.versioned("images/avatar_2x.png")' class="avatar img-circle img-thumbnail" alt="avatar">
+                        <h6>Neues Bild hochladen</h6>
+                        <input type="file" name="profile_picture" id="profile_picture">
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="col">
+                        <ul class="list-group">
+                            <li class="list-group-item text-muted">Webseite <i class="fa fa-dashboard fa-1x"></i></li>
+                            <li class="list-group-item text-left"><a href="http://bootnipets.com">bootnipets.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--/left col-->
+
+            <div class="col-md-8 text-left"><!--right col-->
+                <div class="row form-group">
+
+                    <div class="col">
+                        <label for="profilePage_in_firstname"><h4>Vorname</h4></label>
+                        <input id="profilePage_in_firstname" type="text" class="form-control" placeholder="Vorname" title="Vorname eingeben" value="@user.getFirstname()">
+                    </div>
+
+                    <div class="col">
+                        <label for="profilePage_in_lastname"><h4>Nachname</h4></label>
+                        <input id="profilePage_in_lastname" type="text" class="form-control" placeholder="Nachname" title="Nachname eingeben" value="@user.getLastname()">
+                    </div>
+
+                </div>
+
+                <div class="row form-group">
+                    <div class="col">
+                        <label for="profilePage_in_email"><h4>E-Mail</h4></label>
+                        <input id="profilePage_in_email" type="email" class="form-control" placeholder="you.at.mail.com" title="E-Mail eingeben" value="@user.getEmail()" readonly>
+                    </div>
+                </div>
+
+
+                <div class="row form-group">
+
+                    <div class="col">
+                        <label for="profilePage_in_password"><h4>Passwort</h4></label>
+                        <input id="profilePage_in_password" type="password" class="form-control" placeholder="Passwort" title="Passwort eingeben">
+                    </div>
+
+                    <div class="col">
+                        <label for="profilePage_in_password2"><h4>Passwort bestätigen</h4></label>
+                        <input id="profilePage_in_password2" type="password" class="form-control" placeholder="Passwort bestätigen" title="Passwort bestätigen">
+                    </div>
+
+                </div>
+
+                <div class="row form-group">
+                    <div class="col">
+                        <button id="profilePage_btn_save" class="btn btn-lg btn-success btn-block" type="button"><i class="fa fa-check-circle"></i> Speichern</button>
+                    </div>
+                    <div class="col">
+                        <button id="profilePage_btn_reset" class="btn btn-lg btn-warning btn-block" type="button"><i class="fa fa-repeat"></i> Zurücksetzen</button>
+                    </div>
+                </div>
+
+                <hr>
+
+            </div><!--/right col-->
+
+        </div><!--/row-->
+    </div><!--/container-->
+
 </div>

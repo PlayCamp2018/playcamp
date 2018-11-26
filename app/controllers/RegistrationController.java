@@ -36,7 +36,7 @@ public class RegistrationController extends Controller {
     }
 
     public Result save() {
-        //TODO: returned Results
+        //TODO: returned Results, only ok() gets correct displayed
         if (request() == null) {
             return ok("Request is null");
         }

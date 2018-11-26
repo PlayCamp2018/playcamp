@@ -1,56 +1,50 @@
 $('body').on('click','#index_btn_login',function(){
     $.get('/login', function(response) {
-        console.log("login");
+        console.log("index login ok");
         document.getElementById("index_content").innerHTML = response;
     });
 });
 
 $('body').on('click','#index_btn_registration',function(){
     $.get('/registration', function(response) {
-        console.log("registration");
+        console.log("index registration ok");
         document.getElementById("index_content").innerHTML = response;
     });
 });
 
 $('body').on('click','#index_btn_home',function(){
-    $.get('/homepage', function(response) {
-        console.log("homepage");
-        document.getElementById("index_content").innerHTML = response;
+    $.ajax({
+        url: '/homepage',
+        type: "GET",
+        success: function(response) {
+            console.log("index homepage ok");
+            document.getElementById("index_content").innerHTML = response;
+        },
+        error: function(response) {
+            console.log("index homepage error");
+            document.getElementById("index_content").innerHTML = response;
+        }
     });
 });
 
+$('body').on('click','#index_btn_profile',function(){
+    $.ajax({
+        url: '/profilePage',
+        type: "GET",
+        success: function(response) {
+            console.log("index profile ok");
+            document.getElementById("index_content").innerHTML = response;
+        },
+        error: function(response) {
+            console.log("index profile error");
+            document.getElementById("index_content").innerHTML = response;
+        }
+    });
+});
 
 $('body').on('click','#index_btn_lang',function(){
     $.get('/test/lang', function(response) {
-        console.log("lang");
+        console.log("index lang ok");
         document.getElementById("index_content").innerHTML = response;
     });
 });
-
-//$('body').on('click', '#editProject_btn_ok', function() {
-//
-//    // var $button = $( this );
-//
-//    // $button.width( $button.width() ).text('...');
-//
-//    // set ajax data
-//    var data = {
-//        'editProject_name' : $('#editProject_name').val(),
-//        'editProject_description' : $('#editProject_description').val()
-//    };
-//
-//    $.ajax ({
-//         url: '/editProject', // url
-//         type: "POST", // send method
-//         data: JSON.stringify(data), // json send data
-//         dataType: "html", // return type
-//         contentType: "application/json; charset=utf-8", // send type
-//         success: function(response) { // success callback
-//            console.log('ok');
-//            document.getElementById("editProject_content").innerHTML = response;
-//         },
-//         error: function(response) { // error callback
-//            console.log('error')
-//         }
-//    });
-//});

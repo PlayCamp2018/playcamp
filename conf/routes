@@ -30,6 +30,8 @@ POST    /upload                     controllers.TestFileUploadController.upload
 GET     /login                      controllers.LoginController.index
 +nocsrf
 POST    /login                      controllers.LoginController.login
++nocsrf
+POST    /logout                     controllers.LoginController.logout
 
 GET     /homepage                   controllers.HomeController.homepage
 
@@ -55,3 +57,5 @@ GET     /newProject                 controllers.ProjectController.create
 GET     /editProject                controllers.ProjectController.edit
 
 GET     /profilePage                controllers.UserController.get
++nocsrf
+POST    /profilePage                controllers.UserController.save
