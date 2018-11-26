@@ -1,18 +1,26 @@
-$('body').on('click','#index_login',function(){
+$('body').on('click','#index_btn_login',function(){
     $.get('/login', function(response) {
         console.log("login");
         document.getElementById("index_content").innerHTML = response;
     });
 });
 
-$('body').on('click','#index_registration',function(){
+$('body').on('click','#index_btn_registration',function(){
     $.get('/registration', function(response) {
         console.log("registration");
         document.getElementById("index_content").innerHTML = response;
     });
 });
 
-$('body').on('click','#index_lang',function(){
+$('body').on('click','#index_btn_home',function(){
+    $.get('/homepage', function(response) {
+        console.log("homepage");
+        document.getElementById("index_content").innerHTML = response;
+    });
+});
+
+
+$('body').on('click','#index_btn_lang',function(){
     $.get('/test/lang', function(response) {
         console.log("lang");
         document.getElementById("index_content").innerHTML = response;
