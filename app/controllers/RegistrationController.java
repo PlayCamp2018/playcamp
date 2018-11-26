@@ -27,9 +27,13 @@ public class RegistrationController extends Controller {
         return ok(views.html.Registration.registration.render());
     }
 
-    public Result registrationIndex() { return ok(views.html.Registration.registrationIndex.render()); }
+    public Result registrationIndex() {
+        return ok(views.html.Registration.registrationIndex.render());
+    }
 
-    public Result passwordRequest() { return ok(views.html.Registration.passwordRequest.render()); }
+    public Result passwordRequest() {
+        return ok(views.html.Registration.passwordRequest.render());
+    }
 
     public Result save() {
 
@@ -43,38 +47,45 @@ public class RegistrationController extends Controller {
         System.out.println("==================================");
         System.out.println(json);
 
-//        if(password.equals(password2)) {
-//            try{
-//                //TODO
-//            String passwordHash = Utils.hash(password);
-//            }catch (Exception exception){
-//
-//            };
-//            User user = userRepo.findByEmail(email);
-//
-//            user.setFirstname(userFirstname);
-//            user.setLastname(userLastname);
-//            user.setEmail(email);
-//           // user.setPassword(null);
-//          //  user.setProfilePicID(null);
-//            userRepo.save(user);
-//
-//        }else {
-//
-//            //TODO
-//        }
-//
-//       // (if 1==2){
-//
-//            //TODO
-//       // }else{
-//
-//     //       }
-//
+        //if(password.equals(password2)) {
+        try {
+            //TODO
+            String passwordHash = Utils.hash(password);
+        } catch (Exception exception) {
+
+        };
+        User user = userRepo.findByEmail(email);
+
+        if(user==null) {
+
+            user = new User();
+        }
+
+        user.setFirstname(userFirstname);
+        user.setLastname(userLastname);
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setProfilePicID(null);
+        userRepo.save(user);
+
+        //else {
+
+
+        //TODO
+        //  }
+        // (if 1==2){
+
+        //TODO
+        // }else{
+
+        //       }
+
 
         return index();
 
-        }
-
     }
+
+}
+
+
 
