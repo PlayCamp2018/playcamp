@@ -1,3 +1,61 @@
-<div id="newProject_content">
-    <h1>NEW PROJECT</h1>
+@import models.Database.Project
+@import models.Database.User
+
+@(owner: User)
+
+<div id="editProject_content">
+
+    <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/editProject.css")' />
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Neues Projekt erstellen</h1>
+            </div>
+        </div>
+
+        <div class="row text-left form-group">
+            <div class="col-md-6">
+                <label for="newProject_in_name"><h4>Projektname</h4></label>
+                <input type="text" id="newProject_in_name" class="form-control" value="" title="Name des Projektes">
+            </div>
+            <div class="col-md-6">
+                <label for="newProject_in_owner"><h4>Projektadmin</h4></label>
+                <input type="text" id="newProject_in_owner" class="form-control" value="@owner" title="Name des Projektadmins" data-id="@owner.getId()" data-email="@owner.getEmail()" readonly>
+            </div>
+        </div>
+
+        <div class="row text-left form-group">
+            <div class="col">
+                    <label for="newProject_in_description"><h4>Beschreibung</h4></label>
+                    <textarea id="newProject_in_description" class="form-control" rows="6" title="Beschreibung des Projektes"></textarea>
+            </div>
+        </div>
+
+        <div class="row text-left form-group">
+            <div class="col">
+                <div class="dropdown">
+                    <label for="newProject_userList"><h4>Teilnehmer</h4></label>
+                </div>
+            </div>
+            <div class="col">
+                <button type="button" id="newProject_btn_addUser" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown"><i class="fa fa-plus"></i></button>
+                <div id="newProject_btn_dropDownMenu_userList" class="dropdown-menu"></div>
+            </div>
+        </div>
+        <div class="row text-left form-group">
+            <div class="col">
+                <ul class="list-group" id="newProject_userList"></ul>
+            </div>
+        </div>
+
+        <div class="row text-left form-group">
+            <div class="col">
+                <button id="newProject_btn_save" class="btn btn-lg btn-success btn-block" type="button"><i class="fa fa-check-circle"></i> Speichern</button>
+            </div>
+            <div class="col">
+                <button id="newProject_btn_cancel" class="btn btn-lg btn-danger btn-block" type="button"><i class="fa fa-ban"></i> Abbrechen</button>
+            </div>
+        </div>
+    </div>
 </div>

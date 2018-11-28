@@ -178,9 +178,9 @@ public class User {
      */
     public void setRequestID(ObjectId requestID) { this.requestID = requestID; }
 
-
+    @Override
     public String toString() {
-        return firstname + ", " + lastname + ": " + email;
+        return firstname + " " + lastname + ": " + email;
     }
 
    /* public static class TestUsers {

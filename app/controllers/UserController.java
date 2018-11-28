@@ -1,12 +1,17 @@
 package controllers;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 import models.Database.User;
+import org.bson.types.ObjectId;
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import repositories.UserRepository;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserController extends Controller {
 
@@ -15,7 +20,6 @@ public class UserController extends Controller {
 
     public Result get() {
         String sessEmail = session(Application.SESSION_KEY);
-
         if (sessEmail == null) { return ok("Please login first."); }
 
         User user = users.findByEmail(sessEmail);
@@ -66,4 +70,38 @@ public class UserController extends Controller {
 
         return get();
     }
+
+    public Result getAllUsers() {
+        String sessEmail = session(Application.SESSION_KEY);
+        if (sessEmail == null) { return ok("Please login first."); }
+
+        //TODO: nested class should not be here
+        class JsonUser {
+            @JsonProperty("_id")
+            ObjectId id;
+            @JsonProperty("firstname")
+            String firstname;
+            @JsonProperty("lastname")
+            String lastname;
+            @JsonProperty("email")
+            String email;
+        }
+
+        List<JsonUser> jsonUserList = new ArrayList<>();
+
+        List<User> userList = users.getAllUsers();
+
+
+        for (User u : userList) {
+            JsonUser j = new JsonUser();
+            j.id        = u.getId();
+            j.firstname = u.getFirstname();
+            j.lastname  = u.getLastname();
+            j.email     = u.getEmail();
+            jsonUserList.add(j);
+        }
+
+        return ok(Json.toJson(jsonUserList));
+    }
+
 }

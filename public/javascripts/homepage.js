@@ -7,7 +7,7 @@ $('body').on('click','#homepage_btn_ok',function(){
 
 $('body').on('click','#homepage_btn_cancel',function(){
     $.get('/login', function(response) {
-        console.log("homepage_X");
+        console.log("homepage_cancel");
         document.getElementById("index_content").innerHTML = response;
     });
 });
@@ -21,7 +21,7 @@ $('body').on('click','#homepage_btn_editProject',function(){
 
 $('body').on('click','#homepage_btn_newProject',function(){
     $.get('/newProject', function(response) {
-        console.log("homepage_editProject");
+        console.log("homepage_newProject");
         document.getElementById("index_content").innerHTML = response;
     });
 });
@@ -35,7 +35,7 @@ $('body').on('click','#homepage_btn_project',function(){
 
 $('body').on('click','#homepage_btn_user',function(){
     $.get('/profilePage', function(response) {
-        console.log("homepage_editProject");
+        console.log("homepage_user");
         document.getElementById("index_content").innerHTML = response;
     });
 });

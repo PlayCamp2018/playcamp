@@ -40,22 +40,29 @@ GET     /chat/ws                    controllers.ChatController.ws
 
 GET     /test                       controllers.TestController.index
 
-
+# MAIL ROUTES
 GET     /mail/test                  controllers.MailController.mailtest
 GET     /mail/dialog                controllers.MailController.dialog
 GET     /mail/dialogtest            controllers.MailController.dialogtest
 
-
+# REGISTRATION ROUTES
 GET     /registrationIndex          controllers.RegistrationController.registrationIndex
 GET     /passwordRequest            controllers.RegistrationController.passwordRequest
 GET     /registration               controllers.RegistrationController.index
 +nocsrf
 POST    /registration               controllers.RegistrationController.save
 
+
+# PROJECT ROUTES
 GET     /project                    controllers.ProjectController.get
 GET     /newProject                 controllers.ProjectController.create
 GET     /editProject                controllers.ProjectController.edit
++nocsrf
+POST    /saveProject                controllers.ProjectController.save
 
+# PROFILE ROUTES
 GET     /profilePage                controllers.UserController.get
 +nocsrf
 POST    /profilePage                controllers.UserController.save
++nocsrf
+POST    /getAllUsers                controllers.UserController.getAllUsers
